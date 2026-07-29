@@ -1,133 +1,231 @@
-// 1. Correção da primeira linha (document minúsculo)
-document.documentElement.classList.add('js');
+/**
+ * FABI NEVES LASH STUDIO - INTERACTIVE ENGINE (2026)
+ * Built with Pure Vanilla JavaScript & GSAP ScrollTrigger
+ */
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
 
-  // --- 2. LINKS DO WHATSAPP ---
-  const WHATSAPP_TEXT = encodeURIComponent('Olá, Fabi!\n\nConheci seu trabalho através do site e gostaria de agendar um horário.\n\nPoderia me informar a disponibilidade?');
-  const WHATSAPP_URL = `https://wa.me/5511942722631?text=${WHATSAPP_TEXT}`;
-  
-  document.querySelectorAll('[data-whatsapp]').forEach((link) => {
-    link.href = WHATSAPP_URL;
-    link.target = '_blank';
-    link.rel = 'noopener';
-  });
+    // 1. INITIALIZE LUCIDE ICONS
+    if (window.lucide) {
+        lucide.createIcons();
+    }
 
-  // --- 3. EFEITO DE ROLAGEM NO HEADER ---
-  const header = document.querySelector('[data-header]');
-  const updateHeader = () => {
-    if (!header) return;
-    header.classList.toggle('scrolled', window.scrollY > 24);
-  };
-  window.addEventListener('scroll', updateHeader, { passive: true });
-  updateHeader(); // Executa assim que a página carrega
+    // 2. NAVBAR SCROLL EFFECT & MOBILE MENU
+    const navbar = document.getElementById('navbar');
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
 
-  // --- 4. MENU MOBILE ---
-  const menuButton = document.querySelector('[data-menu-button]');
-  const mobilePanel = document.querySelector('[data-mobile-panel]');
-  
-  function closeMenu() {
-    if (!menuButton || !mobilePanel) return;
-    menuButton.setAttribute('aria-expanded', 'false');
-    mobilePanel.classList.remove('open', 'active');
-    header?.classList.remove('menu-open');
-  }
-
-  if (menuButton && mobilePanel) {
-    menuButton.addEventListener('click', () => {
-      const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
-      menuButton.setAttribute('aria-expanded', String(!isOpen));
-      mobilePanel.classList.toggle('open', !isOpen);
-      mobilePanel.classList.toggle('active', !isOpen); // Adicionado para garantir compatibilidade com seu CSS
-      header?.classList.toggle('menu-open', !isOpen);
-    });
-    // Fecha o menu ao clicar num link
-    mobilePanel.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
-  }
-
-  // --- 5. ANIMAÇÕES DE REVELAÇÃO (ISSO FAZ A TELA BRANCA SUMIR) ---
-  const revealItems = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries, obs) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible'); // Adiciona a classe que mostra os elementos
-          obs.unobserve(entry.target);
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
         }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    });
 
-    revealItems.forEach((item) => observer.observe(item));
-  } else {
-    // Caso o navegador seja antigo, mostra tudo de uma vez
-    revealItems.forEach((item) => item.classList.add('visible'));
-  }
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuToggle.classList.toggle('open');
+        });
 
-  // --- 6. FILTRO DA GALERIA ---
-  const filterButtons = document.querySelectorAll('[data-filter]');
-  const galleryItemsNode = document.querySelectorAll('.gallery-item');
-  
-  filterButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-        // Remove a classe ativa de todos os botões e coloca no clicado
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-        
-        const filter = button.dataset.filter;
-        
-        // Mostra ou esconde as imagens baseado no filtro
-        galleryItemsNode.forEach(item => {
-            if (filter === 'all' || item.dataset.category === filter) {
-                item.style.display = ''; // Mostra
-            } else {
-                item.style.display = 'none'; // Esconde
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+    }
+
+    // 3. LIGHTBOX FOR PHOTO GALLERY
+    const galleryItems = document.querySelectorAll('[data-lightbox]');
+    const lightboxModal = document.getElementById('lightbox-modal');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const lightboxClose = document.getElementById('lightbox-close');
+
+    galleryItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const src = item.getAttribute('data-lightbox');
+            const caption = item.querySelector('.gallery-overlay span')?.textContent || '';
+
+            lightboxImg.src = src;
+            lightboxCaption.textContent = caption;
+            lightboxModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    const closeLightbox = () => {
+        lightboxModal.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+
+    if (lightboxClose) {
+        lightboxClose.addEventListener('click', closeLightbox);
+    }
+    if (lightboxModal) {
+        lightboxModal.addEventListener('click', (e) => {
+            if (e.target === lightboxModal) closeLightbox();
+        });
+    }
+
+    // 4. GALLERY CATEGORY FILTERING
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const galleryGridItems = document.querySelectorAll('.gallery-item');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filterValue = btn.getAttribute('data-filter');
+
+            galleryGridItems.forEach(item => {
+                if (filterValue === 'all' || item.classList.contains(filterValue)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    // 5. VIDEO MODAL PLAYER
+    const videoThumbs = document.querySelectorAll('.video-thumbnail');
+    const videoModal = document.getElementById('video-modal');
+    const videoPlayer = document.getElementById('modal-video-player');
+    const videoModalClose = document.getElementById('video-modal-close');
+    const videoModalOverlay = document.getElementById('video-modal-overlay');
+
+    videoThumbs.forEach(thumb => {
+        thumb.addEventListener('click', () => {
+            const videoSrc = thumb.getAttribute('data-video-src');
+            if (videoSrc && videoPlayer) {
+                videoPlayer.querySelector('source').src = videoSrc;
+                videoPlayer.load();
+                videoModal.classList.add('active');
+                videoPlayer.play();
+                document.body.style.overflow = 'hidden';
             }
         });
     });
-  });
 
-  // --- 7. LIGHTBOX (AMPLIAR IMAGENS DA GALERIA) ---
-  const lightbox = document.querySelector('[data-lightbox]');
-  const lightboxImage = document.querySelector('[data-lightbox-image]');
-  const closeLightboxButton = document.querySelector('[data-close-lightbox]');
-  
-  function openLightbox(src, alt) {
-    if (!lightbox || !lightboxImage || !src) return;
-    lightboxImage.src = src;
-    lightboxImage.alt = alt || 'Imagem ampliada da galeria';
-    lightbox.classList.add('open'); // Abre
-    lightbox.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden'; // Trava a rolagem da página
-  }
+    const closeVideoModal = () => {
+        if (videoModal) {
+            videoModal.classList.remove('active');
+            if (videoPlayer) videoPlayer.pause();
+            document.body.style.overflow = '';
+        }
+    };
 
-  function hideLightbox() {
-    if (!lightbox || !lightboxImage) return;
-    lightbox.classList.remove('open'); // Fecha
-    lightbox.setAttribute('aria-hidden', 'true');
-    lightboxImage.removeAttribute('src');
-    document.body.style.overflow = ''; // Destrava a rolagem
-  }
+    if (videoModalClose) videoModalClose.addEventListener('click', closeVideoModal);
+    if (videoModalOverlay) videoModalOverlay.addEventListener('click', closeVideoModal);
 
-  if (closeLightboxButton) closeLightboxButton.addEventListener('click', hideLightbox);
-  if (lightbox) lightbox.addEventListener('click', (event) => { 
-      if (event.target === lightbox) hideLightbox(); // Fecha se clicar fora da foto
-  });
+    // 6. CONTACT FORM SUBMISSION
+    const contactForm = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
 
-  // Adiciona o evento de clique nas fotos da galeria
-  galleryItemsNode.forEach(item => {
-      item.addEventListener('click', () => {
-          const fullSrc = item.dataset.full;
-          const img = item.querySelector('img');
-          if (img) openLightbox(fullSrc || img.src, img.alt);
-      });
-  });
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
 
-  // --- 8. TECLA 'ESC' PARA FECHAR TUDO ---
-  document.addEventListener('keydown', (event) => { 
-      if (event.key === 'Escape') { 
-          hideLightbox(); 
-          closeMenu();
-      } 
-  });
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
 
+            // Build pre-filled WhatsApp message
+            const waMsg = `Olá Fabi Neves Lash! Me chamo ${encodeURIComponent(name)}.%0A*Telefone:* ${encodeURIComponent(phone)}%0A*Serviço:* ${encodeURIComponent(service)}%0A*Mensagem:* ${encodeURIComponent(message)}`;
+            
+            formStatus.style.color = 'var(--accent-gold-hover)';
+            formStatus.innerHTML = '<i data-lucide="check-circle"></i> Redirecionando para o WhatsApp...';
+            if (window.lucide) lucide.createIcons();
+
+            setTimeout(() => {
+                window.open(`https://wa.me/5511990127604?text=${waMsg}`, '_blank');
+                contactForm.reset();
+                formStatus.innerHTML = '';
+            }, 1000);
+        });
+    }
+
+    // 7. GSAP SCROLLTRIGGER ANIMATIONS
+    if (window.gsap && window.ScrollTrigger) {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero Fade-ups
+        gsap.utils.toArray('.hero .fade-up').forEach((elem, index) => {
+            gsap.to(elem, {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                delay: index * 0.15,
+                ease: "power3.out"
+            });
+        });
+
+        // Hero Image Scale
+        gsap.to('.hero-visual.fade-scale', {
+            opacity: 1,
+            scale: 1,
+            duration: 1.2,
+            ease: "power2.out"
+        });
+
+        // General Scroll Animations
+        const fadeUpElems = document.querySelectorAll('.section-padding .fade-up');
+        fadeUpElems.forEach(elem => {
+            const delayAttr = elem.getAttribute('data-delay') || 0;
+            gsap.fromTo(elem, 
+                { opacity: 0, y: 40 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.9,
+                    delay: parseFloat(delayAttr),
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: elem,
+                        start: "top 85%",
+                        toggleActions: "play none none none"
+                    }
+                }
+            );
+        });
+
+        const fadeLeftElems = document.querySelectorAll('.fade-left');
+        fadeLeftElems.forEach(elem => {
+            gsap.fromTo(elem,
+                { opacity: 0, x: -50 },
+                {
+                    opacity: 1,
+                    x: 0,
+                    duration: 1,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: elem,
+                        start: "top 80%"
+                    }
+                }
+            );
+        });
+
+        const fadeRightElems = document.querySelectorAll('.fade-right');
+        fadeRightElems.forEach(elem => {
+            gsap.fromTo(elem,
+                { opacity: 0, x: 50 },
+                {
+                    opacity: 1,
+                    x: 0,
+                    duration: 1,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: elem,
+                        start: "top 80%"
+                    }
+                }
+            );
+        });
+    }
 });
