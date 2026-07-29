@@ -1,197 +1,779 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Especialista em extensão de cílios, lash lifting, brow lamination e design de sobrancelhas na Pin Up Granja Viana. Agende seu horário pelo WhatsApp.">
-  <title>Fabi Neves Lash | Extensão de Cílios em Cotia</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Metadata -->
+    <title>Fabi Neves Lash | Extensão de Cílios & Design de Sobrancelhas na Granja Viana</title>
+    <meta name="description" content="Studio especializado em Extensão de Cílios, Lash Lifting, Design de Sobrancelhas e Brow Lamination na Granja Viana, Cotia - SP. Agende seu horário com a especialista Fabi Neves.">
+    <meta name="keywords" content="extensão de cílios granja viana, lash designer cotia, volume brasileiro, volume egípcio, lash lifting, design de sobrancelhas, brow lamination, fabi neves lash">
+    <meta name="author" content="Fabi Neves Lash">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lilthalis.github.io/FabiNevesLash/">
+    <meta property="og:title" content="Fabi Neves Lash | Estética do Olhar Premium na Granja Viana">
+    <meta property="og:description" content="Realce sua beleza natural com técnicas avançadas de extensão de cílios, visagismo e saúde ocular. Atendimento VIP e personalizado.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1583001809873-a1284a5da1e6?auto=format&fit=crop&w=1200&q=80">
+
+    <!-- Fonts Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- CSS External -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BeautySalon",
+      "name": "Fabi Neves Lash",
+      "image": "https://images.unsplash.com/photo-1583001809873-a1284a5da1e6?auto=format&fit=crop&w=800&q=80",
+      "telePhone": "+5511990127604",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Av. São Camilo, 166",
+        "addressLocality": "Cotia",
+        "addressRegion": "SP",
+        "postalCode": "06709-150",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-23.5888",
+        "longitude": "-46.8322"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Tuesday", "Wednesday", "Thursday"],
+          "opens": "10:00",
+          "closes": "19:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Friday", "Saturday"],
+          "opens": "09:00",
+          "closes": "19:00"
+        }
+      ],
+      "priceRange": "$$"
+    }
+    </script>
 </head>
 <body>
-  <header class="site-header" data-header>
-    <a class="brand" href="#top" aria-label="Início — Fabi Neves Lash">Fabi Neves Lash</a>
-    <nav class="desktop-nav" aria-label="Navegação principal">
-      <a href="#top">Início</a>
-      <a href="#about">Sobre</a>
-      <a href="#services">Serviços</a>
-      <a href="#gallery">Resultados</a>
-      <a href="#contact">Contato</a>
-    </nav>
-    <a class="header-cta" href="#contact" data-whatsapp>Agendar</a>
-    <button class="menu-button" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu" data-menu-button>
-      <span></span><span></span>
-    </button>
-  </header>
 
-  <nav class="mobile-panel" id="mobile-menu" aria-label="Menu mobile" data-mobile-panel>
-    <a href="#top">Início</a>
-    <a href="#about">Sobre</a>
-    <a href="#services">Serviços</a>
-    <a href="#gallery">Resultados</a>
-    <a href="#contact">Contato</a>
-    <a href="#contact" data-whatsapp>Agendar pelo WhatsApp</a>
-  </nav>
+    <!-- Header Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#hero" class="logo">
+                <span class="logo-text">FABI NEVES</span>
+                <span class="logo-sub">LASH & BROW STUDIO</span>
+            </a>
 
-  <main id="top">
-    <!-- HERO SECTION -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-content reveal">
-        <p class="eyebrow">Pin Up • Granja Viana • Cotia/SP</p>
-        <h1 id="hero-title">Fabi Neves Lash</h1>
-        <p class="hero-subtitle">Especialista em Extensão de Cílios</p>
-        <p>Realçando sua beleza natural com técnicas exclusivas, atendimento personalizado e resultados sofisticados.</p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="#contact" data-whatsapp>Agendar horário</a>
-          <a class="button button-secondary" href="#services">Conheça os serviços</a>
-        </div>
-      </div>
-      <figure class="hero-media reveal">
-        <img src="images/fabi-hero.svg" alt="Retrato editorial de Fabi Neves Lash em estética premium" width="900" height="1200">
-      </figure>
-    </section>
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="#sobre" class="nav-link">Sobre</a></li>
+                    <li><a href="#servicos" class="nav-link">Serviços</a></li>
+                    <li><a href="#diferenciais" class="nav-link">Diferenciais</a></li>
+                    <li><a href="#galeria" class="nav-link">Fotos</a></li>
+                    <li><a href="#videos" class="nav-link">Vídeos</a></li>
+                    <li><a href="#depoimentos" class="nav-link">Depoimentos</a></li>
+                    <li><a href="#contato" class="nav-link">Contato</a></li>
+                </ul>
+            </nav>
 
-    <!-- ABOUT SECTION -->
-    <section id="about" class="section about" aria-labelledby="about-title">
-      <div class="container split-grid">
-        <figure class="about-media reveal">
-          <img src="images/fabi-congress.svg" alt="Fabi Neves em aperfeiçoamento profissional de beleza" width="900" height="1100" loading="lazy">
-        </figure>
-        <div class="section-copy reveal">
-          <p class="eyebrow">Brazil Lash Congress</p>
-          <h2 id="about-title">Conheça a Fabi</h2>
-          <p>Especialista apaixonada por realçar olhares com naturalidade, elegância e técnicas modernas.</p>
-          <p>Participa constantemente de congressos e aperfeiçoamentos para oferecer um atendimento atualizado, seguro e personalizado para cada cliente.</p>
-          <div class="feature-grid" aria-label="Diferenciais">
-            <article><span>✨</span><strong>Atendimento Exclusivo</strong></article>
-            <article><span>🎓</span><strong>Aperfeiçoamento Constante</strong></article>
-            <article><span>🤍</span><strong>Técnicas Premium</strong></article>
-            <article><span>📍</span><strong>Localização Privilegiada</strong></article>
-          </div>
-        </div>
-      </div>
-    </section>
+            <div class="nav-actions">
+                <a href="https://wa.me/5511990127604?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio%20no%20Studio%20Fabi%20Neves." target="_blank" rel="noopener" class="btn btn-primary btn-sm nav-btn">
+                    <span>Agendar Horário</span>
+                    <i data-lucide="calendar"></i>
+                </a>
 
-    <!-- SERVICES SECTION -->
-    <section id="services" class="section services" aria-labelledby="services-title">
-      <div class="container">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Menu de beleza</p>
-          <h2 id="services-title">Técnicas escolhidas para um olhar elegante.</h2>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Abrir Menu">
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
-        <div class="service-grid">
-          <article class="service-card reveal"><img src="images/result-1.svg" alt="Resultado natural de cílios" loading="lazy"><div><span>Natural</span><h3>Fio a fio clássico</h3><p>Definição delicada fio a fio para realçar sem pesar.</p><small>Tempo médio: 1h50</small><a class="text-link" href="#contact" data-whatsapp>Agendar</a></div></article>
-          <article class="service-card reveal"><img src="images/result-2.svg" alt="Resultado de volume brasileiro" loading="lazy"><div><span>Volume</span><h3>Volume Brasileiro</h3><p>Textura marcante com densidade sofisticada e confortável.</p><small>Tempo médio: 2h15</small><a class="text-link" href="#contact" data-whatsapp>Agendar</a></div></article>
-          <article class="service-card reveal"><img src="images/result-3.svg" alt="Resultado de volume europeu" loading="lazy"><div><span>Volume</span><h3>Volume Europeu</h3><p>Volume refinado com simetria e curvatura editorial.</p><small>Tempo médio: 2h30</small><a class="text-link" href="#contact" data-whatsapp>Agendar</a></div></article>
-          <article class="service-card reveal"><img src="images/result-4.svg" alt="Resultado de lash lifting" loading="lazy"><div><span>Lifting</span><h3>Lash Lifting</h3><p>Curvatura dos fios naturais com aparência polida.</p><small>Tempo médio: 1h10</small><a class="text-link" href="#contact" data-whatsapp>Agendar</a></div></article>
-          <article class="service-card reveal"><img src="images/result-5.svg" alt="Resultado de brow lamination" loading="lazy"><div><span>Sobrancelhas</span><h3>Brow Lamination</h3><p>Alinhamento premium para sobrancelhas com efeito penteado.</p><small>Tempo médio: 1h</small><a class="text-link" href="#contact" data-whatsapp>Agendar</a></div></article>
-          <article class="service-card reveal"><img src="images/result-6.svg" alt="Resultado de design de sobrancelhas" loading="lazy"><div><span>Sobrancelhas</span><h3>Design de sobrancelhas</h3><p>Design personalizado para harmonizar expressão e rosto.</p><small>Tempo médio: 45min</small><a class="text-link" href="#contact" data-whatsapp>Agendar</a></div></article>
-          <article class="service-card reveal"><img src="images/result-1.svg" alt="Resultado de micropigmentação" loading="lazy"><div><span>Sobrancelhas</span><h3>Micropigmentação</h3><p>Preenchimento sofisticado com leitura individual de pele e formato.</p><small>Tempo médio: 2h</small><a class="text-link" href="#contact" data-whatsapp>Agendar</a></div></article>
-        </div>
-      </div>
-    </section>
+    </header>
 
-    <!-- GALLERY SECTION (AQUI ESTAVA O ERRO DE DUPLICAÇÃO) -->
-    <section id="gallery" class="section gallery" aria-labelledby="gallery-title">
-      <div class="container">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Galeria editorial</p>
-          <h2 id="gallery-title">Naturalidade, volume e acabamento em primeiro plano.</h2>
-        </div>
-        <div class="filter-row reveal" aria-label="Filtrar resultados">
-          <button class="active" type="button" data-filter="all">Tudo</button>
-          <button type="button" data-filter="Natural">Natural</button>
-          <button type="button" data-filter="Volume">Volume</button>
-          <button type="button" data-filter="Lifting">Lifting</button>
-          <button type="button" data-filter="Sobrancelhas">Sobrancelhas</button>
-        </div>
-        <div class="gallery-grid" data-gallery>
-          <button class="gallery-item reveal" type="button" data-category="Natural" data-full="images/result-1.svg"><img src="images/result-1.svg" alt="Resultado natural de extensão de cílios" loading="lazy"><span>Natural</span></button>
-          <button class="gallery-item reveal" type="button" data-category="Volume" data-full="images/result-2.svg"><img src="images/result-2.svg" alt="Resultado volume brasileiro em cílios" loading="lazy"><span>Volume</span></button>
-          <button class="gallery-item reveal" type="button" data-category="Volume" data-full="images/result-3.svg"><img src="images/result-3.svg" alt="Resultado volume europeu em cílios" loading="lazy"><span>Volume</span></button>
-          <button class="gallery-item reveal" type="button" data-category="Lifting" data-full="images/result-4.svg"><img src="images/result-4.svg" alt="Resultado de lash lifting" loading="lazy"><span>Lifting</span></button>
-          <button class="gallery-item reveal" type="button" data-category="Sobrancelhas" data-full="images/result-5.svg"><img src="images/result-5.svg" alt="Resultado de brow lamination" loading="lazy"><span>Sobrancelhas</span></button>
-          <button class="gallery-item reveal" type="button" data-category="Sobrancelhas" data-full="images/result-6.svg"><img src="images/result-6.svg" alt="Resultado de design de sobrancelhas" loading="lazy"><span>Sobrancelhas</span></button>
-        </div>
-      </div>
-    </section>
-    <!-- FECHAMENTO CORRETO DA GALERIA ACIMA -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <div class="hero-bg-glow"></div>
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <div class="badge fade-up">
+                        <i data-lucide="sparkles"></i>
+                        <span>Especialista em Cílios & Visagismo na Granja Viana</span>
+                    </div>
+                    <h1 class="hero-title fade-up">
+                        A arte de realçar o seu olhar com <span class="gradient-text">elegância e leveza.</span>
+                    </h1>
+                    <p class="hero-subtitle fade-up">
+                        Procedimentos exclusivos de Extensão de Cílios, Lash Lifting e Design de Sobrancelhas. Técnica segura, isolamento impecável e alta retenção.
+                    </p>
+                    <div class="hero-buttons fade-up">
+                        <a href="https://wa.me/5511990127604?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20a%20agenda%20para%20este%20m%C3%AAs." target="_blank" rel="noopener" class="btn btn-primary btn-lg">
+                            <span>Agendar Avaliação VIP</span>
+                            <i data-lucide="arrow-right"></i>
+                        </a>
+                        <a href="#servicos" class="btn btn-outline btn-lg">
+                            <span>Ver Menu de Serviços</span>
+                        </a>
+                    </div>
+                    <div class="hero-trust fade-up">
+                        <div class="rating-stars">
+                            <i data-lucide="star"></i>
+                            <i data-lucide="star"></i>
+                            <i data-lucide="star"></i>
+                            <i data-lucide="star"></i>
+                            <i data-lucide="star"></i>
+                        </div>
+                        <p><strong>5.0 / 5.0</strong> — Mais de 500+ clientes transformadas</p>
+                    </div>
+                </div>
 
-    <!-- PROCESS SECTION -->
-    <section class="section process" aria-labelledby="process-title">
-      <div class="container">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Processo</p>
-          <h2 id="process-title">Uma experiência calma, precisa e personalizada.</h2>
-        </div>
-        <ol class="timeline reveal">
-          <li><span>1</span>Consulta</li>
-          <li><span>2</span>Escolha da Técnica</li>
-          <li><span>3</span>Aplicação</li>
-          <li><span>4</span>Resultado</li>
-          <li><span>5</span>Orientações Pós Atendimento</li>
-        </ol>
-      </div>
-    </section>
+                <div class="hero-visual fade-scale">
+                    <div class="hero-image-card">
+                        <img src="https://images.unsplash.com/photo-1583001809873-a1284a5da1e6?auto=format&fit=crop&w=1000&q=80" alt="Extensão de Cílios Fabi Neves Lash" loading="eager" width="1000" height="1200">
+                        <div class="floating-badge badge-1">
+                            <i data-lucide="shield-check"></i>
+                            <div>
+                                <strong>Saúde Ocular</strong>
+                                <span>100% Isolamento Fio a Fio</span>
+                            </div>
+                        </div>
+                        <div class="floating-badge badge-2">
+                            <i data-lucide="clock"></i>
+                            <div>
+                                <strong>Durabilidade Premium</strong>
+                                <span>Retenção de até 45 dias</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- TESTIMONIALS SECTION -->
-    <section class="section testimonials" aria-labelledby="testimonials-title">
-      <div class="container">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Depoimentos</p>
-          <h2 id="testimonials-title">Estrutura pronta para avaliações reais.</h2>
-        </div>
-        <div class="testimonial-grid reveal">
-          <article><span>★★★★★</span><p>“Atendimento impecável, delicado e com resultado elegante.”</p><strong>Cliente Fabi Neves</strong></article>
-          <article><span>★★★★★</span><p>“O olhar fica sofisticado sem perder a naturalidade.”</p><strong>Cliente Fabi Neves</strong></article>
-          <article><span>★★★★★</span><p>“Ambiente acolhedor, técnica segura e acabamento perfeito.”</p><strong>Cliente Fabi Neves</strong></article>
-        </div>
-      </div>
-    </section>
+        <!-- Sobre Section -->
+        <section class="sobre section-padding" id="sobre">
+            <div class="container grid-2-cols align-center">
+                <div class="sobre-image-group fade-left">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80" alt="Fabi Neves no Studio" loading="lazy">
+                    </div>
+                    <div class="experience-card">
+                        <span class="exp-number">8+</span>
+                        <span class="exp-text">Anos de Especialização & Cursos Internacionais</span>
+                    </div>
+                </div>
 
-    <!-- CONTACT SECTION -->
-    <section id="contact" class="section contact" aria-labelledby="contact-title">
-      <div class="container contact-grid">
-        <div class="section-copy reveal">
-          <p class="eyebrow">Contato</p>
-          <h2 id="contact-title">Pin Up Granja Viana</h2>
-          <address>Av. São Camilo, 186<br>Granja Viana<br>Cotia – SP</address>
-          <p><strong>Segunda a sábado</strong><br>08:00 às 20:00</p>
-          <p><strong>Domingo</strong><br>09:00 às 18:00</p>
-          <div class="contact-actions">
-            <a class="button button-primary" href="#contact" data-whatsapp>WhatsApp</a>
-            <a class="button button-secondary" href="https://www.instagram.com/fabiinevess" target="_blank" rel="noopener">Instagram</a>
-          </div>
+                <div class="sobre-content fade-right">
+                    <span class="section-tag">SOBRE O STUDIO</span>
+                    <h2 class="section-title">Muito além de estética: uma experiência de auto estima e bem-estar.</h2>
+                    <p class="text-description">
+                        No Studio <strong>Fabi Neves Lash</strong>, localizado no coração da Granja Viana, acreditamos que cada olhar é único. Nosso compromisso vai além do resultado estético: priorizamos rigorosamente a saúde dos seus fios naturais e a biossegurança em cada etapa do procedimento.
+                    </p>
+                    <p class="text-description">
+                        Combinando técnicas de mapeamento visagista (mapping personalizado) com adesivos de alta tecnologia e fios ultra leves, entregamos um olhar marcante, sofisticado e extremamente confortável.
+                    </p>
+
+                    <div class="about-highlights">
+                        <div class="about-item">
+                            <div class="icon-box"><i data-lucide="heart-pulse"></i></div>
+                            <div>
+                                <h4>Preservação Natural</h4>
+                                <p>Sem peso excessivo ou colagem de fios naturais.</p>
+                            </div>
+                        </div>
+                        <div class="about-item">
+                            <div class="icon-box"><i data-lucide="sparkle"></i></div>
+                            <div>
+                                <h4>Mapping Sob Medida</h4>
+                                <p>Cílios projetados de acordo com o formato dos seus olhos.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#contato" class="btn btn-secondary">
+                        <span>Conheça Nosso Espaço</span>
+                        <i data-lucide="map-pin"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Serviços Section -->
+        <section class="servicos section-padding bg-light" id="servicos">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-tag">NOSSO MENU VIP</span>
+                    <h2 class="section-title">Procedimentos Exclusivos</h2>
+                    <p class="section-subtitle">Escolha o estilo perfeito para o seu olhar, desde o acabamento mais discreto até o volume marcante.</p>
+                </div>
+
+                <div class="services-grid">
+                    <!-- Service 1 -->
+                    <article class="service-card fade-up">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=600&q=80" alt="Fio a Fio Clássico" loading="lazy">
+                            <span class="service-badge">Mais Natural</span>
+                        </div>
+                        <div class="service-body">
+                            <h3>Fio a Fio Clássico</h3>
+                            <p>Extensão delicada onde cada fio sintético ultra leve é acoplado individualmente em um fio natural. Efeito rímel perfeito e elegante.</p>
+                            <ul class="service-features">
+                                <li><i data-lucide="check-circle-2"></i> Duração: ~2h00</li>
+                                <li><i data-lucide="check-circle-2"></i> Retenção: até 30 dias</li>
+                                <li><i data-lucide="check-circle-2"></i> Ideal para o dia a dia</li>
+                            </ul>
+                            <div class="service-footer">
+                                <a href="https://wa.me/5511990127604?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20Fio%20a%20Fio%20Cl%C3%A1ssico." target="_blank" class="btn btn-outline btn-full">Agendar este Serviço</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Service 2 -->
+                    <article class="service-card fade-up" data-delay="0.1">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1583001809873-a1284a5da1e6?auto=format&fit=crop&w=600&q=80" alt="Volume Brasileiro" loading="lazy">
+                            <span class="service-badge badge-popular">Favorito VIP</span>
+                        </div>
+                        <div class="service-body">
+                            <h3>Volume Brasileiro (Fio YY)</h3>
+                            <p>Utiliza fios em formato Y para proporcionar o dobro de volume mantendo a leveza do Fio a Fio. Proporciona um olhar marcante e preenchido.</p>
+                            <ul class="service-features">
+                                <li><i data-lucide="check-circle-2"></i> Duração: ~2h15</li>
+                                <li><i data-lucide="check-circle-2"></i> Alta retenção</li>
+                                <li><i data-lucide="check-circle-2"></i> Efeito pretinho marcante</li>
+                            </ul>
+                            <div class="service-footer">
+                                <a href="https://wa.me/5511990127604?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20Volume%20Brasileiro." target="_blank" class="btn btn-primary btn-full">Agendar este Serviço</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Service 3 -->
+                    <article class="service-card fade-up" data-delay="0.2">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?auto=format&fit=crop&w=600&q=80" alt="Volume Egípcio W" loading="lazy">
+                            <span class="service-badge">Volume Sofisticado</span>
+                        </div>
+                        <div class="service-body">
+                            <h3>Volume Egípcio (Fio W)</h3>
+                            <p>Técnica moderna com fios trançados em formato de leque W. Garante densidade elegante, profundidade no olhar e excelente leveza nos cílios.</p>
+                            <ul class="service-features">
+                                <li><i data-lucide="check-circle-2"></i> Duração: ~2h30</li>
+                                <li><i data-lucide="check-circle-2"></i> Preenchimento denso</li>
+                                <li><i data-lucide="check-circle-2"></i> Conforto extremo</li>
+                            </ul>
+                            <div class="service-footer">
+                                <a href="https://wa.me/5511990127604?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20Volume%20Eg%C3%ADpcio." target="_blank" class="btn btn-outline btn-full">Agendar este Serviço</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Service 4 -->
+                    <article class="service-card fade-up">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=600&q=80" alt="Lash Lifting e Tintura" loading="lazy">
+                        </div>
+                        <div class="service-body">
+                            <h3>Lash Lifting + Nutrição</h3>
+                            <p>Tratamento que curva, tinge e nutre seus próprios cílios naturais. Ideal para quem busca um visual impecável sem necessitar de extensões.</p>
+                            <ul class="service-features">
+                                <li><i data-lucide="check-circle-2"></i> Duração: ~1h15</li>
+                                <li><i data-lucide="check-circle-2"></i> Efeito duradouro (6 a 8 semanas)</li>
+                                <li><i data-lucide="check-circle-2"></i> Com queratina e hidratação</li>
+                            </ul>
+                            <div class="service-footer">
+                                <a href="https://wa.me/5511990127604?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20Lash%20Lifting." target="_blank" class="btn btn-outline btn-full">Agendar este Serviço</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Service 5 -->
+                    <article class="service-card fade-up" data-delay="0.1">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=600&q=80" alt="Design de Sobrancelhas e Epilação Egípcia" loading="lazy">
+                        </div>
+                        <div class="service-body">
+                            <h3>Design de Sobrancelhas & Linha</h3>
+                            <p>Modelagem geométrica personalizada para valorizar simetria facial. Inclui epilação egípcia com linha orgânica para acabamento impecável.</p>
+                            <ul class="service-features">
+                                <li><i data-lucide="check-circle-2"></i> Duração: ~40min</li>
+                                <li><i data-lucide="check-circle-2"></i> Mapeamento simétrico</li>
+                                <li><i data-lucide="check-circle-2"></i> Opção com Henna ou Refectocil</li>
+                            </ul>
+                            <div class="service-footer">
+                                <a href="https://wa.me/5511990127604?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20Design%20de%20Sobrancelhas." target="_blank" class="btn btn-outline btn-full">Agendar este Serviço</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Service 6 -->
+                    <article class="service-card fade-up" data-delay="0.2">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=600&q=80" alt="Brow Lamination" loading="lazy">
+                        </div>
+                        <div class="service-body">
+                            <h3>Brow Lamination</h3>
+                            <p>Técnica alinha os fios naturais das sobrancelhas para cima, proporcionando volume, camuflando falhas e gerando um efeito moderno e estilizado.</p>
+                            <ul class="service-features">
+                                <li><i data-lucide="check-circle-2"></i> Duração: ~1h00</li>
+                                <li><i data-lucide="check-circle-2"></i> Efeito selvagem ou alinhado</li>
+                                <li><i data-lucide="check-circle-2"></i> Nutrição intensiva de fios</li>
+                            </ul>
+                            <div class="service-footer">
+                                <a href="https://wa.me/5511990127604?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20Brow%20Lamination." target="_blank" class="btn btn-outline btn-full">Agendar este Serviço</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Diferenciais Section -->
+        <section class="diferenciais section-padding" id="diferenciais">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-tag">POR QUE NOS ESCOLHER</span>
+                    <h2 class="section-title">O Padrão de Qualidade Fabi Neves</h2>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-box fade-up">
+                        <div class="feature-icon"><i data-lucide="shield-check"></i></div>
+                        <h3>Biossegurança 100%</h3>
+                        <p>Materiais descartáveis, pinças esterilizadas em autoclave e ambiente rigorosamente higienizado para sua total proteção.</p>
+                    </div>
+
+                    <div class="feature-box fade-up" data-delay="0.1">
+                        <div class="feature-icon"><i data-lucide="award"></i></div>
+                        <h3>Adesivos Hipoalergênicos</h3>
+                        <p>Utilizamos apenas colas e produtos certificados com registro na Anvisa, prevenindo reações alérgicas e coceiras.</p>
+                    </div>
+
+                    <div class="feature-box fade-up" data-delay="0.2">
+                        <div class="feature-icon"><i data-lucide="eye"></i></div>
+                        <h3>Visagismo e Mapeamento</h3>
+                        <p>Cada formato de olho exige um curvamento, espessura e mapping específico. Otimizamos seu olhar sem pesá-lo.</p>
+                    </div>
+
+                    <div class="feature-box fade-up" data-delay="0.3">
+                        <div class="feature-icon"><i data-lucide="armchair"></i></div>
+                        <h3>Poltrona Ergônoma VIP</h3>
+                        <p>Sua sessão será um momento de puro descanso. Espaço silencioso e acolhedor projetado para relaxamento total.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Galeria de Fotos Section -->
+        <section class="galeria section-padding bg-light" id="galeria">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-tag">PORTFÓLIO DE RESULTADOS</span>
+                    <h2 class="section-title">Galeria de Transformações</h2>
+                    <p class="section-subtitle">Clique nas imagens para ampliar e conferir a perfeição nos detalhes do nosso trabalho.</p>
+                </div>
+
+                <div class="gallery-filters text-center">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="cilios">Extensão de Cílios</button>
+                    <button class="filter-btn" data-filter="sobrancelhas">Sobrancelhas</button>
+                    <button class="filter-btn" data-filter="studio">O Studio</button>
+                </div>
+
+                <div class="gallery-grid" id="gallery-grid">
+                    <div class="gallery-item cilios fade-up" data-lightbox="https://images.unsplash.com/photo-1583001809873-a1284a5da1e6?auto=format&fit=crop&w=1200&q=80">
+                        <img src="https://images.unsplash.com/photo-1583001809873-a1284a5da1e6?auto=format&fit=crop&w=600&q=80" alt="Volume Brasileiro Fabi Neves" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i data-lucide="maximize-2"></i>
+                            <span>Volume Brasileiro</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item cilios fade-up" data-delay="0.1" data-lightbox="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=1200&q=80">
+                        <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=600&q=80" alt="Fio a Fio Clássico" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i data-lucide="maximize-2"></i>
+                            <span>Fio a Fio Efeito Natural</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item sobrancelhas fade-up" data-delay="0.2" data-lightbox="https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=1200&q=80">
+                        <img src="https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=600&q=80" alt="Design de Sobrancelha com Linha" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i data-lucide="maximize-2"></i>
+                            <span>Design de Sobrancelha</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item cilios fade-up" data-lightbox="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?auto=format&fit=crop&w=1200&q=80">
+                        <img src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?auto=format&fit=crop&w=600&q=80" alt="Volume Egípcio W" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i data-lucide="maximize-2"></i>
+                            <span>Volume Egípcio</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item sobrancelhas fade-up" data-delay="0.1" data-lightbox="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=1200&q=80">
+                        <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=600&q=80" alt="Brow Lamination HD" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i data-lucide="maximize-2"></i>
+                            <span>Brow Lamination</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item studio fade-up" data-delay="0.2" data-lightbox="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=80">
+                        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80" alt="Studio de Atendimento na Granja Viana" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i data-lucide="maximize-2"></i>
+                            <span>Studio Fabi Neves</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lightbox Modal -->
+        <div class="lightbox-modal" id="lightbox-modal" aria-hidden="true">
+            <button class="lightbox-close" id="lightbox-close" aria-label="Fechar galeria">&times;</button>
+            <div class="lightbox-content">
+                <img src="" id="lightbox-img" alt="Foto ampliada">
+                <p id="lightbox-caption" class="lightbox-caption"></p>
+            </div>
         </div>
-        <div class="map-frame reveal">
-          <iframe title="Google Maps — Pin Up Granja Viana" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Pin%20Up%20Av.%20S%C3%A3o%20Camilo%20186%20Granja%20Viana%20Cotia%20SP&output=embed"></iframe>
+
+        <!-- Galeria de Vídeos Section -->
+        <section class="videos section-padding" id="videos">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-tag">VÍDEOS & DEMONSTRAÇÕES</span>
+                    <h2 class="section-title">Confira Nosso Trabalho em Ação</h2>
+                    <p class="section-subtitle">Assista como realizamos a aplicação e os bastidores do nosso estúdio com biossegurança.</p>
+                </div>
+
+                <div class="video-grid">
+                    <!-- Video Card 1 -->
+                    <div class="video-card fade-up">
+                        <div class="video-thumbnail" data-video-src="https://www.w3schools.com/html/mov_bbb.mp4">
+                            <img src="https://images.unsplash.com/photo-1583001809873-a1284a5da1e6?auto=format&fit=crop&w=800&q=80" alt="Aplicação de Cílios em Detalhes">
+                            <button class="play-btn" aria-label="Reproduzir Vídeo">
+                                <i data-lucide="play"></i>
+                            </button>
+                            <span class="video-duration">0:45</span>
+                        </div>
+                        <div class="video-info">
+                            <h3>Isolamento Fio a Fio Perfeito</h3>
+                            <p>Demonstração em super zoom do encaixe preciso de cada extensão sem encostar na pálpebra.</p>
+                        </div>
+                    </div>
+
+                    <!-- Video Card 2 -->
+                    <div class="video-card fade-up" data-delay="0.1">
+                        <div class="video-thumbnail" data-video-src="https://www.w3schools.com/html/mov_bbb.mp4">
+                            <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=800&q=80" alt="Resultado Lash Lifting">
+                            <button class="play-btn" aria-label="Reproduzir Vídeo">
+                                <i data-lucide="play"></i>
+                            </button>
+                            <span class="video-duration">0:30</span>
+                        </div>
+                        <div class="video-info">
+                            <h3>Antes e Depois Lash Lifting</h3>
+                            <p>Efeito curvado e volumoso em cílios naturais com tintura e nutrição intensa.</p>
+                        </div>
+                    </div>
+
+                    <!-- Video Card 3 -->
+                    <div class="video-card fade-up" data-delay="0.2">
+                        <div class="video-thumbnail" data-video-src="https://www.w3schools.com/html/mov_bbb.mp4">
+                            <img src="https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=800&q=80" alt="Epilação Egípcia">
+                            <button class="play-btn" aria-label="Reproduzir Vídeo">
+                                <i data-lucide="play"></i>
+                            </button>
+                            <span class="video-duration">0:50</span>
+                        </div>
+                        <div class="video-info">
+                            <h3>Design com Linha & Visagismo</h3>
+                            <p>Acabamento perfeito e remoção da pelugem facial com linha orgânica de algodão.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Modal Container -->
+        <div class="video-modal" id="video-modal">
+            <div class="video-modal-overlay" id="video-modal-overlay"></div>
+            <div class="video-modal-box">
+                <button class="video-modal-close" id="video-modal-close">&times;</button>
+                <div class="video-wrapper">
+                    <video id="modal-video-player" controls preload="metadata">
+                        <source src="" type="video/mp4">
+                        Seu navegador não suporta reprodução de vídeos.
+                    </video>
+                </div>
+            </div>
         </div>
-      </div>
-    </section>
-  </main>
 
-  <!-- LIGHTBOX / MODALS -->
-  <div class="lightbox" data-lightbox aria-hidden="true">
-    <button type="button" aria-label="Fechar galeria" data-close-lightbox>×</button>
-    <img alt="Imagem ampliada da galeria" data-lightbox-image>
-  </div>
+        <!-- Depoimentos Section -->
+        <section class="depoimentos section-padding bg-light" id="depoimentos">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-tag">AVALIAÇÕES REAIS</span>
+                    <h2 class="section-title">O que nossas clientes dizem</h2>
+                    <p class="section-subtitle">Avaliação 5 estrelas no Google e redes sociais de clientes da Granja Viana e região.</p>
+                </div>
 
-  <!-- FOOTER ÚNICO E FINAL -->
-  <footer class="footer">
-    <div class="container footer-grid">
-      <div><strong>Fabi Neves Lash</strong><p>Especialista em extensão de cílios em Cotia.</p></div>
-      <nav aria-label="Navegação do rodapé"><a href="#top">Início</a><a href="#about">Sobre</a><a href="#services">Serviços</a><a href="#gallery">Resultados</a><a href="#contact">Contato</a></nav>
-      <div>
-        <a href="https://www.instagram.com/fabiinevess" target="_blank" rel="noopener">Instagram</a>
-        <a href="#contact" data-whatsapp>WhatsApp</a>
-        <a href="https://www.google.com/maps/search/?api=1&query=Pin%20Up%20Av.%20S%C3%A3o%20Camilo%20186%20Granja%20Viana%20Cotia%20SP" target="_blank" rel="noopener">Mapa</a>
-      </div>
-    </div>
-    <p class="footer-bottom">© 2026 Fabi Neves Lash. Direitos reservados. Crafted by Gabriel Jacomossi.</p>
-  </footer>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card fade-up">
+                        <div class="stars">
+                            <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "A Fabi é incrível! Faço meu Volume Brasileiro com ela há mais de 1 ano e a retenção é inacreditável. Além de durar quase um mês intacto, não sinto coceira alguma. O espaço é ultra aconchegante!"
+                        </p>
+                        <div class="client-info">
+                            <div class="client-avatar">
+                                <span>MC</span>
+                            </div>
+                            <div>
+                                <strong>Mariana Camargo</strong>
+                                <span>Granja Viana, Cotia</span>
+                            </div>
+                        </div>
+                    </div>
 
-  <script src="script.js"></script>
+                    <div class="testimonial-card fade-up" data-delay="0.1">
+                        <div class="stars">
+                            <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "Atendimento excepcional! Tinha medo de colocar cílios por ter olhos sensíveis, mas a Fabi me explicou todo o processo de biossegurança. O resultado ficou leve, sofisticado e super natural."
+                        </p>
+                        <div class="client-info">
+                            <div class="client-avatar">
+                                <span>PR</span>
+                            </div>
+                            <div>
+                                <strong>Patricia Rocha</strong>
+                                <span>Alphaville / SP</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card fade-up" data-delay="0.2">
+                        <div class="stars">
+                            <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "Fiz Lash Lifting e Brow Lamination antes de uma viagem. Ficou surreal de lindo! Economizei horas na maquiagem todos os dias. Profissionalismo e capricho sem igual na região."
+                        </p>
+                        <div class="client-info">
+                            <div class="client-avatar">
+                                <span>FS</span>
+                            </div>
+                            <div>
+                                <strong>Fernanda Silva</strong>
+                                <span>Cotia, SP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contato Section -->
+        <section class="contato section-padding" id="contato">
+            <div class="container grid-2-cols">
+                <div class="contato-info fade-left">
+                    <span class="section-tag">AGENDAMENTOS & DÚVIDAS</span>
+                    <h2 class="section-title">Estamos prontas para atender você</h2>
+                    <p class="text-description">
+                        Entre em contato diretamente por mensagem para consultar a disponibilidade de horários, esclarecer dúvidas ou realizar seu agendamento VIP.
+                    </p>
+
+                    <div class="info-list">
+                        <div class="info-item">
+                            <div class="info-icon"><i data-lucide="map-pin"></i></div>
+                            <div>
+                                <strong>Endereço do Studio:</strong>
+                                <p>Av. São Camilo, 166 - Granja Viana, Cotia - SP, 06709-150</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon"><i data-lucide="phone"></i></div>
+                            <div>
+                                <strong>WhatsApp & Telefone:</strong>
+                                <p><a href="https://wa.me/5511990127604" target="_blank">+55 (11) 99012-7604</a></p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon"><i data-lucide="clock"></i></div>
+                            <div>
+                                <strong>Horário de Atendimento:</strong>
+                                <p>Terça a Quinta: 10h às 19h<br>Sexta e Sábado: 09h às 19h<br>Domingo e Segunda: Fechado</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="direct-actions">
+                        <a href="https://wa.me/5511990127604?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" class="btn btn-whatsapp btn-lg">
+                            <i data-lucide="message-circle"></i>
+                            <span>Conversar no WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Formulario de Contato -->
+                <div class="contato-form-card fade-right">
+                    <h3>Envie uma Mensagem</h3>
+                    <p>Preencha os campos abaixo e entraremos em contato o mais breve possível.</p>
+
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Nome Completo *</label>
+                            <input type="text" id="name" name="name" placeholder="Digite seu nome" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Telefone / WhatsApp *</label>
+                                <input type="tel" id="phone" name="phone" placeholder="(11) 99999-9999" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">E-mail *</label>
+                                <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="service">Serviço de Interesse</label>
+                            <select id="service" name="service">
+                                <option value="Volume Brasileiro">Volume Brasileiro</option>
+                                <option value="Fio a Fio Clássico">Fio a Fio Clássico</option>
+                                <option value="Volume Egípcio">Volume Egípcio</option>
+                                <option value="Lash Lifting">Lash Lifting</option>
+                                <option value="Design de Sobrancelhas">Design de Sobrancelhas</option>
+                                <option value="Brow Lamination">Brow Lamination</option>
+                                <option value="Outros">Outros procedimentos</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Mensagem ou Preferência de Data</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Conte-nos como podemos ajudar você..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <span>Enviar Mensagem</span>
+                            <i data-lucide="send"></i>
+                        </button>
+                        <div id="form-status" class="form-status"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mapa Section -->
+        <section class="mapa-section" id="mapa">
+            <div class="mapa-wrapper">
+                <iframe 
+                    title="Localização Fabi Neves Lash Granja Viana" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.7323891048897!2d-46.8344123!3d-23.588832!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cf00259e8e5361%3A0x63a3d242c38edc60!2sAv.%20S%C3%A3o%20Camilo%2C%20166%20-%20Granja%20Viana%2C%20Cotia%20-%20SP%2C%2006709-150!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
+                    width="100%" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Component -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="#hero" class="logo">
+                    <span class="logo-text">FABI NEVES</span>
+                    <span class="logo-sub">LASH & BROW STUDIO</span>
+                </a>
+                <p class="footer-desc">
+                    Especialista em valorizar a beleza natural feminina através da extensão de cílios com máxima retenção, saúde ocular e visagismo de sobrancelhas.
+                </p>
+                <div class="social-links">
+                    <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+                    <a href="https://wa.me/5511990127604" target="_blank" rel="noopener" aria-label="WhatsApp"><i data-lucide="message-circle"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a href="#sobre">Sobre o Studio</a></li>
+                    <li><a href="#servicos">Menu de Serviços</a></li>
+                    <li><a href="#diferenciais">Nossos Diferenciais</a></li>
+                    <li><a href="#galeria">Galeria de Fotos</a></li>
+                    <li><a href="#videos">Vídeos</a></li>
+                    <li><a href="#depoimentos">Depoimentos</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Procedimentos</h4>
+                <ul>
+                    <li><a href="#servicos">Volume Brasileiro</a></li>
+                    <li><a href="#servicos">Fio a Fio Clássico</a></li>
+                    <li><a href="#servicos">Volume Egípcio</a></li>
+                    <li><a href="#servicos">Lash Lifting & Nutrição</a></li>
+                    <li><a href="#servicos">Design de Sobrancelhas</a></li>
+                    <li><a href="#servicos">Brow Lamination</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Atendimento</h4>
+                <p><i data-lucide="map-pin"></i> Av. São Camilo, 166 - Granja Viana, Cotia - SP</p>
+                <p><i data-lucide="phone"></i> +55 (11) 99012-7604</p>
+                <p><i data-lucide="clock"></i> Ter a Sáb: 09h às 19h</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-content">
+                <p>&copy; 2026 Fabi Neves Lash Studio. Todos os direitos reservados.</p>
+                <a href="#hero" class="back-to-top" id="back-to-top" aria-label="Voltar ao topo">
+                    <span>Voltar ao topo</span>
+                    <i data-lucide="arrow-up"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/5511990127604?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener" class="whatsapp-float" aria-label="Atendimento via WhatsApp">
+        <i data-lucide="message-circle"></i>
+        <span class="pulse-ring"></span>
+        <span class="tooltip">Fale Conosco no WhatsApp</span>
+    </a>
+
+    <!-- Scripts external -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
