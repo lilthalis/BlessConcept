@@ -1180,8 +1180,36 @@ h1, h2, h3, h4 {
 
 /* 14. MAPA & FOOTER
    ========================================================================== */
-.mapa-section {
-    line-height: 0;
+.mapa-section{
+    width:100%;
+    padding:80px 0;
+    background:#fff;
+}
+
+.mapa-wrapper{
+    width:100%;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 20px 40px rgba(0,0,0,.12);
+}
+
+.mapa-wrapper iframe{
+    display:block;
+    width:100%;
+    height:500px;
+    border:none;
+}
+
+@media (max-width:768px){
+
+    .mapa-section{
+        padding:60px 0;
+    }
+
+    .mapa-wrapper iframe{
+        height:350px;
+    }
+
 }
 
 .footer {
