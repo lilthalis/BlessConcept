@@ -1,785 +1,1656 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BLESS CONCEPT LASH — Uma Nova Expressão de Beleza</title>
+  <meta name="description" content="Studio boutique de extensão de cílios e design de sobrancelhas. Experiência exclusiva, precisão e estética contemporânea.">
+  
+  <!-- Favicon placeholder -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23C6A15B'>B</text></svg>">
 
-    <!-- Favicon -->
-<link rel="icon" type="image/png" sizes="32x32" href="Logo/Logo.webp">
-<link rel="icon" type="image/png" sizes="16x16" href="Logo/Logo.webp">
-<link rel="apple-touch-icon" href="Logo/Logo.webp">
-<link rel="shortcut icon" href="Logo/Logo.webp">
+  <!-- Google Fonts: Cormorant Garamond (Editorial Serif) + Plus Jakarta Sans (Modern Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Plus+Jakarta+Sans:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO & Metadata -->
-    <title>Fabi Neves Lash | Extensão de Cílios & Design de Sobrancelhas na Granja Viana</title>
-    <meta name="description" content="Studio especializado em Extensão de Cílios, Lash Lifting, Design de Sobrancelhas e Brow Lamination na Granja Viana, Cotia - SP. Agende seu horário com a especialista Fabi Neves.">
-    <meta name="keywords" content="extensão de cílios granja viana, lash designer cotia, volume brasileiro, volume egípcio, lash lifting, design de sobrancelhas, brow lamination, fabi neves lash">
-    <meta name="author" content="Fabi Neves Lash">
-    <meta name="robots" content="index, follow">
+  <!-- GSAP & ScrollTrigger CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
 
-    <!-- Open Graph / Facebook / WhatsApp -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://lilthalis.github.io/FabiNevesLash/">
-    <meta property="og:title" content="Fabi Neves Lash | Estética do Olhar Premium na Granja Viana">
-    <meta property="og:description" content="Realce sua beleza natural com técnicas avançadas de extensão de cílios, visagismo e saúde ocular. Atendimento VIP e personalizado.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1583001809873-a1284a5da1e6?auto=format&fit=crop&w=1200&q=80">
+  <style>
+    /* ==========================================================================
+       DESIGN SYSTEM & CUSTOM PROPERTIES
+       ========================================================================== */
+    :root {
+      --color-bg-primary: #080808;
+      --color-bg-secondary: #111111;
+      --color-bg-elevated: #181818;
+      --color-border: #242424;
+      --color-border-subtle: rgba(198, 161, 91, 0.15);
+      
+      --color-gold: #C6A15B;
+      --color-gold-light: #D8B873;
+      --color-alabaster: #F3EEE5;
+      --color-white: #FFFFFF;
+      --color-muted: #8E8A84;
 
-    <!-- Fonts Google -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <!-- CSS External -->
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Schema.org Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BeautySalon",
-      "name": "Fabi Neves Lash",
-      "image": "https://images.unsplash.com/photo-1583001809873-a1284a5da1e6?auto=format&fit=crop&w=800&q=80",
-      "telePhone": "+551194272-2631",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Av. São Camilo, 166",
-        "addressLocality": "Cotia",
-        "addressRegion": "SP",
-        "postalCode": "06709-150",
-        "addressCountry": "BR"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "-23.5888",
-        "longitude": "-46.8322"
-      },
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Tuesday", "Wednesday", "Thursday"],
-          "opens": "10:00",
-          "closes": "19:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Friday", "Saturday"],
-          "opens": "09:00",
-          "closes": "19:00"
-        }
-      ],
-      "priceRange": "$$"
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      
+      --transition-smooth: cubic-bezier(0.25, 1, 0.5, 1);
     }
-    </script>
+
+    /* Reset & Defaults */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      background-color: var(--color-bg-primary);
+      color: var(--color-alabaster);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      selection-background-color: var(--color-gold);
+      selection-color: var(--color-bg-primary);
+    }
+
+    ::selection {
+      background: var(--color-gold);
+      color: var(--color-bg-primary);
+    }
+
+    body {
+      overflow-x: hidden;
+      background-color: var(--color-bg-primary);
+      letter-spacing: -0.01em;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: all 0.4s var(--transition-smooth);
+    }
+
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      color: inherit;
+    }
+
+    /* Typography Utilities */
+    .font-serif { font-family: var(--font-serif); }
+    .font-sans { font-family: var(--font-sans); }
+
+    .heading-display {
+      font-family: var(--font-serif);
+      font-size: clamp(2.75rem, 7vw, 6.5rem);
+      font-weight: 300;
+      line-height: 0.95;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .heading-section {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4.5vw, 3.75rem);
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-alabaster);
+    }
+
+    .sub-tag {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--color-gold);
+      display: inline-block;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .lead-text {
+      font-size: clamp(1rem, 1.2vw, 1.125rem);
+      font-weight: 300;
+      color: #B5B0A8;
+      line-height: 1.8;
+      max-width: 48ch;
+    }
+
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 1380px;
+      margin: 0 auto;
+      padding: 0 clamp(1.5rem, 4vw, 4rem);
+    }
+
+    /* Section Baseline Spacing */
+    .section-spacing {
+      padding-top: clamp(6rem, 12vh, 11rem);
+      padding-bottom: clamp(6rem, 12vh, 11rem);
+    }
+
+    /* ==========================================================================
+       BUTTONS & CTAs
+       ========================================================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 1.1rem 2.4rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      font-weight: 500;
+      transition: all 0.5s var(--transition-smooth);
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background-color: var(--color-alabaster);
+      color: var(--color-bg-primary);
+      border: 1px solid var(--color-alabaster);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--color-gold);
+      border-color: var(--color-gold);
+      color: var(--color-bg-primary);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--color-alabaster);
+      border: 1px solid rgba(243, 238, 229, 0.25);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--color-gold);
+      color: var(--color-gold-light);
+      background-color: rgba(198, 161, 91, 0.04);
+      transform: translateY(-2px);
+    }
+
+    .btn-gold {
+      background-color: var(--color-gold);
+      color: #080808;
+      border: 1px solid var(--color-gold);
+    }
+
+    .btn-gold:hover {
+      background-color: #E2C485;
+      border-color: #E2C485;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(198, 161, 91, 0.18);
+    }
+
+    /* ==========================================================================
+       HEADER & NAVIGATION
+       ========================================================================== */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      transition: all 0.5s var(--transition-smooth);
+      padding: 2.2rem 0;
+    }
+
+    .site-header.scrolled {
+      padding: 1.2rem 0;
+      background: rgba(8, 8, 8, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .brand-logo .logo-main {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      letter-spacing: 0.28em;
+      font-weight: 400;
+      color: var(--color-white);
+      text-transform: uppercase;
+    }
+
+    .brand-logo .logo-sub {
+      font-family: var(--font-sans);
+      font-size: 0.55rem;
+      letter-spacing: 0.4em;
+      color: var(--color-gold);
+      text-transform: uppercase;
+      margin-top: 0.25rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: #A9A49C;
+      position: relative;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: var(--color-gold);
+      transition: width 0.35s var(--transition-smooth);
+    }
+
+    .nav-link:hover {
+      color: var(--color-white);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .header-cta {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-cta .btn {
+      padding: 0.65rem 1.4rem;
+      font-size: 0.68rem;
+    }
+
+    /* Mobile Hamburger */
+    .mobile-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+      width: 32px;
+      height: 32px;
+      gap: 6px;
+      z-index: 1001;
+    }
+
+    .mobile-toggle span {
+      display: block;
+      height: 1px;
+      background-color: var(--color-alabaster);
+      transition: all 0.35s ease;
+    }
+
+    .mobile-toggle span:nth-child(1) { width: 28px; }
+    .mobile-toggle span:nth-child(2) { width: 18px; }
+
+    .mobile-toggle.active span:nth-child(1) {
+      transform: translateY(3.5px) rotate(45deg);
+      width: 24px;
+    }
+
+    .mobile-toggle.active span:nth-child(2) {
+      transform: translateY(-3.5px) rotate(-45deg);
+      width: 24px;
+    }
+
+    /* Fullscreen Mobile Menu Overlay */
+    .mobile-menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #080808;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s var(--transition-smooth);
+      padding: 2rem;
+    }
+
+    .mobile-menu-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .mobile-menu-nav {
+      list-style: none;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .mobile-menu-nav a {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: var(--color-alabaster);
+      text-transform: uppercase;
+    }
+
+    .mobile-menu-nav a:hover {
+      color: var(--color-gold);
+    }
+
+    /* ==========================================================================
+       1. HERO SECTION
+       ========================================================================== */
+    .hero-section {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 5rem;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      transform: scale(1.05);
+      filter: brightness(0.65) contrast(1.1);
+      transition: transform 3s ease-out;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(8, 8, 8, 0.4) 0%, rgba(8, 8, 8, 0.88) 85%, #080808 100%),
+                  linear-gradient(to top, #080808 0%, transparent 40%),
+                  linear-gradient(to bottom, rgba(8, 8, 8, 0.6) 0%, transparent 30%);
+      z-index: 2;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-pretitle {
+      font-size: 0.75rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+
+    .hero-title {
+      color: var(--color-white);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title span {
+      display: block;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--color-gold-light);
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-serif);
+      font-size: clamp(1.2rem, 2.2vw, 1.75rem);
+      font-weight: 300;
+      font-style: italic;
+      color: #D3CDC5;
+      margin-bottom: 2.75rem;
+      letter-spacing: 0.03em;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    /* Subtle Scroll Indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0.6;
+      transition: opacity 0.3s;
+    }
+
+    .scroll-indicator:hover {
+      opacity: 1;
+    }
+
+    .scroll-indicator span {
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+    }
+
+    .scroll-indicator .line {
+      width: 1px;
+      height: 35px;
+      background: linear-gradient(to bottom, var(--color-gold), transparent);
+      animation: pulseLine 2s infinite ease-in-out;
+    }
+
+    @keyframes pulseLine {
+      0% { transform: scaleY(0); transform-origin: top; }
+      50% { transform: scaleY(1); transform-origin: top; }
+      50.1% { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    /* ==========================================================================
+       2. O STUDIO / CONCEITO
+       ========================================================================== */
+    .studio-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: clamp(3rem, 6vw, 8rem);
+      align-items: center;
+    }
+
+    .studio-visual {
+      position: relative;
+    }
+
+    .studio-img-main {
+      width: 88%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      filter: grayscale(15%) contrast(1.05);
+      border: 1px solid var(--color-border);
+    }
+
+    .studio-img-sub {
+      position: absolute;
+      bottom: -12%;
+      right: 0;
+      width: 55%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border: 6px solid var(--color-bg-primary);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
+      filter: grayscale(10%);
+    }
+
+    .studio-text-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: clamp(0rem, 2vw, 2rem);
+    }
+
+    .studio-quote {
+      font-family: var(--font-serif);
+      font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+      font-weight: 300;
+      line-height: 1.35;
+      color: var(--color-alabaster);
+      margin: 1.5rem 0 2rem 0;
+      letter-spacing: 0.01em;
+    }
+
+    .studio-quote em {
+      font-style: italic;
+      color: var(--color-gold);
+    }
+
+    /* Minimal Detail Grid inside Studio */
+    .studio-details-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .detail-item h4 {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    .detail-item p {
+      font-size: 0.88rem;
+      color: #9C9790;
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       3. SERVIÇOS (MAISON MENU STYLE)
+       ========================================================================== */
+    .services-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 4.5rem;
+      border-bottom: 1px solid var(--color-border);
+      padding-bottom: 2rem;
+    }
+
+    .services-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-row {
+      display: grid;
+      grid-template-columns: 80px 1.5fr 2fr 40px;
+      align-items: center;
+      padding: 2.2rem 0;
+      border-bottom: 1px solid var(--color-border);
+      position: relative;
+      transition: all 0.4s var(--transition-smooth);
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .service-row::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -1px;
+      width: 0;
+      height: 1px;
+      background-color: var(--color-gold);
+      transition: width 0.5s var(--transition-smooth);
+    }
+
+    .service-number {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      color: var(--color-gold);
+      letter-spacing: 0.1em;
+      transition: transform 0.35s ease;
+    }
+
+    .service-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.4rem, 2.2vw, 2rem);
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      color: var(--color-alabaster);
+      text-transform: uppercase;
+      transition: transform 0.4s var(--transition-smooth), color 0.4s ease;
+    }
+
+    .service-description {
+      font-size: 0.9rem;
+      color: #8C877F;
+      font-weight: 300;
+      padding-right: 2rem;
+      transition: color 0.3s ease;
+    }
+
+    .service-arrow {
+      color: var(--color-muted);
+      display: flex;
+      justify-content: flex-end;
+      transition: transform 0.4s var(--transition-smooth), color 0.3s;
+    }
+
+    .service-arrow svg {
+      width: 20px;
+      height: 20px;
+      stroke-width: 1.5;
+    }
+
+    /* Hover State */
+    .service-row:hover {
+      background-color: rgba(255, 255, 255, 0.015);
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    .service-row:hover::before {
+      width: 100%;
+    }
+
+    .service-row:hover .service-title {
+      color: var(--color-white);
+      transform: translateX(6px);
+    }
+
+    .service-row:hover .service-number {
+      transform: scale(1.1);
+    }
+
+    .service-row:hover .service-description {
+      color: #C2BCB2;
+    }
+
+    .service-row:hover .service-arrow {
+      color: var(--color-gold);
+      transform: translateX(4px);
+    }
+
+    /* Floating Image Hover Preview (Desktop only) */
+    .service-hover-preview {
+      position: fixed;
+      pointer-events: none;
+      width: 260px;
+      height: 330px;
+      top: 0;
+      left: 0;
+      z-index: 50;
+      overflow: hidden;
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.85);
+      transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9);
+      border: 1px solid var(--color-border);
+    }
+
+    .service-hover-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ==========================================================================
+       4. RESULTADOS / THE BLESS EFFECT (EDITORIAL GALLERY)
+       ========================================================================== */
+    .gallery-section-header {
+      text-align: center;
+      margin-bottom: 4.5rem;
+    }
+
+    /* Asymmetric Editorial Grid */
+    .editorial-gallery {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: 90px;
+      gap: 1.75rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      background-color: var(--color-bg-elevated);
+      border: 1px solid var(--color-border);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1), filter 0.8s ease;
+      filter: brightness(0.85) contrast(1.05);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(8, 8, 8, 0.85) 0%, transparent 60%);
+      opacity: 0;
+      display: flex;
+      align-items: flex-end;
+      padding: 1.75rem;
+      transition: opacity 0.4s ease;
+    }
+
+    .gallery-meta h4 {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 300;
+      color: var(--color-white);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.2rem;
+      transform: translateY(10px);
+      transition: transform 0.4s var(--transition-smooth);
+    }
+
+    .gallery-meta p {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      transform: translateY(10px);
+      transition: transform 0.4s var(--transition-smooth) 0.05s;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.06);
+      filter: brightness(0.95);
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .gallery-item:hover .gallery-meta h4,
+    .gallery-item:hover .gallery-meta p {
+      transform: translateY(0);
+    }
+
+    /* Editorial Tile Spans */
+    .tile-1 { grid-column: span 7; grid-row: span 6; }
+    .tile-2 { grid-column: span 5; grid-row: span 4; }
+    .tile-3 { grid-column: span 5; grid-row: span 4; margin-top: -2rem; }
+    .tile-4 { grid-column: span 4; grid-row: span 5; }
+    .tile-5 { grid-column: span 4; grid-row: span 5; }
+    .tile-6 { grid-column: span 4; grid-row: span 5; }
+
+    /* ==========================================================================
+       5. AGENDAMENTO
+       ========================================================================== */
+    .booking-section {
+      background-color: var(--color-bg-secondary);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .booking-ambient {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(198, 161, 91, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .booking-container {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .booking-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.4rem, 5vw, 4.5rem);
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      line-height: 1.1;
+      margin: 1.25rem 0 1.5rem 0;
+      color: var(--color-white);
+    }
+
+    .booking-subtitle {
+      font-size: clamp(0.95rem, 1.2vw, 1.125rem);
+      color: #9E9991;
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 3rem;
+      max-width: 50ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .booking-action {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    .booking-note {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+    }
+
+    /* ==========================================================================
+       6. FOOTER
+       ========================================================================== */
+    .site-footer {
+      padding: 5rem 0 3rem 0;
+      background-color: var(--color-bg-primary);
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 4rem;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand .brand-logo .logo-main {
+      font-size: 1.75rem;
+    }
+
+    .footer-tagline {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.1rem;
+      color: #7E7972;
+      margin-top: 0.75rem;
+    }
+
+    .footer-nav-col h5 {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 1.25rem;
+      font-weight: 500;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer-links a, .footer-links span {
+      font-size: 0.85rem;
+      color: #9E9991;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: var(--color-white);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--color-border);
+      font-size: 0.75rem;
+      color: #615E58;
+      letter-spacing: 0.05em;
+    }
+
+    /* ==========================================================================
+       LIGHTBOX MODAL (BUILT-IN)
+       ========================================================================== */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 8, 8, 0.96);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s var(--transition-smooth);
+      padding: 2rem;
+    }
+
+    .lightbox.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lightbox-content {
+      max-width: 90vw;
+      max-height: 85vh;
+      position: relative;
+      transform: scale(0.95);
+      transition: transform 0.4s var(--transition-smooth);
+    }
+
+    .lightbox.active .lightbox-content {
+      transform: scale(1);
+    }
+
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 85vh;
+      object-fit: contain;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9);
+      border: 1px solid var(--color-border);
+    }
+
+    .lightbox-caption {
+      position: absolute;
+      bottom: -2.5rem;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      letter-spacing: 0.1em;
+      color: var(--color-alabaster);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      font-size: 1.5rem;
+      color: var(--color-alabaster);
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--color-border);
+      border-radius: 50%;
+      transition: all 0.3s;
+    }
+
+    .lightbox-close:hover {
+      border-color: var(--color-gold);
+      color: var(--color-gold);
+      transform: rotate(90deg);
+    }
+
+    /* ==========================================================================
+       RESPONSIVE BREAKPOINTS
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .service-row {
+        grid-template-columns: 60px 1.5fr 2fr 30px;
+      }
+      .studio-grid {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+      }
+      .studio-visual {
+        max-width: 500px;
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .header-cta {
+        display: none;
+      }
+
+      .mobile-toggle {
+        display: flex;
+      }
+
+      .service-row {
+        grid-template-columns: 50px 1fr 30px;
+        gap: 0.5rem;
+        padding: 1.75rem 0;
+      }
+
+      .service-description {
+        grid-column: 2 / 3;
+        padding-right: 0;
+        font-size: 0.85rem;
+        margin-top: 0.25rem;
+      }
+
+      .editorial-gallery {
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+        gap: 1.25rem;
+      }
+
+      .tile-1, .tile-2, .tile-3, .tile-4, .tile-5, .tile-6 {
+        grid-column: span 1;
+        grid-row: auto;
+        aspect-ratio: 4 / 5;
+        margin-top: 0;
+      }
+
+      .services-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        width: 100%;
+        max-width: 320px;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .footer-top {
+        flex-direction: column;
+        gap: 2.5rem;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Header Navigation -->
-    <header class="navbar" id="navbar">
-        <div class="container nav-container">
-            <a href="#hero" class="logo">
-                <span class="logo-text">FABI NEVES</span>
-                <span class="logo-sub">LASH & BROW STUDIO</span>
-            </a>
+  <!-- ==========================================================================
+       HEADER
+       ========================================================================== -->
+  <header class="site-header" id="header">
+    <div class="container header-inner">
+      
+      <!-- Brand Logo -->
+      <a href="#hero" class="brand-logo" aria-label="Bless Concept Lash Home">
+        <span class="logo-main">Bless</span>
+        <span class="logo-sub">Concept Lash</span>
+      </a>
 
-            <nav class="nav-menu" id="nav-menu">
-                <ul class="nav-list">
-                    <li><a href="#sobre" class="nav-link">Sobre</a></li>
-                    <li><a href="#servicos" class="nav-link">Serviços</a></li>
-                    <li><a href="#diferenciais" class="nav-link">Diferenciais</a></li>
-                    <li><a href="#galeria" class="nav-link">Fotos</a></li>
-                    <li><a href="#videos" class="nav-link">Vídeos</a></li>
-                    <li><a href="#depoimentos" class="nav-link">Depoimentos</a></li>
-                    <li><a href="#contato" class="nav-link">Contato</a></li>
-                </ul>
-            </nav>
+      <!-- Desktop Nav -->
+      <nav aria-label="Navegação Principal">
+        <ul class="nav-links">
+          <li><a href="#studio" class="nav-link">Studio</a></li>
+          <li><a href="#servicos" class="nav-link">Serviços</a></li>
+          <li><a href="#resultados" class="nav-link">Resultados</a></li>
+          <li><a href="#agendamento" class="nav-link">Contato</a></li>
+        </ul>
+      </nav>
 
-            <div class="nav-actions">
-                <a href="https://wa.me/5511990127604?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio%20no%20Studio%20Fabi%20Neves." target="_blank" rel="noopener" class="btn btn-primary btn-sm nav-btn">
-                    <span>Agendar Horário</span>
-                    <i data-lucide="calendar"></i>
-                </a>
+      <!-- Desktop CTA -->
+      <div class="header-cta">
+        <a href="#agendamento" class="btn btn-secondary">Agendar</a>
+      </div>
 
-                <button class="menu-toggle" id="menu-toggle" aria-label="Abrir Menu">
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
-        </div>
-    </header>
+      <!-- Mobile Hamburger Button -->
+      <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Abrir Menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
 
-    <main>
-        <!-- Hero Section -->
-        <section class="hero" id="hero">
-            <div class="hero-bg-glow"></div>
-            <div class="container hero-container">
-                <div class="hero-content">
-                    <div class="badge fade-up">
-                        <i data-lucide="sparkles"></i>
-                        <span>Especialista em Cílios & Visagismo na Granja Viana</span>
-                    </div>
-                    <h1 class="hero-title fade-up">
-                        A arte de realçar o seu olhar com <span class="gradient-text">elegância e leveza.</span>
-                    </h1>
-                    <p class="hero-subtitle fade-up">
-                        Procedimentos exclusivos de Extensão de Cílios, Lash Lifting e Design de Sobrancelhas. Técnica segura, isolamento impecável e alta retenção.
-                    </p>
-                    <div class="hero-buttons fade-up">
-                        <a href="https://wa.me/5511942722631text=Ol%C3%A1!%20Gostaria%20de%20consultar%20a%20agenda%20para%20este%20m%C3%AAs." target="_blank" rel="noopener" class="btn btn-primary btn-lg">
-                            <span>Agendar Avaliação VIP</span>
-                            <i data-lucide="arrow-right"></i>
-                        </a>
-                        <a href="#servicos" class="btn btn-outline btn-lg">
-                            <span>Ver Menu de Serviços</span>
-                        </a>
-                    </div>
-                    <div class="hero-trust fade-up">
-                        <div class="rating-stars">
-                            <i data-lucide="star"></i>
-                            <i data-lucide="star"></i>
-                            <i data-lucide="star"></i>
-                            <i data-lucide="star"></i>
-                            <i data-lucide="star"></i>
-                        </div>
-                        <p><strong>5.0 / 5.0</strong> — Mais de 500+ clientes transformadas</p>
-                    </div>
-                </div>
-
-                <div class="hero-visual fade-scale">
-                    <div class="hero-image-card">
-                        <img src="fabi/Fabi.webp" alt="Extensão de Cílios Fabi Neves Lash" loading="eager" width="1000" height="1200">
-                        <div class="floating-badge badge-1">
-                            <i data-lucide="shield-check"></i>
-                            <div>
-                                <strong>Saúde Ocular</strong>
-                                <span>100% Isolamento Fio a Fio</span>
-                            </div>
-                        </div>
-                        <div class="floating-badge badge-2">
-                            <i data-lucide="clock"></i>
-                            <div>
-                                <strong>Durabilidade Premium</strong>
-                                <span>Retenção de até 45 dias</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sobre Section -->
-        <section class="sobre section-padding" id="sobre">
-            <div class="container grid-2-cols align-center">
-                <div class="sobre-image-group fade-left">
-                    <div class="image-wrapper">
-                        <img src="Logo/Logo.webp" alt="Fabi Neves no Studio" loading="lazy">
-                    </div>
-                    <div class="experience-card">
-                        <span class="exp-number">8+</span>
-                        <span class="exp-text">Anos de Especialização & Cursos Internacionais</span>
-                    </div>
-                </div>
-
-                <div class="sobre-content fade-right">
-                    <span class="section-tag">SOBRE O STUDIO</span>
-                    <h2 class="section-title">Muito além de estética: uma experiência de auto estima e bem-estar.</h2>
-                    <p class="text-description">
-                        No Studio <strong>Fabi Neves Lash</strong>, localizado no coração da Granja Viana, acreditamos que cada olhar é único. Nosso compromisso vai além do resultado estético: priorizamos rigorosamente a saúde dos seus fios naturais e a biossegurança em cada etapa do procedimento.
-                    </p>
-                    <p class="text-description">
-                        Combinando técnicas de mapeamento visagista (mapping personalizado) com adesivos de alta tecnologia e fios ultra leves, entregamos um olhar marcante, sofisticado e extremamente confortável.
-                    </p>
-
-                    <div class="about-highlights">
-                        <div class="about-item">
-                            <div class="icon-box"><i data-lucide="heart-pulse"></i></div>
-                            <div>
-                                <h4>Preservação Natural</h4>
-                                <p>Sem peso excessivo ou colagem de fios naturais.</p>
-                            </div>
-                        </div>
-                        <div class="about-item">
-                            <div class="icon-box"><i data-lucide="sparkle"></i></div>
-                            <div>
-                                <h4>Mapping Sob Medida</h4>
-                                <p>Cílios projetados de acordo com o formato dos seus olhos.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <a href="#contato" class="btn btn-secondary">
-                        <span>Conheça Nosso Espaço</span>
-                        <i data-lucide="map-pin"></i>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Serviços Section -->
-        <section class="servicos section-padding bg-light" id="servicos">
-            <div class="container">
-                <div class="section-header text-center">
-                    <span class="section-tag">NOSSO MENU VIP</span>
-                    <h2 class="section-title">Procedimentos Exclusivos</h2>
-                    <p class="section-subtitle">Escolha o estilo perfeito para o seu olhar, desde o acabamento mais discreto até o volume marcante.</p>
-                </div>
-
-                <div class="services-grid">
-                    <!-- Service 1 -->
-                    <article class="service-card fade-up">
-                        <div class="service-image">
-                            <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=600&q=80" alt="Fio a Fio Clássico" loading="lazy">
-                            <span class="service-badge">Mais Natural</span>
-                        </div>
-                        <div class="service-body">
-                            <h3>Fio a Fio Clássico</h3>
-                            <p>Extensão delicada onde cada fio sintético ultra leve é acoplado individualmente em um fio natural. Efeito rímel perfeito e elegante.</p>
-                            <ul class="service-features">
-                                <li><i data-lucide="check-circle-2"></i> Duração: ~2h00</li>
-                                <li><i data-lucide="check-circle-2"></i> Retenção: até 30 dias</li>
-                                <li><i data-lucide="check-circle-2"></i> Ideal para o dia a dia</li>
-                            </ul>
-                            <div class="service-footer">
-                                <a href="https://wa.me/5511990127604?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20Fio%20a%20Fio%20Cl%C3%A1ssico." target="_blank" class="btn btn-outline btn-full">Agendar este Serviço</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Service 2 -->
-                    <article class="service-card fade-up" data-delay="0.1">
-                        <div class="service-image">
-                            <img src="https://images.unsplash.com/photo-1583001809873-a1284a5da1e6?auto=format&fit=crop&w=600&q=80" alt="Volume Brasileiro" loading="lazy">
-                            <span class="service-badge badge-popular">Favorito VIP</span>
-                        </div>
-                        <div class="service-body">
-                            <h3>Volume Brasileiro (Fio YY)</h3>
-                            <p>Utiliza fios em formato Y para proporcionar o dobro de volume mantendo a leveza do Fio a Fio. Proporciona um olhar marcante e preenchido.</p>
-                            <ul class="service-features">
-                                <li><i data-lucide="check-circle-2"></i> Duração: ~2h15</li>
-                                <li><i data-lucide="check-circle-2"></i> Alta retenção</li>
-                                <li><i data-lucide="check-circle-2"></i> Efeito pretinho marcante</li>
-                            </ul>
-                            <div class="service-footer">
-                                <a href="https://wa.me/5511990127604?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20Volume%20Brasileiro." target="_blank" class="btn btn-primary btn-full">Agendar este Serviço</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Service 3 -->
-                    <article class="service-card fade-up" data-delay="0.2">
-                        <div class="service-image">
-                            <img src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?auto=format&fit=crop&w=600&q=80" alt="Volume Egípcio W" loading="lazy">
-                            <span class="service-badge">Volume Sofisticado</span>
-                        </div>
-                        <div class="service-body">
-                            <h3>Volume Egípcio (Fio W)</h3>
-                            <p>Técnica moderna com fios trançados em formato de leque W. Garante densidade elegante, profundidade no olhar e excelente leveza nos cílios.</p>
-                            <ul class="service-features">
-                                <li><i data-lucide="check-circle-2"></i> Duração: ~2h30</li>
-                                <li><i data-lucide="check-circle-2"></i> Preenchimento denso</li>
-                                <li><i data-lucide="check-circle-2"></i> Conforto extremo</li>
-                            </ul>
-                            <div class="service-footer">
-                                <a href="https://wa.me/5511990127604?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20Volume%20Eg%C3%ADpcio." target="_blank" class="btn btn-outline btn-full">Agendar este Serviço</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Service 4 -->
-                    <article class="service-card fade-up">
-                        <div class="service-image">
-                            <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=600&q=80" alt="Lash Lifting e Tintura" loading="lazy">
-                        </div>
-                        <div class="service-body">
-                            <h3>Lash Lifting + Nutrição</h3>
-                            <p>Tratamento que curva, tinge e nutre seus próprios cílios naturais. Ideal para quem busca um visual impecável sem necessitar de extensões.</p>
-                            <ul class="service-features">
-                                <li><i data-lucide="check-circle-2"></i> Duração: ~1h15</li>
-                                <li><i data-lucide="check-circle-2"></i> Efeito duradouro (6 a 8 semanas)</li>
-                                <li><i data-lucide="check-circle-2"></i> Com queratina e hidratação</li>
-                            </ul>
-                            <div class="service-footer">
-                                <a href="https://wa.me/5511990127604?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20Lash%20Lifting." target="_blank" class="btn btn-outline btn-full">Agendar este Serviço</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Service 5 -->
-                    <article class="service-card fade-up" data-delay="0.1">
-                        <div class="service-image">
-                            <img src="https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=600&q=80" alt="Design de Sobrancelhas e Epilação Egípcia" loading="lazy">
-                        </div>
-                        <div class="service-body">
-                            <h3>Design de Sobrancelhas & Linha</h3>
-                            <p>Modelagem geométrica personalizada para valorizar simetria facial. Inclui epilação egípcia com linha orgânica para acabamento impecável.</p>
-                            <ul class="service-features">
-                                <li><i data-lucide="check-circle-2"></i> Duração: ~40min</li>
-                                <li><i data-lucide="check-circle-2"></i> Mapeamento simétrico</li>
-                                <li><i data-lucide="check-circle-2"></i> Opção com Henna ou Refectocil</li>
-                            </ul>
-                            <div class="service-footer">
-                                <a href="https://wa.me/5511990127604?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20Design%20de%20Sobrancelhas." target="_blank" class="btn btn-outline btn-full">Agendar este Serviço</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Service 6 -->
-                    <article class="service-card fade-up" data-delay="0.2">
-                        <div class="service-image">
-                            <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=600&q=80" alt="Brow Lamination" loading="lazy">
-                        </div>
-                        <div class="service-body">
-                            <h3>Brow Lamination</h3>
-                            <p>Técnica alinha os fios naturais das sobrancelhas para cima, proporcionando volume, camuflando falhas e gerando um efeito moderno e estilizado.</p>
-                            <ul class="service-features">
-                                <li><i data-lucide="check-circle-2"></i> Duração: ~1h00</li>
-                                <li><i data-lucide="check-circle-2"></i> Efeito selvagem ou alinhado</li>
-                                <li><i data-lucide="check-circle-2"></i> Nutrição intensiva de fios</li>
-                            </ul>
-                            <div class="service-footer">
-                                <a href="https://wa.me/5511990127604?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20Brow%20Lamination." target="_blank" class="btn btn-outline btn-full">Agendar este Serviço</a>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Diferenciais Section -->
-        <section class="diferenciais section-padding" id="diferenciais">
-            <div class="container">
-                <div class="section-header text-center">
-                    <span class="section-tag">POR QUE NOS ESCOLHER</span>
-                    <h2 class="section-title">O Padrão de Qualidade Fabi Neves</h2>
-                </div>
-
-                <div class="features-grid">
-                    <div class="feature-box fade-up">
-                        <div class="feature-icon"><i data-lucide="shield-check"></i></div>
-                        <h3>Biossegurança 100%</h3>
-                        <p>Materiais descartáveis, pinças esterilizadas em autoclave e ambiente rigorosamente higienizado para sua total proteção.</p>
-                    </div>
-
-                    <div class="feature-box fade-up" data-delay="0.1">
-                        <div class="feature-icon"><i data-lucide="award"></i></div>
-                        <h3>Adesivos Hipoalergênicos</h3>
-                        <p>Utilizamos apenas colas e produtos certificados com registro na Anvisa, prevenindo reações alérgicas e coceiras.</p>
-                    </div>
-
-                    <div class="feature-box fade-up" data-delay="0.2">
-                        <div class="feature-icon"><i data-lucide="eye"></i></div>
-                        <h3>Visagismo e Mapeamento</h3>
-                        <p>Cada formato de olho exige um curvamento, espessura e mapping específico. Otimizamos seu olhar sem pesá-lo.</p>
-                    </div>
-
-                    <div class="feature-box fade-up" data-delay="0.3">
-                        <div class="feature-icon"><i data-lucide="armchair"></i></div>
-                        <h3>Poltrona Ergônoma VIP</h3>
-                        <p>Sua sessão será um momento de puro descanso. Espaço silencioso e acolhedor projetado para relaxamento total.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Galeria de Fotos Section -->
-        <section class="galeria section-padding bg-light" id="galeria">
-            <div class="container">
-                <div class="section-header text-center">
-                    <span class="section-tag">PORTFÓLIO DE RESULTADOS</span>
-                    <h2 class="section-title">Galeria de Transformações</h2>
-                    <p class="section-subtitle">Clique nas imagens para ampliar e conferir a perfeição nos detalhes do nosso trabalho.</p>
-                </div>
-
-                <div class="gallery-filters text-center">
-                    <button class="filter-btn active" data-filter="all">Todos</button>
-                    <button class="filter-btn" data-filter="cilios">Extensão de Cílios</button>
-                    <button class="filter-btn" data-filter="sobrancelhas">Sobrancelhas</button>
-                    <button class="filter-btn" data-filter="studio">O Studio</button>
-                </div>
-
-                <div class="gallery-grid" id="gallery-grid">
-                    <div class="gallery-item cilios fade-up" data-lightbox="https://images.unsplash.com/photo-1583001809873-a1284a5da1e6?auto=format&fit=crop&w=1200&q=80">
-                        <img src="https://images.unsplash.com/photo-1583001809873-a1284a5da1e6?auto=format&fit=crop&w=600&q=80" alt="Volume Brasileiro Fabi Neves" loading="lazy">
-                        <div class="gallery-overlay">
-                            <i data-lucide="maximize-2"></i>
-                            <span>Volume Brasileiro</span>
-                        </div>
-                    </div>
-
-                    <div class="gallery-item cilios fade-up" data-delay="0.1" data-lightbox="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=1200&q=80">
-                        <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=600&q=80" alt="Fio a Fio Clássico" loading="lazy">
-                        <div class="gallery-overlay">
-                            <i data-lucide="maximize-2"></i>
-                            <span>Fio a Fio Efeito Natural</span>
-                        </div>
-                    </div>
-
-                    <div class="gallery-item sobrancelhas fade-up" data-delay="0.2" data-lightbox="https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=1200&q=80">
-                        <img src="https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=600&q=80" alt="Design de Sobrancelha com Linha" loading="lazy">
-                        <div class="gallery-overlay">
-                            <i data-lucide="maximize-2"></i>
-                            <span>Design de Sobrancelha</span>
-                        </div>
-                    </div>
-
-                    <div class="gallery-item cilios fade-up" data-lightbox="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?auto=format&fit=crop&w=1200&q=80">
-                        <img src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?auto=format&fit=crop&w=600&q=80" alt="Volume Egípcio W" loading="lazy">
-                        <div class="gallery-overlay">
-                            <i data-lucide="maximize-2"></i>
-                            <span>Volume Egípcio</span>
-                        </div>
-                    </div>
-
-                    <div class="gallery-item sobrancelhas fade-up" data-delay="0.1" data-lightbox="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=1200&q=80">
-                        <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=600&q=80" alt="Brow Lamination HD" loading="lazy">
-                        <div class="gallery-overlay">
-                            <i data-lucide="maximize-2"></i>
-                            <span>Brow Lamination</span>
-                        </div>
-                    </div>
-
-                    <div class="gallery-item studio fade-up" data-delay="0.2" data-lightbox="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=80">
-                        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80" alt="Studio de Atendimento na Granja Viana" loading="lazy">
-                        <div class="gallery-overlay">
-                            <i data-lucide="maximize-2"></i>
-                            <span>Studio Fabi Neves</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Lightbox Modal -->
-        <div class="lightbox-modal" id="lightbox-modal" aria-hidden="true">
-            <button class="lightbox-close" id="lightbox-close" aria-label="Fechar galeria">&times;</button>
-            <div class="lightbox-content">
-                <img src="" id="lightbox-img" alt="Foto ampliada">
-                <p id="lightbox-caption" class="lightbox-caption"></p>
-            </div>
-        </div>
-
-        <!-- Galeria de Vídeos Section -->
-        <section class="videos section-padding" id="videos">
-            <div class="container">
-                <div class="section-header text-center">
-                    <span class="section-tag">VÍDEOS & DEMONSTRAÇÕES</span>
-                    <h2 class="section-title">Confira Nosso Trabalho em Ação</h2>
-                    <p class="section-subtitle">Assista como realizamos a aplicação e os bastidores do nosso estúdio com biossegurança.</p>
-                </div>
-
-                <div class="video-grid">
-                    <!-- Video Card 1 -->
-                    <div class="video-card fade-up">
-                        <div class="video-thumbnail" data-video-src="https://www.w3schools.com/html/mov_bbb.mp4">
-                            <img src="https://images.unsplash.com/photo-1583001809873-a1284a5da1e6?auto=format&fit=crop&w=800&q=80" alt="Aplicação de Cílios em Detalhes">
-                            <button class="play-btn" aria-label="Reproduzir Vídeo">
-                                <i data-lucide="play"></i>
-                            </button>
-                            <span class="video-duration">0:45</span>
-                        </div>
-                        <div class="video-info">
-                            <h3>Isolamento Fio a Fio Perfeito</h3>
-                            <p>Demonstração em super zoom do encaixe preciso de cada extensão sem encostar na pálpebra.</p>
-                        </div>
-                    </div>
-
-                    <!-- Video Card 2 -->
-                    <div class="video-card fade-up" data-delay="0.1">
-                        <div class="video-thumbnail" data-video-src="https://www.w3schools.com/html/mov_bbb.mp4">
-                            <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=800&q=80" alt="Resultado Lash Lifting">
-                            <button class="play-btn" aria-label="Reproduzir Vídeo">
-                                <i data-lucide="play"></i>
-                            </button>
-                            <span class="video-duration">0:30</span>
-                        </div>
-                        <div class="video-info">
-                            <h3>Antes e Depois Lash Lifting</h3>
-                            <p>Efeito curvado e volumoso em cílios naturais com tintura e nutrição intensa.</p>
-                        </div>
-                    </div>
-
-                    <!-- Video Card 3 -->
-                    <div class="video-card fade-up" data-delay="0.2">
-                        <div class="video-thumbnail" data-video-src="https://www.w3schools.com/html/mov_bbb.mp4">
-                            <img src="https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=800&q=80" alt="Epilação Egípcia">
-                            <button class="play-btn" aria-label="Reproduzir Vídeo">
-                                <i data-lucide="play"></i>
-                            </button>
-                            <span class="video-duration">0:50</span>
-                        </div>
-                        <div class="video-info">
-                            <h3>Design com Linha & Visagismo</h3>
-                            <p>Acabamento perfeito e remoção da pelugem facial com linha orgânica de algodão.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Video Modal Container -->
-        <div class="video-modal" id="video-modal">
-            <div class="video-modal-overlay" id="video-modal-overlay"></div>
-            <div class="video-modal-box">
-                <button class="video-modal-close" id="video-modal-close">&times;</button>
-                <div class="video-wrapper">
-                    <video id="modal-video-player" controls preload="metadata">
-                        <source src="" type="video/mp4">
-                        Seu navegador não suporta reprodução de vídeos.
-                    </video>
-                </div>
-            </div>
-        </div>
-
-        <!-- Depoimentos Section -->
-        <section class="depoimentos section-padding bg-light" id="depoimentos">
-            <div class="container">
-                <div class="section-header text-center">
-                    <span class="section-tag">AVALIAÇÕES REAIS</span>
-                    <h2 class="section-title">O que nossas clientes dizem</h2>
-                    <p class="section-subtitle">Avaliação 5 estrelas no Google e redes sociais de clientes da Granja Viana e região.</p>
-                </div>
-
-                <div class="testimonials-grid">
-                    <div class="testimonial-card fade-up">
-                        <div class="stars">
-                            <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
-                        </div>
-                        <p class="testimonial-text">
-                            "A Fabi é incrível! Faço meu Volume Brasileiro com ela há mais de 1 ano e a retenção é inacreditável. Além de durar quase um mês intacto, não sinto coceira alguma. O espaço é ultra aconchegante!"
-                        </p>
-                        <div class="client-info">
-                            <div class="client-avatar">
-                                <span>MC</span>
-                            </div>
-                            <div>
-                                <strong>Mariana Camargo</strong>
-                                <span>Granja Viana, Cotia</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-card fade-up" data-delay="0.1">
-                        <div class="stars">
-                            <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
-                        </div>
-                        <p class="testimonial-text">
-                            "Atendimento excepcional! Tinha medo de colocar cílios por ter olhos sensíveis, mas a Fabi me explicou todo o processo de biossegurança. O resultado ficou leve, sofisticado e super natural."
-                        </p>
-                        <div class="client-info">
-                            <div class="client-avatar">
-                                <span>PR</span>
-                            </div>
-                            <div>
-                                <strong>Patricia Rocha</strong>
-                                <span>Alphaville / SP</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-card fade-up" data-delay="0.2">
-                        <div class="stars">
-                            <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
-                        </div>
-                        <p class="testimonial-text">
-                            "Fiz Lash Lifting e Brow Lamination antes de uma viagem. Ficou surreal de lindo! Economizei horas na maquiagem todos os dias. Profissionalismo e capricho sem igual na região."
-                        </p>
-                        <div class="client-info">
-                            <div class="client-avatar">
-                                <span>FS</span>
-                            </div>
-                            <div>
-                                <strong>Fernanda Silva</strong>
-                                <span>Cotia, SP</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contato Section -->
-        <section class="contato section-padding" id="contato">
-            <div class="container grid-2-cols">
-                <div class="contato-info fade-left">
-                    <span class="section-tag">AGENDAMENTOS & DÚVIDAS</span>
-                    <h2 class="section-title">Estamos prontas para atender você</h2>
-                    <p class="text-description">
-                        Entre em contato diretamente por mensagem para consultar a disponibilidade de horários, esclarecer dúvidas ou realizar seu agendamento VIP.
-                    </p>
-
-                    <div class="info-list">
-                        <div class="info-item">
-                            <div class="info-icon"><i data-lucide="map-pin"></i></div>
-                            <div>
-                                <strong>Endereço do Studio:</strong>
-                                <p>Av. São Camilo, 166 - Granja Viana, Cotia - SP, 06709-150</p>
-                            </div>
-                        </div>
-
-                        <div class="info-item">
-                            <div class="info-icon"><i data-lucide="phone"></i></div>
-                            <div>
-                                <strong>WhatsApp & Telefone:</strong>
-                                <p><a href="https://wa.me/5511990127604" target="_blank">+55 (11) 99012-7604</a></p>
-                            </div>
-                        </div>
-
-                        <div class="info-item">
-                            <div class="info-icon"><i data-lucide="clock"></i></div>
-                            <div>
-                                <strong>Horário de Atendimento:</strong>
-                                <p>Terça a Quinta: 10h às 19h<br>Sexta e Sábado: 09h às 19h<br>Domingo e Segunda: Fechado</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="direct-actions">
-                        <a href="https://wa.me/5511990127604?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" class="btn btn-whatsapp btn-lg">
-                            <i data-lucide="message-circle"></i>
-                            <span>Conversar no WhatsApp</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Formulario de Contato -->
-                <div class="contato-form-card fade-right">
-                    <h3>Envie uma Mensagem</h3>
-                    <p>Preencha os campos abaixo e entraremos em contato o mais breve possível.</p>
-
-                    <form id="contact-form" class="contact-form">
-                        <div class="form-group">
-                            <label for="name">Nome Completo *</label>
-                            <input type="text" id="name" name="name" placeholder="Digite seu nome" required>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="phone">Telefone / WhatsApp *</label>
-                                <input type="tel" id="phone" name="phone" placeholder="(11) 99999-9999" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">E-mail *</label>
-                                <input type="email" id="email" name="email" placeholder="seu@email.com" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="service">Serviço de Interesse</label>
-                            <select id="service" name="service">
-                                <option value="Volume Brasileiro">Volume Brasileiro</option>
-                                <option value="Fio a Fio Clássico">Fio a Fio Clássico</option>
-                                <option value="Volume Egípcio">Volume Egípcio</option>
-                                <option value="Lash Lifting">Lash Lifting</option>
-                                <option value="Design de Sobrancelhas">Design de Sobrancelhas</option>
-                                <option value="Brow Lamination">Brow Lamination</option>
-                                <option value="Outros">Outros procedimentos</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message">Mensagem ou Preferência de Data</label>
-                            <textarea id="message" name="message" rows="4" placeholder="Conte-nos como podemos ajudar você..."></textarea>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary btn-full">
-                            <span>Enviar Mensagem</span>
-                            <i data-lucide="send"></i>
-                        </button>
-                        <div id="form-status" class="form-status"></div>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-        <!-- Mapa -->
-<section class="mapa-section" id="mapa">
-    <div class="container">
-        <div class="mapa-wrapper">
-            <iframe
-                title="Localização Fabi Neves Lash Studio"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.453536784193!2d-46.834686111505334!3d-23.588062135340355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cfaab1da74e493%3A0xbb37f5e3c683a074!2sPin%20Up!5e0!3m2!1spt-BR!2sbr!4v1785334060841!5m2!1spt-BR!2sbr"
-                loading="lazy"
-                allowfullscreen
-                referrerpolicy="strict-origin-when-cross-origin">
-            </iframe>
-        </div>
     </div>
-</section>
-    </main>
+  </header>
 
-    <!-- Footer Component -->
-    <footer class="footer">
-        <div class="container footer-container">
-            <div class="footer-brand">
-                <a href="#hero" class="logo">
-                    <span class="logo-text">FABI NEVES</span>
-                    <span class="logo-sub">LASH & BROW STUDIO</span>
-                </a>
-                <p class="footer-desc">
-                    Especialista em valorizar a beleza natural feminina através da extensão de cílios com máxima retenção, saúde ocular e visagismo de sobrancelhas.
-                </p>
-                <div class="social-links">
-                    <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><i data-lucide="instagram"></i></a>
-                    <a href="https://wa.me/5511990127604" target="_blank" rel="noopener" aria-label="WhatsApp"><i data-lucide="message-circle"></i></a>
-                </div>
-            </div>
+  <!-- Fullscreen Mobile Navigation -->
+  <div class="mobile-menu-overlay" id="mobileOverlay">
+    <ul class="mobile-menu-nav">
+      <li><a href="#studio" class="mobile-nav-link">Studio</a></li>
+      <li><a href="#servicos" class="mobile-nav-link">Serviços</a></li>
+      <li><a href="#resultados" class="mobile-nav-link">Resultados</a></li>
+      <li><a href="#agendamento" class="mobile-nav-link">Contato</a></li>
+    </ul>
+    <div style="margin-top: 3rem;">
+      <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20agendar%20um%20horário%20na%20Bless%20Concept%20Lash." target="_blank" rel="noopener noreferrer" class="btn btn-gold">
+        Agendar pelo WhatsApp
+      </a>
+    </div>
+  </div>
 
-            <div class="footer-col">
-                <h4>Links Rápidos</h4>
-                <ul>
-                    <li><a href="#sobre">Sobre o Studio</a></li>
-                    <li><a href="#servicos">Menu de Serviços</a></li>
-                    <li><a href="#diferenciais">Nossos Diferenciais</a></li>
-                    <li><a href="#galeria">Galeria de Fotos</a></li>
-                    <li><a href="#videos">Vídeos</a></li>
-                    <li><a href="#depoimentos">Depoimentos</a></li>
-                </ul>
-            </div>
+  <main>
+    <!-- ==========================================================================
+         1. HERO SECTION
+         ========================================================================== -->
+    <section class="hero-section" id="hero">
+      
+      <!-- Background Visual with Atmospheric Dark Overlay -->
+      <div class="hero-bg">
+        <img 
+          src="https://images.unsplash.com/photo-1583001931096-959e9a1a6223?q=80&w=2000&auto=format&fit=crop" 
+          alt="Bless Concept Lash Editorial Beauty" 
+          id="heroBgImg"
+          loading="eager"
+        >
+      </div>
+      <div class="hero-overlay"></div>
 
-            <div class="footer-col">
-                <h4>Procedimentos</h4>
-                <ul>
-                    <li><a href="#servicos">Volume Brasileiro</a></li>
-                    <li><a href="#servicos">Fio a Fio Clássico</a></li>
-                    <li><a href="#servicos">Volume Egípcio</a></li>
-                    <li><a href="#servicos">Lash Lifting & Nutrição</a></li>
-                    <li><a href="#servicos">Design de Sobrancelhas</a></li>
-                    <li><a href="#servicos">Brow Lamination</a></li>
-                </ul>
-            </div>
+      <div class="container hero-content">
+        <span class="hero-pretitle gs-reveal">Haute Esthétique</span>
+        
+        <h1 class="heading-display hero-title gs-reveal">
+          Bless<br>
+          <span>Concept Lash</span>
+        </h1>
 
-            <div class="footer-col">
-                <h4>Atendimento</h4>
-                <p><i data-lucide="map-pin"></i> Av. São Camilo, 166 - Granja Viana, Cotia - SP</p>
-                <p><i data-lucide="phone"></i> +55 (11) 99012-7604</p>
-                <p><i data-lucide="clock"></i> Ter a Sáb: 09h às 19h</p>
+        <p class="hero-subtitle gs-reveal">
+          "Uma nova expressão de beleza."
+        </p>
+
+        <div class="hero-actions gs-reveal">
+          <a href="#agendamento" class="btn btn-primary">Agendar Horário</a>
+          <a href="#studio" class="btn btn-secondary">Conhecer o Studio</a>
+        </div>
+      </div>
+
+      <!-- Smooth Scroll Down Indicator -->
+      <a href="#studio" class="scroll-indicator" aria-label="Rolar para baixo">
+        <span>Scroll</span>
+        <div class="line"></div>
+      </a>
+    </section>
+
+    <!-- ==========================================================================
+         2. O STUDIO / CONCEITO
+         ========================================================================== -->
+    <section class="section-spacing" id="studio">
+      <div class="container">
+        
+        <div class="studio-grid">
+          
+          <!-- Editorial Photo Composition -->
+          <div class="studio-visual gs-reveal">
+            <img 
+              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop" 
+              alt="Ambiente Bless Studio" 
+              class="studio-img-main"
+              loading="lazy"
+            >
+            <img 
+              src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=800&auto=format&fit=crop" 
+              alt="Detalhes de Precisão e Estética" 
+              class="studio-img-sub"
+              loading="lazy"
+            >
+          </div>
+
+          <!-- Studio Manifesto & Concept -->
+          <div class="studio-text-col">
+            <span class="sub-tag gs-reveal">O Studio</span>
+            
+            <h2 class="heading-section gs-reveal">A Essência</h2>
+
+            <p class="studio-quote gs-reveal">
+              Um refúgio contemporâneo onde o olhar é elevado a <em>obra de arte</em>.
+            </p>
+
+            <p class="lead-text gs-reveal">
+              Criamos a Bless Concept Lash para mulheres que apreciam a sutileza do luxo real. 
+              Cada atendimento é um ritual sob medida, unindo técnica apurada, produtos de excelência global e uma atmosfera intimista pensada para o seu bem-estar.
+            </p>
+
+            <div class="studio-details-grid gs-reveal">
+              <div class="detail-item">
+                <h4>Atendimento Singular</h4>
+                <p>Mapeamento visagista minucioso para respeitar e valorizar suas feições naturais.</p>
+              </div>
+              <div class="detail-item">
+                <h4>Atmosfera Boutique</h4>
+                <p>Privacidade, conforto absoluto e uma experiência sensorial incomparável.</p>
+              </div>
             </div>
+          </div>
+
         </div>
 
-        <div class="footer-bottom">
-            <div class="container footer-bottom-content">
-                <p>&copy; 2026 Fabi Neves Lash Studio. Todos os direitos reservados.</p>
-                <a href="#hero" class="back-to-top" id="back-to-top" aria-label="Voltar ao topo">
-                    <span>Voltar ao topo</span>
-                    <i data-lucide="arrow-up"></i>
-                </a>
-            </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         3. SERVIÇOS (MENU DE LUXO)
+         ========================================================================== -->
+    <section class="section-spacing" id="servicos" style="background-color: #0b0b0b;">
+      <div class="container">
+        
+        <div class="services-header gs-reveal">
+          <div>
+            <span class="sub-tag">Menu Exclusivo</span>
+            <h2 class="heading-section">Serviços</h2>
+          </div>
+          <p class="lead-text" style="max-width: 32ch; margin: 0;">
+            Procedimentos autorais com foco em naturalidade, simetria e durabilidade.
+          </p>
         </div>
-    </footer>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/5511990127604?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener" class="whatsapp-float" aria-label="Atendimento via WhatsApp">
-        <i data-lucide="message-circle"></i>
-        <span class="pulse-ring"></span>
-        <span class="tooltip">Fale Conosco no WhatsApp</span>
-    </a>
+        <div class="services-list" id="servicesList">
+          
+          <!-- 01 -->
+          <a href="#agendamento" class="service-row gs-reveal" data-preview="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=800&auto=format&fit=crop">
+            <span class="service-number">01</span>
+            <h3 class="service-title">Fio a Fio</h3>
+            <p class="service-description">Elegância clássica. Aplicação individual que alonga com máxima leveza e discrição.</p>
+            <span class="service-arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+            </span>
+          </a>
 
-    <!-- Scripts external -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="script.js"></script>
+          <!-- 02 -->
+          <a href="#agendamento" class="service-row gs-reveal" data-preview="https://images.unsplash.com/photo-1583001931096-959e9a1a6223?q=80&w=800&auto=format&fit=crop">
+            <span class="service-number">02</span>
+            <h3 class="service-title">Volume Brasileiro</h3>
+            <p class="service-description">Fios em formato Y para densidade uniforme, textura marcante e retenção superior.</p>
+            <span class="service-arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+            </span>
+          </a>
+
+          <!-- 03 -->
+          <a href="#agendamento" class="service-row gs-reveal" data-preview="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=800&auto=format&fit=crop">
+            <span class="service-number">03</span>
+            <h3 class="service-title">Volume Egípcio</h3>
+            <p class="service-description">Tridimensionalidade refinada (fios em W) criando um efeito delineador suave e envolvente.</p>
+            <span class="service-arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+            </span>
+          </a>
+
+          <!-- 04 -->
+          <a href="#agendamento" class="service-row gs-reveal" data-preview="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?q=80&w=800&auto=format&fit=crop">
+            <span class="service-number">04</span>
+            <h3 class="service-title">Lash Lifting</h3>
+            <p class="service-description">Curvatura, hidratação profunda e tingimento nos seus próprios cílios naturais.</p>
+            <span class="service-arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+            </span>
+          </a>
+
+          <!-- 05 -->
+          <a href="#agendamento" class="service-row gs-reveal" data-preview="https://images.unsplash.com/photo-1597225244660-1cd128c64284?q=80&w=800&auto=format&fit=crop">
+            <span class="service-number">05</span>
+            <h3 class="service-title">Design de Sobrancelhas</h3>
+            <p class="service-description">Alinhamento estruturado com visagismo para emoldurar o olhar em harmonia com sua face.</p>
+            <span class="service-arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+            </span>
+          </a>
+
+          <!-- 06 -->
+          <a href="#agendamento" class="service-row gs-reveal" data-preview="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=800&auto=format&fit=crop">
+            <span class="service-number">06</span>
+            <h3 class="service-title">Brow Lamination</h3>
+            <p class="service-description">Fios alinhados e encorpados, proporcionando volume contemporâneo e efeito editorial.</p>
+            <span class="service-arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+            </span>
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- Floating Dynamic Image Cursor Preview for Desktop -->
+      <div class="service-hover-preview" id="hoverPreview">
+        <img src="" alt="Prévia do Serviço" id="hoverPreviewImg">
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         4. RESULTADOS / THE BLESS EFFECT (EDITORIAL GALLERY)
+         ========================================================================== -->
+    <section class="section-spacing" id="resultados">
+      <div class="container">
+        
+        <div class="gallery-section-header gs-reveal">
+          <span class="sub-tag">Galeria Autoral</span>
+          <h2 class="heading-section">The Bless Effect</h2>
+          <p class="lead-text" style="margin: 1rem auto 0 auto;">
+            A simbiose entre técnica milimétrica e harmonia visual.
+          </p>
+        </div>
+
+        <!-- Asymmetric Editorial Gallery Grid -->
+        <div class="editorial-gallery">
+          
+          <div class="gallery-item tile-1 gs-reveal" data-full="https://images.unsplash.com/photo-1583001931096-959e9a1a6223?q=80&w=1600&auto=format&fit=crop" data-title="Volume Brasileiro Haute">
+            <img src="https://images.unsplash.com/photo-1583001931096-959e9a1a6223?q=80&w=1000&auto=format&fit=crop" alt="Resultado Volume Brasileiro" loading="lazy">
+            <div class="gallery-overlay">
+              <div class="gallery-meta">
+                <h4>Volume Brasileiro Haute</h4>
+                <p>Precisão & Textura</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item tile-2 gs-reveal" data-full="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=1600&auto=format&fit=crop" data-title="Fio a Fio Minimalista">
+            <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=1000&auto=format&fit=crop" alt="Resultado Fio a Fio" loading="lazy">
+            <div class="gallery-overlay">
+              <div class="gallery-meta">
+                <h4>Fio a Fio Silk</h4>
+                <p>Naturalidade Absoluta</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item tile-3 gs-reveal" data-full="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=1600&auto=format&fit=crop" data-title="Brow Lamination & Lash Lift">
+            <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=1000&auto=format&fit=crop" alt="Resultado Brow Lamination" loading="lazy">
+            <div class="gallery-overlay">
+              <div class="gallery-meta">
+                <h4>Brow Lamination Editorial</h4>
+                <p>Design de Sobrancelhas</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item tile-4 gs-reveal" data-full="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=1600&auto=format&fit=crop" data-title="Volume Egípcio Veludo">
+            <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=800&auto=format&fit=crop" alt="Resultado Volume Egípcio" loading="lazy">
+            <div class="gallery-overlay">
+              <div class="gallery-meta">
+                <h4>Volume Egípcio</h4>
+                <p>Efeito Delineador</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item tile-5 gs-reveal" data-full="https://images.unsplash.com/photo-1597225244660-1cd128c64284?q=80&w=1600&auto=format&fit=crop" data-title="Lash Lifting Signature">
+            <img src="https://images.unsplash.com/photo-1597225244660-1cd128c64284?q=80&w=800&auto=format&fit=crop" alt="Resultado Lash Lifting" loading="lazy">
+            <div class="gallery-overlay">
+              <div class="gallery-meta">
+                <h4>Lash Lifting Nutritivo</h4>
+                <p>Curvatura dos Fios</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item tile-6 gs-reveal" data-full="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?q=80&w=1600&auto=format&fit=crop" data-title="Sobrancelhas e Acabamento">
+            <img src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?q=80&w=800&auto=format&fit=crop" alt="Resultado Sobrancelhas" loading="lazy">
+            <div class="gallery-overlay">
+              <div class="gallery-meta">
+                <h4>Visagismo Facial</h4>
+                <p>Harmonização do Olhar</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         5. AGENDAMENTO
+         ========================================================================== -->
+    <section class="section-spacing booking-section" id="agendamento">
+      <div class="booking-ambient"></div>
+      
+      <div class="container booking-container">
+        <span class="sub-tag gs-reveal">Reserva de Horários</span>
+        
+        <h2 class="booking-title gs-reveal">
+          Seu momento<br>começa aqui.
+        </h2>
+
+        <p class="booking-subtitle gs-reveal">
+          Atendimento com hora marcada e número limitado de clientes por dia, garantindo exclusividade e precisão impecável.
+        </p>
+
+        <div class="booking-action gs-reveal">
+          <!-- Substitua o link pelo WhatsApp oficial da Bless -->
+          <a 
+            href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20agendar%20um%20horário%20na%20Bless%20Concept%20Lash." 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="btn btn-gold"
+          >
+            Agendar pelo WhatsApp
+          </a>
+          <span class="booking-note">Resposta personalizada em instantes</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       6. FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      
+      <div class="footer-top">
+        
+        <div class="footer-brand">
+          <a href="#hero" class="brand-logo">
+            <span class="logo-main">Bless</span>
+            <span class="logo-sub">Concept Lash</span>
+          </a>
+          <p class="footer-tagline">Minimalismo. Precisão. Desejo.</p>
+        </div>
+
+        <div class="footer-nav-col">
+          <h5>Navegação</h5>
+          <ul class="footer-links">
+            <li><a href="#studio">O Studio</a></li>
+            <li><a href="#servicos">Menu de Serviços</a></li>
+            <li><a href="#resultados">Resultados</a></li>
+            <li><a href="#agendamento">Agendamento</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <h5>Conecte-se</h5>
+          <ul class="footer-links">
+            <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            <li><a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer">WhatsApp Studio</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <h5>Localização</h5>
+          <ul class="footer-links">
+            <li><span>Studio Boutique</span></li>
+            <li><span>São Paulo — SP</span></li>
+            <li style="color: #6a6660; font-size: 0.8rem; margin-top: 0.25rem;">[ Endereço enviado na confirmação ]</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="currentYear"></span> BLESS CONCEPT LASH. Todos os direitos reservados.</p>
+        <p>Silent Luxury Beauty Experience.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       LIGHTBOX ELEMENT
+       ========================================================================== -->
+  <div class="lightbox" id="lightboxModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Fechar">&times;</button>
+    <div class="lightbox-content">
+      <img src="" alt="Trabalho Bless Concept Lash" class="lightbox-img" id="lightboxImg">
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       JAVASCRIPT: MICRO-INTERACTIONS, GSAP & LIGHTBOX
+       ========================================================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      // 1. Current Year in Footer
+      document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+      // 2. Header Scroll Blur Effect
+      const header = document.getElementById('header');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 40) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      }, { passive: true });
+
+      // 3. Mobile Menu Toggle
+      const mobileBtn = document.getElementById('mobileMenuBtn');
+      const mobileOverlay = document.getElementById('mobileOverlay');
+      const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+      function toggleMobileMenu() {
+        const isActive = mobileOverlay.classList.toggle('active');
+        mobileBtn.classList.toggle('active');
+        mobileBtn.setAttribute('aria-expanded', isActive);
+        document.body.style.overflow = isActive ? 'hidden' : '';
+      }
+
+      mobileBtn.addEventListener('click', toggleMobileMenu);
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          if (mobileOverlay.classList.contains('active')) toggleMobileMenu();
+        });
+      });
+
+      // 4. Floating Service Image Hover (Desktop Only)
+      const serviceRows = document.querySelectorAll('.service-row');
+      const hoverPreview = document.getElementById('hoverPreview');
+      const hoverPreviewImg = document.getElementById('hoverPreviewImg');
+
+      if (window.matchMedia('(min-width: 1025px)').matches) {
+        serviceRows.forEach(row => {
+          row.addEventListener('mouseenter', (e) => {
+            const imgSrc = row.getAttribute('data-preview');
+            if (imgSrc) {
+              hoverPreviewImg.src = imgSrc;
+              hoverPreview.style.opacity = '1';
+              hoverPreview.style.transform = 'translate(-50%, -50%) scale(1)';
+            }
+          });
+
+          row.addEventListener('mousemove', (e) => {
+            hoverPreview.style.top = `${e.clientY}px`;
+            hoverPreview.style.left = `${e.clientX + 160}px`;
+          });
+
+          row.addEventListener('mouseleave', () => {
+            hoverPreview.style.opacity = '0';
+            hoverPreview.style.transform = 'translate(-50%, -50%) scale(0.85)';
+          });
+        });
+      }
+
+      // 5. Gallery Lightbox Functionality
+      const galleryItems = document.querySelectorAll('.gallery-item');
+      const lightbox = document.getElementById('lightboxModal');
+      const lightboxImg = document.getElementById('lightboxImg');
+      const lightboxCaption = document.getElementById('lightboxCaption');
+      const lightboxClose = document.getElementById('lightboxClose');
+
+      galleryItems.forEach(item => {
+        item.addEventListener('click', () => {
+          const fullSrc = item.getAttribute('data-full');
+          const title = item.getAttribute('data-title') || '';
+          lightboxImg.src = fullSrc;
+          lightboxCaption.textContent = title;
+          lightbox.classList.add('active');
+          lightbox.setAttribute('aria-hidden', 'false');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      function closeLightbox() {
+        lightbox.classList.remove('active');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+
+      lightboxClose.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
+      });
+
+      // 6. GSAP & ScrollTrigger Refined Animations
+      if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero Parallax on Scroll
+        gsap.to('#heroBgImg', {
+          yPercent: 18,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '#hero',
+            start: 'top top',
+            end: 'bottom top',
+            scrub: true
+          }
+        });
+
+        // Staggered Fade & Slide In Reveals
+        const revealElements = document.querySelectorAll('.gs-reveal');
+        revealElements.forEach(el => {
+          gsap.fromTo(el, 
+            { 
+              opacity: 0, 
+              y: 35 
+            }, 
+            {
+              opacity: 1, 
+              y: 0, 
+              duration: 1.2, 
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: el,
+                start: 'top 88%',
+                toggleActions: 'play none none none'
+              }
+            }
+          );
+        });
+      }
+    });
+  </script>
 </body>
 </html>
