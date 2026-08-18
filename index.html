@@ -1,1690 +1,405 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BLESS CONCEPT LASH — Haute Esthétique & Studio</title>
-  <meta name="description" content="Studio boutique especializado na estética do olhar. Experiência singular, precisão e luxo silencioso.">
-
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23C6A15B'>B</text></svg>">
-
-  <!-- Tipografia: Cormorant Garamond (Editorial Serif) & Plus Jakarta Sans (Modern Clean Sans) -->
+  <title>Bless Concept Lash | Beleza que revela a sua essência</title>
+  
+  <!-- SEO & Meta Tags -->
+  <meta name="description" content="Um espaço exclusivo e minimalista dedicado à extensão de cílios e cuidados com o olhar em Cotia - SP.">
+  
+  <!-- Fontes Editoriais de Luxo (Google Fonts) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Plus+Jakarta+Sans:wght@200;300;400;500;600&display=swap" rel="stylesheet">
-
-  <!-- GSAP, ScrollTrigger & ScrollToPlugin -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js" defer></script>
-
-  <style>
-    /* ==========================================================================
-       DESIGN SYSTEM — QUIET LUXURY / DARK LUXURY
-       ========================================================================== */
-    :root {
-      --color-bg-primary: #080808;
-      --color-bg-secondary: #111111;
-      --color-bg-elevated: #181818;
-      --color-border: #242424;
-      --color-border-subtle: rgba(198, 161, 91, 0.18);
-      
-      --color-gold: #C6A15B;
-      --color-gold-light: #D8B873;
-      --color-alabaster: #F3EEE5;
-      --color-white: #FFFFFF;
-      --color-muted: #848079;
-
-      --font-serif: 'Cormorant Garamond', Georgia, serif;
-      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      
-      --transition-smooth: cubic-bezier(0.25, 1, 0.5, 1);
-      --header-height: 80px;
-    }
-
-    /* Reset & Base */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      background-color: var(--color-bg-primary);
-      color: var(--color-alabaster);
-      font-family: var(--font-sans);
-      font-size: 16px;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden;
-    }
-
-    ::selection {
-      background: var(--color-gold);
-      color: var(--color-bg-primary);
-    }
-
-    body {
-      background-color: var(--color-bg-primary);
-      color: var(--color-alabaster);
-      overflow-x: hidden;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-      transition: all 0.35s var(--transition-smooth);
-    }
-
-    button {
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-family: inherit;
-      color: inherit;
-    }
-
-    /* Utilitários Tipográficos */
-    .font-serif { font-family: var(--font-serif); }
-    .font-sans { font-family: var(--font-sans); }
-
-    .heading-display {
-      font-family: var(--font-serif);
-      font-size: clamp(2.8rem, 7.5vw, 6.8rem);
-      font-weight: 300;
-      line-height: 0.92;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
-
-    .heading-section {
-      font-family: var(--font-serif);
-      font-size: clamp(2.1rem, 4.5vw, 3.8rem);
-      font-weight: 300;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--color-alabaster);
-      line-height: 1.05;
-    }
-
-    .sub-tag {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.3em;
-      color: var(--color-gold);
-      display: inline-block;
-      margin-bottom: 1rem;
-      font-weight: 500;
-    }
-
-    .lead-text {
-      font-size: clamp(0.95rem, 1.15vw, 1.1rem);
-      font-weight: 300;
-      color: #A9A49C;
-      line-height: 1.8;
-      max-width: 52ch;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 1360px;
-      margin: 0 auto;
-      padding: 0 clamp(1.5rem, 4.5vw, 4rem);
-    }
-
-    .section-spacing {
-      padding-top: clamp(6rem, 12vh, 10rem);
-      padding-bottom: clamp(6rem, 12vh, 10rem);
-    }
-
-    /* ==========================================================================
-       BUTTONS & CTAs
-       ========================================================================== */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.6rem;
-      position: relative;
-      padding: 1.15rem 2.6rem;
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.24em;
-      font-weight: 500;
-      transition: all 0.4s var(--transition-smooth);
-      cursor: pointer;
-      white-space: nowrap;
-    }
-
-    .btn-primary {
-      background-color: var(--color-alabaster);
-      color: var(--color-bg-primary);
-      border: 1px solid var(--color-alabaster);
-    }
-
-    .btn-primary:hover {
-      background-color: var(--color-gold);
-      border-color: var(--color-gold);
-      color: var(--color-bg-primary);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(198, 161, 91, 0.15);
-    }
-
-    .btn-secondary {
-      background-color: transparent;
-      color: var(--color-alabaster);
-      border: 1px solid rgba(243, 238, 229, 0.22);
-    }
-
-    .btn-secondary:hover {
-      border-color: var(--color-gold);
-      color: var(--color-gold-light);
-      background-color: rgba(198, 161, 91, 0.04);
-      transform: translateY(-3px);
-    }
-
-    .btn-gold {
-      background-color: var(--color-gold);
-      color: #080808;
-      border: 1px solid var(--color-gold);
-      font-weight: 600;
-    }
-
-    .btn-gold:hover {
-      background-color: var(--color-gold-light);
-      border-color: var(--color-gold-light);
-      transform: translateY(-3px);
-      box-shadow: 0 12px 30px rgba(198, 161, 91, 0.22);
-    }
-
-    /* ==========================================================================
-       HEADER & NAVIGATION
-       ========================================================================== */
-    .site-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 100;
-      transition: all 0.4s var(--transition-smooth);
-      padding: 2rem 0;
-    }
-
-    .site-header.scrolled {
-      padding: 1.15rem 0;
-      background: rgba(8, 8, 8, 0.92);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .brand-logo {
-      display: flex;
-      flex-direction: column;
-      line-height: 1;
-    }
-
-    .brand-logo .logo-main {
-      font-family: var(--font-serif);
-      font-size: 1.45rem;
-      letter-spacing: 0.28em;
-      font-weight: 400;
-      color: var(--color-white);
-      text-transform: uppercase;
-    }
-
-    .brand-logo .logo-sub {
-      font-family: var(--font-sans);
-      font-size: 0.52rem;
-      letter-spacing: 0.42em;
-      color: var(--color-gold);
-      text-transform: uppercase;
-      margin-top: 0.25rem;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 3.2rem;
-      list-style: none;
-    }
-
-    .nav-link {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.24em;
-      color: #A39E96;
-      position: relative;
-      padding: 0.4rem 0;
-    }
-
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 1px;
-      background-color: var(--color-gold);
-      transition: width 0.35s var(--transition-smooth);
-    }
-
-    .nav-link:hover { color: var(--color-white); }
-    .nav-link:hover::after { width: 100%; }
-
-    .header-cta .btn {
-      padding: 0.65rem 1.45rem;
-      font-size: 0.68rem;
-    }
-
-    /* Mobile Toggle */
-    .mobile-toggle {
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-end;
-      width: 32px;
-      height: 32px;
-      gap: 6px;
-      z-index: 1001;
-    }
-
-    .mobile-toggle span {
-      display: block;
-      height: 1px;
-      background-color: var(--color-alabaster);
-      transition: all 0.35s ease;
-    }
-
-    .mobile-toggle span:nth-child(1) { width: 26px; }
-    .mobile-toggle span:nth-child(2) { width: 16px; }
-
-    .mobile-toggle.active span:nth-child(1) {
-      transform: translateY(3.5px) rotate(45deg);
-      width: 22px;
-    }
-
-    .mobile-toggle.active span:nth-child(2) {
-      transform: translateY(-3.5px) rotate(-45deg);
-      width: 22px;
-    }
-
-    /* Mobile Menu Fullscreen Overlay */
-    .mobile-menu-overlay {
-      position: fixed;
-      inset: 0;
-      background-color: #080808;
-      z-index: 999;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.4s var(--transition-smooth);
-      padding: 2rem;
-    }
-
-    .mobile-menu-overlay.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .mobile-menu-nav {
-      list-style: none;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      gap: 2.2rem;
-    }
-
-    .mobile-menu-nav a {
-      font-family: var(--font-serif);
-      font-size: 2.2rem;
-      font-weight: 300;
-      letter-spacing: 0.08em;
-      color: var(--color-alabaster);
-      text-transform: uppercase;
-    }
-
-    /* ==========================================================================
-       01 — HERO
-       ========================================================================== */
-    .hero-section {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding-top: var(--header-height);
-      overflow: hidden;
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-    }
-
-    .hero-bg img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 30%;
-      filter: brightness(0.58) contrast(1.1);
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at center, rgba(8,8,8,0.3) 0%, rgba(8,8,8,0.85) 85%, #080808 100%),
-                  linear-gradient(to top, #080808 0%, transparent 40%),
-                  linear-gradient(to bottom, rgba(8,8,8,0.6) 0%, transparent 25%);
-      z-index: 2;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 3;
-      text-align: center;
-      max-width: 900px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .hero-pretitle {
-      font-size: 0.72rem;
-      letter-spacing: 0.38em;
-      text-transform: uppercase;
-      color: var(--color-gold);
-      margin-bottom: 1.4rem;
-      font-weight: 500;
-    }
-
-    .hero-title {
-      color: var(--color-white);
-      margin-bottom: 1.4rem;
-    }
-
-    .hero-title span {
-      display: block;
-      font-style: italic;
-      font-weight: 300;
-      color: var(--color-gold-light);
-    }
-
-    .hero-subtitle {
-      font-family: var(--font-serif);
-      font-size: clamp(1.2rem, 2.2vw, 1.75rem);
-      font-weight: 300;
-      font-style: italic;
-      color: #D3CDC4;
-      margin-bottom: 2.8rem;
-      letter-spacing: 0.03em;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 1.2rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .scroll-indicator {
-      position: absolute;
-      bottom: 2.2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 3;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.45rem;
-      opacity: 0.6;
-      transition: opacity 0.3s;
-    }
-
-    .scroll-indicator:hover { opacity: 1; }
-    .scroll-indicator span {
-      font-size: 0.58rem;
-      letter-spacing: 0.32em;
-      text-transform: uppercase;
-      color: var(--color-muted);
-    }
-
-    .scroll-indicator .line {
-      width: 1px;
-      height: 35px;
-      background: linear-gradient(to bottom, var(--color-gold), transparent);
-    }
-
-    /* ==========================================================================
-       02 — A ESSÊNCIA (THE STUDIO)
-       ========================================================================== */
-    .studio-grid {
-      display: grid;
-      grid-template-columns: 1.05fr 1fr;
-      gap: clamp(3rem, 7vw, 8rem);
-      align-items: center;
-    }
-
-    .studio-visual {
-      position: relative;
-    }
-
-    .studio-img-main {
-      width: 86%;
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-      filter: grayscale(12%) contrast(1.05);
-      border: 1px solid var(--color-border);
-    }
-
-    .studio-img-sub {
-      position: absolute;
-      bottom: -10%;
-      right: 0;
-      width: 52%;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      border: 6px solid var(--color-bg-primary);
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.85);
-      filter: grayscale(8%);
-    }
-
-    .studio-quote {
-      font-family: var(--font-serif);
-      font-size: clamp(1.35rem, 2.3vw, 2.1rem);
-      font-weight: 300;
-      line-height: 1.35;
-      color: var(--color-alabaster);
-      margin: 1.25rem 0 1.8rem 0;
-    }
-
-    .studio-quote em {
-      font-style: italic;
-      color: var(--color-gold);
-    }
-
-    .studio-meta-tags {
-      display: flex;
-      gap: 2.5rem;
-      margin-top: 2.5rem;
-      padding-top: 2.2rem;
-      border-top: 1px solid var(--color-border);
-    }
-
-    .meta-tag-item h4 {
-      font-size: 0.72rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--color-gold);
-      margin-bottom: 0.35rem;
-      font-weight: 500;
-    }
-
-    .meta-tag-item p {
-      font-size: 0.85rem;
-      color: #9E9991;
-      line-height: 1.5;
-    }
-
-    /* ==========================================================================
-       03 — SERVIÇOS (MENU MAISON DE LUXO)
-       ========================================================================== */
-    .services-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: 4rem;
-      border-bottom: 1px solid var(--color-border);
-      padding-bottom: 2rem;
-    }
-
-    .services-list {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .service-row {
-      display: grid;
-      grid-template-columns: 75px 1.4fr 2fr 40px;
-      align-items: center;
-      padding: 2.2rem 0;
-      border-bottom: 1px solid var(--color-border);
-      position: relative;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background-color 0.3s ease, padding 0.3s var(--transition-smooth);
-    }
-
-    .service-row::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -1px;
-      width: 0;
-      height: 1px;
-      background-color: var(--color-gold);
-      transition: width 0.45s var(--transition-smooth);
-      z-index: 2;
-    }
-
-    .service-number {
-      font-family: var(--font-serif);
-      font-size: 1.15rem;
-      color: var(--color-gold);
-      letter-spacing: 0.1em;
-    }
-
-    .service-title {
-      font-family: var(--font-serif);
-      font-size: clamp(1.35rem, 2.2vw, 1.95rem);
-      font-weight: 300;
-      letter-spacing: 0.04em;
-      color: var(--color-alabaster);
-      text-transform: uppercase;
-      transition: transform 0.35s var(--transition-smooth), color 0.3s ease;
-    }
-
-    .service-description {
-      font-size: 0.88rem;
-      color: #8C877F;
-      font-weight: 300;
-      padding-right: 2rem;
-      transition: color 0.3s ease;
-    }
-
-    .service-arrow {
-      color: var(--color-muted);
-      display: flex;
-      justify-content: flex-end;
-      transition: transform 0.35s var(--transition-smooth), color 0.3s;
-    }
-
-    .service-arrow svg {
-      width: 20px;
-      height: 20px;
-      stroke-width: 1.5;
-    }
-
-    /* Hover State */
-    .service-row:hover {
-      background-color: rgba(255, 255, 255, 0.015);
-      padding-left: 1.25rem;
-      padding-right: 1.25rem;
-    }
-
-    .service-row:hover::before { width: 100%; }
-    .service-row:hover .service-title {
-      color: var(--color-white);
-      transform: translateX(6px);
-    }
-    .service-row:hover .service-description { color: #D1CBC0; }
-    .service-row:hover .service-arrow {
-      color: var(--color-gold);
-      transform: translateX(5px);
-    }
-
-    /* Floating Image Preview (Non-blocking desktop hover) */
-    .service-hover-preview {
-      position: fixed;
-      pointer-events: none;
-      width: 220px;
-      height: 280px;
-      top: 0;
-      left: 0;
-      z-index: 90;
-      overflow: hidden;
-      opacity: 0;
-      transform: scale(0.9);
-      transition: opacity 0.25s ease, transform 0.25s ease;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95);
-      border: 1px solid var(--color-border-subtle);
-      background-color: #111;
-    }
-
-    .service-hover-preview img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* ==========================================================================
-       04 — THE BLESS EFFECT (EDITORIAL GALLERY)
-       ========================================================================== */
-    .gallery-section-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-
-    /* Filtros discretos */
-    .gallery-filter-nav {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-top: 1.8rem;
-      list-style: none;
-      flex-wrap: wrap;
-    }
-
-    .filter-btn {
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--color-muted);
-      padding: 0.35rem 0.8rem;
-      border-bottom: 1px solid transparent;
-      transition: all 0.3s;
-    }
-
-    .filter-btn.active, .filter-btn:hover {
-      color: var(--color-gold);
-      border-color: var(--color-gold);
-    }
-
-    /* Asymmetric Editorial Magazine Grid */
-    .editorial-gallery {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 1.6rem;
-      margin-top: 2.5rem;
-    }
-
-    .gallery-item {
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-      background-color: var(--color-bg-elevated);
-      border: 1px solid var(--color-border);
-      transition: opacity 0.4s ease, transform 0.4s ease;
-    }
-
-    .gallery-item.hidden {
-      display: none;
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.7s var(--transition-smooth), filter 0.7s ease;
-      filter: brightness(0.85) contrast(1.05);
-    }
-
-    .gallery-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(8, 8, 8, 0.85) 0%, transparent 60%);
-      opacity: 0;
-      display: flex;
-      align-items: flex-end;
-      padding: 1.6rem;
-      transition: opacity 0.35s ease;
-    }
-
-    .gallery-meta h4 {
-      font-family: var(--font-serif);
-      font-size: 1.2rem;
-      font-weight: 300;
-      color: var(--color-white);
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      margin-bottom: 0.2rem;
-      transform: translateY(8px);
-      transition: transform 0.35s var(--transition-smooth);
-    }
-
-    .gallery-meta p {
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--color-gold);
-      transform: translateY(8px);
-      transition: transform 0.35s var(--transition-smooth) 0.05s;
-    }
-
-    .gallery-item:hover img {
-      transform: scale(1.05);
-      filter: brightness(0.95);
-    }
-
-    .gallery-item:hover .gallery-overlay { opacity: 1; }
-    .gallery-item:hover .gallery-meta h4,
-    .gallery-item:hover .gallery-meta p {
-      transform: translateY(0);
-    }
-
-    /* Magazine Asymmetric Proportions */
-    .tile-large-1 { grid-column: span 7; aspect-ratio: 16/11; }
-    .tile-medium-1 { grid-column: span 5; aspect-ratio: 16/11; }
-    .tile-portrait-1 { grid-column: span 4; aspect-ratio: 4/5; }
-    .tile-portrait-2 { grid-column: span 4; aspect-ratio: 4/5; }
-    .tile-portrait-3 { grid-column: span 4; aspect-ratio: 4/5; }
-
-    /* ==========================================================================
-       05 — AGENDAMENTO
-       ========================================================================== */
-    .booking-section {
-      background-color: var(--color-bg-primary);
-      border-top: 1px solid var(--color-border);
-      position: relative;
-      overflow: hidden;
-      text-align: center;
-    }
-
-    .booking-ambient {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 700px;
-      height: 700px;
-      background: radial-gradient(circle, rgba(198, 161, 91, 0.07) 0%, transparent 65%);
-      pointer-events: none;
-    }
-
-    .booking-container {
-      position: relative;
-      z-index: 2;
-      max-width: 820px;
-      margin: 0 auto;
-    }
-
-    .selected-service-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.4rem 1.2rem;
-      background-color: rgba(198, 161, 91, 0.08);
-      border: 1px solid var(--color-border-subtle);
-      font-size: 0.72rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--color-gold-light);
-      margin-bottom: 1.5rem;
-      opacity: 0;
-      transform: translateY(-8px);
-      transition: all 0.4s ease;
-    }
-
-    .selected-service-badge.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .booking-title {
-      font-family: var(--font-serif);
-      font-size: clamp(2.4rem, 5.2vw, 4.4rem);
-      font-weight: 300;
-      letter-spacing: 0.04em;
-      line-height: 1.08;
-      margin-bottom: 1.4rem;
-      color: var(--color-white);
-    }
-
-    .booking-subtitle {
-      font-size: clamp(0.95rem, 1.2vw, 1.125rem);
-      color: #9E9991;
-      font-weight: 300;
-      line-height: 1.7;
-      margin-bottom: 3rem;
-      max-width: 48ch;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .booking-action {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1.2rem;
-    }
-
-    .booking-note {
-      font-size: 0.7rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--color-muted);
-    }
-
-    /* ==========================================================================
-       06 — FOOTER
-       ========================================================================== */
-    .site-footer {
-      padding: 5rem 0 3rem 0;
-      background-color: #060606;
-      border-top: 1px solid var(--color-border);
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 4rem;
-      gap: 3rem;
-      flex-wrap: wrap;
-    }
-
-    .footer-brand .brand-logo .logo-main {
-      font-size: 1.6rem;
-    }
-
-    .footer-tagline {
-      font-family: var(--font-serif);
-      font-style: italic;
-      font-size: 1rem;
-      color: #7A766F;
-      margin-top: 0.6rem;
-    }
-
-    .footer-nav {
-      display: flex;
-      gap: 3.5rem;
-      flex-wrap: wrap;
-    }
-
-    .footer-nav-col h5 {
-      font-size: 0.7rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--color-gold);
-      margin-bottom: 1.25rem;
-      font-weight: 500;
-    }
-
-    .footer-links {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .footer-links a, .footer-links span {
-      font-size: 0.85rem;
-      color: #99948D;
-      transition: color 0.3s;
-    }
-
-    .footer-links a:hover {
-      color: var(--color-white);
-    }
-
-    .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 2.2rem;
-      border-top: 1px solid var(--color-border);
-      font-size: 0.72rem;
-      color: #5C5852;
-      letter-spacing: 0.05em;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    /* ==========================================================================
-       LIGHTBOX MODAL
-       ========================================================================== */
-    .lightbox {
-      position: fixed;
-      inset: 0;
-      background: rgba(8, 8, 8, 0.96);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      z-index: 2000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.35s var(--transition-smooth);
-      padding: 2rem;
-    }
-
-    .lightbox.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .lightbox-content {
-      max-width: 90vw;
-      max-height: 85vh;
-      position: relative;
-      transform: scale(0.95);
-      transition: transform 0.35s var(--transition-smooth);
-    }
-
-    .lightbox.active .lightbox-content { transform: scale(1); }
-
-    .lightbox-img {
-      max-width: 100%;
-      max-height: 80vh;
-      object-fit: contain;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.95);
-      border: 1px solid var(--color-border);
-    }
-
-    .lightbox-caption {
-      margin-top: 1rem;
-      text-align: center;
-      font-family: var(--font-serif);
-      font-size: 1.15rem;
-      letter-spacing: 0.06em;
-      color: var(--color-alabaster);
-    }
-
-    .lightbox-close {
-      position: absolute;
-      top: 2rem;
-      right: 2rem;
-      font-size: 1.5rem;
-      color: var(--color-alabaster);
-      width: 44px;
-      height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid var(--color-border);
-      border-radius: 50%;
-      transition: all 0.3s;
-    }
-
-    .lightbox-close:hover {
-      border-color: var(--color-gold);
-      color: var(--color-gold);
-      transform: rotate(90deg);
-    }
-
-    /* ==========================================================================
-       RESPONSIVIDADE (320px -> 1920px+)
-       ========================================================================== */
-    @media (max-width: 1024px) {
-      .studio-grid {
-        grid-template-columns: 1fr;
-        gap: 4rem;
-      }
-      .studio-visual {
-        max-width: 480px;
-        margin: 0 auto;
-      }
-      .service-row {
-        grid-template-columns: 55px 1.3fr 1.8fr 30px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .nav-links, .header-cta { display: none; }
-      .mobile-toggle { display: flex; }
-
-      .service-row {
-        grid-template-columns: 40px 1fr 30px;
-        gap: 0.5rem;
-        padding: 1.6rem 0;
-      }
-
-      .service-description {
-        grid-column: 2 / 3;
-        padding-right: 0;
-        margin-top: 0.3rem;
-      }
-
-      .editorial-gallery {
-        grid-template-columns: 1fr;
-      }
-
-      .tile-large-1, .tile-medium-1, .tile-portrait-1, .tile-portrait-2, .tile-portrait-3 {
-        grid-column: span 1;
-        aspect-ratio: 4 / 5;
-      }
-
-      .footer-inner {
-        flex-direction: column;
-        gap: 2.5rem;
-      }
-
-      .footer-nav {
-        flex-direction: column;
-        gap: 2rem;
-      }
-
-      .footer-bottom {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .services-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-      }
-
-      .hero-actions {
-        width: 100%;
-        max-width: 320px;
-      }
-
-      .hero-actions .btn {
-        width: 100%;
-      }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Ícones SVG Feather / Lucide via CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Folha de Estilos -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- ==========================================================================
-       HEADER (MINIMALISTA & BLUR ON SCROLL)
-       ========================================================================== -->
+  <!-- ==============================================
+       1. HEADER
+  =============================================== -->
   <header class="site-header" id="header">
-    <div class="container header-inner">
-      <a href="#hero" class="brand-logo smooth-link" aria-label="Bless Concept Lash Home">
-        <span class="logo-main">Bless</span>
-        <span class="logo-sub">Concept Lash</span>
+    <div class="container header-container">
+      <a href="#inicio" class="logo">
+        <span class="logo-bless">BLESS</span>
+        <span class="logo-sub">CONCEPT LASH</span>
       </a>
 
-      <nav aria-label="Navegação Principal">
+      <!-- Menu Desktop -->
+      <nav class="nav-desktop">
         <ul class="nav-links">
-          <li><a href="#studio" class="nav-link smooth-link">Studio</a></li>
-          <li><a href="#servicos" class="nav-link smooth-link">Serviços</a></li>
-          <li><a href="#resultados" class="nav-link smooth-link">Resultados</a></li>
-          <li><a href="#agendamento" class="nav-link smooth-link">Contato</a></li>
+          <li><a href="#inicio" class="nav-link">INÍCIO</a></li>
+          <li><a href="#sobre" class="nav-link">SOBRE</a></li>
+          <li><a href="#servicos" class="nav-link">SERVIÇOS</a></li>
+          <li><a href="#localizacao" class="nav-link">LOCALIZAÇÃO</a></li>
+          <li><a href="#contato" class="nav-link">CONTATO</a></li>
         </ul>
       </nav>
 
-      <div class="header-cta">
-        <a href="#agendamento" class="btn btn-secondary smooth-link">Agendar</a>
+      <div class="header-actions">
+        <button type="button" class="btn btn-outline-gold header-btn js-whatsapp-trigger" data-service="Geral">
+          AGENDAR
+        </button>
+        
+        <!-- Hambúrguer Mobile -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menu">
+          <span></span>
+          <span></span>
+        </button>
       </div>
+    </div>
 
-      <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Abrir Menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-      </button>
+    <!-- Menu Mobile Overlay -->
+    <div class="mobile-nav" id="mobileNav">
+      <ul class="mobile-nav-links">
+        <li><a href="#inicio" class="mobile-link">INÍCIO</a></li>
+        <li><a href="#sobre" class="mobile-link">SOBRE</a></li>
+        <li><a href="#servicos" class="mobile-link">SERVIÇOS</a></li>
+        <li><a href="#localizacao" class="mobile-link">LOCALIZAÇÃO</a></li>
+        <li><a href="#contato" class="mobile-link">CONTATO</a></li>
+      </ul>
+      <div class="mobile-nav-footer">
+        <button class="btn btn-gold w-full js-whatsapp-trigger" data-service="Geral">
+          AGENDAR HORÁRIO
+        </button>
+      </div>
     </div>
   </header>
 
-  <!-- Menu Mobile Fullscreen -->
-  <div class="mobile-menu-overlay" id="mobileOverlay">
-    <ul class="mobile-menu-nav">
-      <li><a href="#studio" class="mobile-nav-link smooth-link">Studio</a></li>
-      <li><a href="#servicos" class="mobile-nav-link smooth-link">Serviços</a></li>
-      <li><a href="#resultados" class="mobile-nav-link smooth-link">Resultados</a></li>
-      <li><a href="#agendamento" class="mobile-nav-link smooth-link">Contato</a></li>
-    </ul>
-    <div style="margin-top: 3rem;">
-      <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20agendar%20um%20horário%20na%20Bless%20Concept%20Lash." target="_blank" rel="noopener noreferrer" class="btn btn-gold">
-        Agendar pelo WhatsApp
-      </a>
+  <!-- ==============================================
+       2. HERO
+  =============================================== -->
+  <section id="inicio" class="hero-section">
+    <div class="hero-bg-overlay"></div>
+    <div class="container hero-container">
+      <div class="hero-content reveal">
+        <span class="eyebrow">BLESS CONCEPT LASH</span>
+        <h1 class="hero-title">Beleza que revela<br><em>a sua essência.</em></h1>
+        <p class="hero-desc">
+          Um espaço dedicado à beleza, ao cuidado e à expressão da sua identidade.
+        </p>
+        <div class="hero-actions">
+          <a href="#servicos" class="btn btn-gold">CONHECER SERVIÇOS</a>
+          <button type="button" class="btn btn-subtle js-whatsapp-trigger" data-service="Geral">
+            AGENDAR HORÁRIO
+          </button>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <main>
-    <!-- ==========================================================================
-         01 — HERO
-         ========================================================================== -->
-    <section class="hero-section" id="hero">
-      <div class="hero-bg">
-        <img 
-          src="https://images.unsplash.com/photo-1583001931096-959e9a1a6223?q=80&w=2000&auto=format&fit=crop" 
-          alt="Bless Concept Lash Editorial" 
-          id="heroBgImg"
-          loading="eager"
-        >
-      </div>
-      <div class="hero-overlay"></div>
-
-      <div class="container hero-content">
-        <span class="hero-pretitle gs-reveal">Haute Esthétique</span>
-        
-        <h1 class="heading-display hero-title gs-reveal">
-          Bless<br>
-          <span>Concept Lash</span>
-        </h1>
-
-        <p class="hero-subtitle gs-reveal">
-          "Uma nova expressão de beleza."
-        </p>
-
-        <div class="hero-actions gs-reveal">
-          <a href="#agendamento" class="btn btn-primary smooth-link">Agendar Horário</a>
-          <a href="#studio" class="btn btn-secondary smooth-link">Conhecer o Studio</a>
-        </div>
-      </div>
-
-      <a href="#studio" class="scroll-indicator smooth-link" aria-label="Rolar para baixo">
-        <span>Scroll</span>
-        <div class="line"></div>
-      </a>
-    </section>
-
-    <!-- ==========================================================================
-         02 — A ESSÊNCIA / THE STUDIO
-         ========================================================================== -->
-    <section class="section-spacing" id="studio">
-      <div class="container">
-        <div class="studio-grid">
-          
-          <div class="studio-visual gs-reveal">
-            <img 
-              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop" 
-              alt="Ambiente Bless Studio" 
-              class="studio-img-main"
-              loading="lazy"
-            >
-            <img 
-              src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=800&auto=format&fit=crop" 
-              alt="Detalhes de Precisão" 
-              class="studio-img-sub"
-              loading="lazy"
-            >
-          </div>
-
-          <div class="studio-text-col">
-            <span class="sub-tag gs-reveal">A Essência</span>
-            <h2 class="heading-section gs-reveal">The Studio</h2>
-
-            <p class="studio-quote gs-reveal">
-              Um espaço criado para transformar o cuidado com a beleza em uma experiência <em>pessoal, sofisticada e única</em>.
-            </p>
-
-            <p class="lead-text gs-reveal">
-              Criamos a Bless Concept Lash para quem valoriza a estética autoral e o luxo silencioso. Unimos técnica milimétrica, materiais de referência global e uma atmosfera intimista para o seu conforto pleno.
-            </p>
-
-            <div class="studio-meta-tags gs-reveal">
-              <div class="meta-tag-item">
-                <h4>Private Studio</h4>
-                <p>Atendimento exclusivo com privacidade absoluta.</p>
-              </div>
-              <div class="meta-tag-item">
-                <h4>Personalized Experience</h4>
-                <p>Mapeamento visagista autoral para cada olhar.</p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         03 — SERVIÇOS (MENU EDITORIAL)
-         ========================================================================== -->
-    <section class="section-spacing" id="servicos" style="background-color: #0b0b0b;">
-      <div class="container">
-        
-        <div class="services-header gs-reveal">
-          <div>
-            <span class="sub-tag">Menu Exclusivo</span>
-            <h2 class="heading-section">Serviços</h2>
-          </div>
-          <p class="lead-text" style="max-width: 32ch; margin: 0;">
-            Procedimentos autorais com foco em simetria, leveza e durabilidade.
-          </p>
-        </div>
-
-        <div class="services-list" id="servicesList">
-          
-          <!-- 01 -->
-          <a href="#agendamento" class="service-row gs-reveal service-item" data-service-name="Fio a Fio" data-preview="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=800&auto=format&fit=crop">
-            <span class="service-number">01</span>
-            <h3 class="service-title">Fio a Fio</h3>
-            <p class="service-description">Elegância clássica. Aplicação individual que alonga com leveza e discrição natural.</p>
-            <span class="service-arrow">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-            </span>
-          </a>
-
-          <!-- 02 -->
-          <a href="#agendamento" class="service-row gs-reveal service-item" data-service-name="Volume Brasileiro" data-preview="https://images.unsplash.com/photo-1583001931096-959e9a1a6223?q=80&w=800&auto=format&fit=crop">
-            <span class="service-number">02</span>
-            <h3 class="service-title">Volume Brasileiro</h3>
-            <p class="service-description">Fios em formato Y para densidade uniforme, textura marcante e retenção superior.</p>
-            <span class="service-arrow">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-            </span>
-          </a>
-
-          <!-- 03 -->
-          <a href="#agendamento" class="service-row gs-reveal service-item" data-service-name="Volume Egípcio" data-preview="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=800&auto=format&fit=crop">
-            <span class="service-number">03</span>
-            <h3 class="service-title">Volume Egípcio</h3>
-            <p class="service-description">Tridimensionalidade refinada (fios em W) criando um efeito delineador suave e envolvente.</p>
-            <span class="service-arrow">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-            </span>
-          </a>
-
-          <!-- 04 -->
-          <a href="#agendamento" class="service-row gs-reveal service-item" data-service-name="Lash Lifting" data-preview="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?q=80&w=800&auto=format&fit=crop">
-            <span class="service-number">04</span>
-            <h3 class="service-title">Lash Lifting</h3>
-            <p class="service-description">Curvatura, hidratação profunda e tingimento aplicados aos seus próprios cílios naturais.</p>
-            <span class="service-arrow">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-            </span>
-          </a>
-
-          <!-- 05 -->
-          <a href="#agendamento" class="service-row gs-reveal service-item" data-service-name="Design de Sobrancelhas" data-preview="https://images.unsplash.com/photo-1597225244660-1cd128c64284?q=80&w=800&auto=format&fit=crop">
-            <span class="service-number">05</span>
-            <h3 class="service-title">Design de Sobrancelhas</h3>
-            <p class="service-description">Alinhamento estruturado com visagismo para emoldurar o olhar em harmonia com sua face.</p>
-            <span class="service-arrow">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-            </span>
-          </a>
-
-          <!-- 06 -->
-          <a href="#agendamento" class="service-row gs-reveal service-item" data-service-name="Brow Lamination" data-preview="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=800&auto=format&fit=crop">
-            <span class="service-number">06</span>
-            <h3 class="service-title">Brow Lamination</h3>
-            <p class="service-description">Fios alinhados e encorpados, proporcionando volume contemporâneo e efeito editorial.</p>
-            <span class="service-arrow">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-            </span>
-          </a>
-
-        </div>
-      </div>
-
-      <!-- Floating Hover Preview (Desktop only) -->
-      <div class="service-hover-preview" id="hoverPreview">
-        <img src="" alt="Prévia do Procedimento" id="hoverPreviewImg">
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         04 — THE BLESS EFFECT (EDITORIAL GALLERY)
-         ========================================================================== -->
-    <section class="section-spacing" id="resultados">
-      <div class="container">
-        
-        <div class="gallery-section-header gs-reveal">
-          <span class="sub-tag">The Bless Effect</span>
-          <h2 class="heading-section">Resultados</h2>
-          <p class="lead-text" style="margin: 0.8rem auto 0 auto;">
-            "Detalhes que transformam o olhar."
-          </p>
-
-          <!-- Filtros Discretos -->
-          <ul class="gallery-filter-nav">
-            <li><button class="filter-btn active" data-filter="all">Todos</button></li>
-            <li><button class="filter-btn" data-filter="extensoes">Extensões</button></li>
-            <li><button class="filter-btn" data-filter="lashlift">Lash Lift</button></li>
-            <li><button class="filter-btn" data-filter="sobrancelhas">Sobrancelhas</button></li>
-          </ul>
-        </div>
-
-        <div class="editorial-gallery" id="galleryGrid">
-          
-          <div class="gallery-item tile-large-1 gs-reveal" data-category="extensoes" data-full="https://images.unsplash.com/photo-1583001931096-959e9a1a6223?q=80&w=1600&auto=format&fit=crop" data-title="Volume Brasileiro Haute">
-            <img src="https://images.unsplash.com/photo-1583001931096-959e9a1a6223?q=80&w=1200&auto=format&fit=crop" alt="Volume Brasileiro" loading="lazy">
-            <div class="gallery-overlay">
-              <div class="gallery-meta">
-                <h4>Volume Brasileiro Haute</h4>
-                <p>Precisão & Textura</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-item tile-medium-1 gs-reveal" data-category="extensoes" data-full="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=1600&auto=format&fit=crop" data-title="Fio a Fio Silk">
-            <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=1000&auto=format&fit=crop" alt="Fio a Fio Silk" loading="lazy">
-            <div class="gallery-overlay">
-              <div class="gallery-meta">
-                <h4>Fio a Fio Silk</h4>
-                <p>Naturalidade Absoluta</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-item tile-portrait-1 gs-reveal" data-category="sobrancelhas" data-full="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=1600&auto=format&fit=crop" data-title="Brow Lamination Editorial">
-            <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=800&auto=format&fit=crop" alt="Brow Lamination" loading="lazy">
-            <div class="gallery-overlay">
-              <div class="gallery-meta">
-                <h4>Brow Lamination Editorial</h4>
-                <p>Design de Sobrancelhas</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-item tile-portrait-2 gs-reveal" data-category="extensoes" data-full="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=1600&auto=format&fit=crop" data-title="Volume Egípcio Veludo">
-            <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=800&auto=format&fit=crop" alt="Volume Egípcio" loading="lazy">
-            <div class="gallery-overlay">
-              <div class="gallery-meta">
-                <h4>Volume Egípcio</h4>
-                <p>Efeito Delineador</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-item tile-portrait-3 gs-reveal" data-category="lashlift" data-full="https://images.unsplash.com/photo-1597225244660-1cd128c64284?q=80&w=1600&auto=format&fit=crop" data-title="Lash Lifting Nutritivo">
-            <img src="https://images.unsplash.com/photo-1597225244660-1cd128c64284?q=80&w=800&auto=format&fit=crop" alt="Lash Lifting" loading="lazy">
-            <div class="gallery-overlay">
-              <div class="gallery-meta">
-                <h4>Lash Lifting Nutritivo</h4>
-                <p>Curvatura dos Fios</p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         05 — AGENDAMENTO
-         ========================================================================== -->
-    <section class="section-spacing booking-section" id="agendamento">
-      <div class="booking-ambient"></div>
+  <!-- ==============================================
+       3. ESSÊNCIA / SOBRE
+  =============================================== -->
+  <section id="sobre" class="essence-section">
+    <div class="container essence-container">
       
-      <div class="container booking-container">
-        
-        <!-- Tag ativada ao clicar em um serviço específico -->
-        <div class="selected-service-badge" id="selectedServiceBadge">
-          <span>Serviço Selecionado:</span>
-          <strong id="selectedServiceName" style="color: var(--color-white);"></strong>
+      <!-- Composição Editorial de Imagens -->
+      <div class="essence-gallery reveal">
+        <div class="image-wrapper main-img">
+          <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=900&q=80" alt="Espaço Bless Concept Lash" loading="lazy">
         </div>
-
-        <span class="sub-tag gs-reveal">Reserva de Horários</span>
-        
-        <h2 class="booking-title gs-reveal">
-          Your Time.<br>Your Moment.
-        </h2>
-
-        <p class="booking-subtitle gs-reveal">
-          Atendimento personalizado com hora marcada em nosso studio boutique.
-        </p>
-
-        <div class="booking-action gs-reveal">
-          <a 
-            id="whatsappBookingBtn"
-            href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20agendar%20um%20horário%20na%20Bless%20Concept%20Lash." 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            class="btn btn-gold"
-          >
-            Agendar pelo WhatsApp
-          </a>
-          <span class="booking-note">Atendimento exclusivo com hora marcada</span>
+        <div class="image-wrapper secondary-img">
+          <img src="https://images.unsplash.com/photo-1588516903720-8ceb67f9ef84?auto=format&fit=crop&w=600&q=80" alt="Detalhe do olhar e procedimento" loading="lazy">
         </div>
       </div>
-    </section>
-  </main>
 
-  <!-- ==========================================================================
-       06 — FOOTER (MINIMALISTA)
-       ========================================================================== -->
-  <footer class="site-footer">
+      <!-- Texto Institucional -->
+      <div class="essence-text reveal">
+        <span class="eyebrow">CONCEITO EXCLUSIVO</span>
+        <h2 class="section-title">A ESSÊNCIA</h2>
+        <div class="essence-body">
+          <p>
+            A Bless Concept Lash nasce do desejo de proporcionar uma experiência onde técnica de excelência e sensibilidade se encontram.
+          </p>
+          <p>
+            Agora em nosso próprio espaço, criamos um refúgio acolhedor, minimalista e sofisticado, pensado para que cada procedimento seja um ritual de valorização da sua beleza natural e autenticidade.
+          </p>
+        </div>
+        <div class="essence-badge">
+          <span class="gold-line"></span>
+          <span class="badge-text">Atendimento personalizado & exclusivo</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==============================================
+       4. SERVIÇOS
+  =============================================== -->
+  <section id="servicos" class="services-section">
     <div class="container">
-      
-      <div class="footer-inner">
+      <div class="section-header reveal">
+        <span class="eyebrow">MENU DE PROCEDIMENTOS</span>
+        <h2 class="section-title">SERVIÇOS SELECIONADOS</h2>
+        <p class="section-sub">Técnicas personalizadas para harmonizar e destacar o seu olhar com máxima elegância.</p>
+      </div>
+
+      <!-- Lista Editorial de Procedimentos -->
+      <div class="services-list reveal">
         
-        <div class="footer-brand">
-          <a href="#hero" class="brand-logo smooth-link">
-            <span class="logo-main">Bless</span>
-            <span class="logo-sub">Concept Lash</span>
+        <!-- 01 -->
+        <article class="service-item" 
+                 data-id="01" 
+                 data-name="Fio a Fio" 
+                 data-desc="Técnica clássica e atemporal para um resultado elegante, definido e natural. Proporciona leveza e destaque sob medida para o seu olhar.">
+          <div class="service-meta">
+            <span class="service-number">01</span>
+            <div class="service-info">
+              <h3 class="service-title">FIO A FIO</h3>
+              <p class="service-short-desc">Elegância clássica com acabamento sutil e natural.</p>
+            </div>
+          </div>
+          <button type="button" class="btn-service-action">
+            VER PROCEDIMENTO <i data-lucide="arrow-up-right"></i>
+          </button>
+        </article>
+
+        <!-- 02 -->
+        <article class="service-item" 
+                 data-id="02" 
+                 data-name="Volume Brasileiro" 
+                 data-desc="Desenvolvido com fios em formato Y, entrega um volume marcante, delicado e com retenção superior. Perfeito para quem busca densidade com sofisticação.">
+          <div class="service-meta">
+            <span class="service-number">02</span>
+            <div class="service-info">
+              <h3 class="service-title">VOLUME BRASILEIRO</h3>
+              <p class="service-short-desc">Densidade elegante com fios leves em formato Y.</p>
+            </div>
+          </div>
+          <button type="button" class="btn-service-action">
+            VER PROCEDIMENTO <i data-lucide="arrow-up-right"></i>
+          </button>
+        </article>
+
+        <!-- 03 -->
+        <article class="service-item" 
+                 data-id="03" 
+                 data-name="Volume Egípcio" 
+                 data-desc="Aplicação com fios tecnológicos em W que criam um efeito encorpado, visualmente sofisticado e com acabamento impecável.">
+          <div class="service-meta">
+            <span class="service-number">03</span>
+            <div class="service-info">
+              <h3 class="service-title">VOLUME EGÍPCIO</h3>
+              <p class="service-short-desc">Efeito visual encorpado, simétrico e expressivo.</p>
+            </div>
+          </div>
+          <button type="button" class="btn-service-action">
+            VER PROCEDIMENTO <i data-lucide="arrow-up-right"></i>
+          </button>
+        </article>
+
+        <!-- 04 -->
+        <article class="service-item" 
+                 data-id="04" 
+                 data-name="Lash Lifting" 
+                 data-desc="Tratamento que curva, nutre e alinha os seus cílios naturais, proporcionando efeito de rímel duradouro sem a necessidade de extensões.">
+          <div class="service-meta">
+            <span class="service-number">04</span>
+            <div class="service-info">
+              <h3 class="service-title">LASH LIFTING</h3>
+              <p class="service-short-desc">Curvatura, hidratação e realce dos cílios naturais.</p>
+            </div>
+          </div>
+          <button type="button" class="btn-service-action">
+            VER PROCEDIMENTO <i data-lucide="arrow-up-right"></i>
+          </button>
+        </article>
+
+        <!-- 05 -->
+        <article class="service-item" 
+                 data-id="05" 
+                 data-name="Design de Sobrancelhas" 
+                 data-desc="Harmonização geométrica e visagista das sobrancelhas, respeitando a estrutura óssea facial para emoldurar o olhar com equilíbrio.">
+          <div class="service-meta">
+            <span class="service-number">05</span>
+            <div class="service-info">
+              <h3 class="service-title">DESIGN DE SOBRANCELHAS</h3>
+              <p class="service-short-desc">Alinhamento e visagismo personalizado para o seu rosto.</p>
+            </div>
+          </div>
+          <button type="button" class="btn-service-action">
+            VER PROCEDIMENTO <i data-lucide="arrow-up-right"></i>
+          </button>
+        </article>
+
+        <!-- 06 -->
+        <article class="service-item" 
+                 data-id="06" 
+                 data-name="Brow Lamination" 
+                 data-desc="Técnica inovadora que alinha e fixa os fios naturais na direção desejada, preenchendo falhas visuais e conferindo volume e modernidade.">
+          <div class="service-meta">
+            <span class="service-number">06</span>
+            <div class="service-info">
+              <h3 class="service-title">BROW LAMINATION</h3>
+              <p class="service-short-desc">Fios encorpados, alinhados e acabamento editorial.</p>
+            </div>
+          </div>
+          <button type="button" class="btn-service-action">
+            VER PROCEDIMENTO <i data-lucide="arrow-up-right"></i>
+          </button>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================================
+       5. LOCALIZAÇÃO
+  =============================================== -->
+  <section id="localizacao" class="location-section">
+    <div class="container">
+      <div class="location-card reveal">
+        
+        <div class="location-content">
+          <span class="eyebrow">LOCALIZAÇÃO</span>
+          <h2 class="section-title">ONDE ESTAMOS</h2>
+          <p class="location-desc">
+            Um ambiente discreto, elegante e reservado para cuidar de você com total conforto.
+          </p>
+          
+          <div class="location-address">
+            <i data-lucide="map-pin" class="gold-icon"></i>
+            <div>
+              <strong>Parque Frondoso</strong>
+              <span>Cotia — SP</span>
+            </div>
+          </div>
+
+          <a href="https://www.google.com/maps/place/Kirey+Hair/@-23.5845957,-46.8391357,17z/data=!3m1!4b1!4m6!3m5!1s0x94cf078b54ca2d6b:0xbde7e4a132924ec9!8m2!3d-23.5845957!4d-46.8391357!16s%2Fg%2F11b6d_v1y0?entry=ttu" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="btn btn-outline-gold">
+            ABRIR NO GOOGLE MAPS <i data-lucide="external-link"></i>
           </a>
-          <p class="footer-tagline">Minimalismo. Precisão. Desejo.</p>
         </div>
 
-        <div class="footer-nav">
-          <div class="footer-nav-col">
-            <h5>Navegação</h5>
-            <ul class="footer-links">
-              <li><a href="#studio" class="smooth-link">O Studio</a></li>
-              <li><a href="#servicos" class="smooth-link">Serviços</a></li>
-              <li><a href="#resultados" class="smooth-link">Resultados</a></li>
-              <li><a href="#agendamento" class="smooth-link">Agendamento</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-nav-col">
-            <h5>Conecte-se</h5>
-            <ul class="footer-links">
-              <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-              <li><a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-nav-col">
-            <h5>Localização</h5>
-            <ul class="footer-links">
-              <li><span>Studio Boutique</span></li>
-              <li style="color: var(--color-gold);"><span>[NOVO ENDEREÇO]</span></li>
-            </ul>
-          </div>
+        <div class="location-map-wrap">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.401490212356!2d-46.84171062391219!3d-23.58459577878345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cf078b54ca2d6b%3A0xbde7e4a132924ec9!2sKirey%20Hair!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Localização Bless Concept Lash">
+          </iframe>
         </div>
 
       </div>
+    </div>
+  </section>
+
+  <!-- ==============================================
+       6. CONTATO / AGENDAMENTO
+  =============================================== -->
+  <section id="contato" class="booking-section">
+    <div class="container">
+      <div class="booking-card reveal">
+        <span class="eyebrow">RESERVE SEU HORÁRIO</span>
+        <h2 class="booking-title">SEU MOMENTO COMEÇA AQUI.</h2>
+        <p class="booking-desc">
+          Agende seu horário e descubra a experiência Bless Concept Lash.
+        </p>
+        
+        <button type="button" class="btn btn-gold js-whatsapp-trigger" data-service="Geral">
+          AGENDAR PELO WHATSAPP <i data-lucide="arrow-right"></i>
+        </button>
+
+        <div class="contact-direct">
+          <span>Atendimento direto via WhatsApp</span>
+          <a href="tel:+5511942722631" class="phone-link">(11) 94272-2631</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================================
+       7. FOOTER
+  =============================================== -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#inicio" class="logo">
+            <span class="logo-bless">BLESS</span>
+            <span class="logo-sub">CONCEPT LASH</span>
+          </a>
+          <p class="footer-tagline">Beauty. Identity. Bless.</p>
+        </div>
+
+        <nav class="footer-nav">
+          <a href="#inicio">INÍCIO</a>
+          <a href="#sobre">SOBRE</a>
+          <a href="#servicos">SERVIÇOS</a>
+          <a href="#localizacao">LOCALIZAÇÃO</a>
+          <a href="#contato">CONTATO</a>
+        </nav>
+
+        <div class="footer-info">
+          <span class="footer-city">Cotia — São Paulo</span>
+          <a href="https://wa.me/5511942722631" target="_blank" rel="noopener noreferrer" class="footer-contact-link">
+            <i data-lucide="message-circle" class="icon-inline"></i> (11) 94272-2631
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-divider"></div>
 
       <div class="footer-bottom">
-        <p>&copy; <span id="currentYear"></span> BLESS CONCEPT LASH. Todos os direitos reservados.</p>
-        <p>Silent Luxury & Contemporary Beauty Experience.</p>
+        <p>© 2026 Bless Concept Lash. Todos os direitos reservados.</p>
+        <p class="footer-credit">Desenvolvido com cuidado.</p>
       </div>
 
     </div>
   </footer>
 
-  <!-- Lightbox Modal -->
-  <div class="lightbox" id="lightboxModal" role="dialog" aria-modal="true" aria-hidden="true">
-    <button class="lightbox-close" id="lightboxClose" aria-label="Fechar">&times;</button>
-    <div class="lightbox-content">
-      <img src="" alt="Resultado Bless Concept" class="lightbox-img" id="lightboxImg">
-      <div class="lightbox-caption" id="lightboxCaption"></div>
+  <!-- ==============================================
+       MODAL DE SELEÇÃO DO SERVIÇO
+  =============================================== -->
+  <div class="modal-overlay" id="serviceModal" aria-hidden="true" role="dialog">
+    <div class="modal-dialog">
+      <button class="modal-close" id="modalCloseBtn" aria-label="Fechar Modal">
+        <i data-lucide="x"></i>
+      </button>
+
+      <div class="modal-header">
+        <span class="modal-badge" id="modalNumber">01</span>
+        <h3 class="modal-title" id="modalTitle">FIO A FIO</h3>
+      </div>
+
+      <div class="modal-body">
+        <p class="modal-description" id="modalDesc">
+          Técnica clássica para um resultado elegante, definido e natural.
+        </p>
+        <div class="modal-callout">
+          <span>Você selecionou este procedimento.</span>
+          <p>Deseja solicitar um horário?</p>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-gold w-full" id="modalConfirmBtn">
+          CONTINUAR NO WHATSAPP <i data-lucide="message-circle"></i>
+        </button>
+        <button type="button" class="btn btn-subtle w-full" id="modalBackBtn">
+          VOLTAR
+        </button>
+      </div>
     </div>
   </div>
 
-  <!-- ==========================================================================
-       JAVASCRIPT: SMOOTH SCROLL, GSAP, FILTROS & LIGHTBOX
-       ========================================================================== -->
+  <!-- JavaScript -->
+  <script src="script.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      
-      // 1. Atualizar Ano no Footer
-      document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-      // 2. Header Blur ao Rolar
-      const header = document.getElementById('header');
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 40) {
-          header.classList.add('scrolled');
-        } else {
-          header.classList.remove('scrolled');
-        }
-      }, { passive: true });
-
-      // 3. Menu Mobile Fullscreen
-      const mobileBtn = document.getElementById('mobileMenuBtn');
-      const mobileOverlay = document.getElementById('mobileOverlay');
-      const mobileLinks = document.querySelectorAll('.mobile-nav-link');
-
-      function toggleMobileMenu() {
-        const isActive = mobileOverlay.classList.toggle('active');
-        mobileBtn.classList.toggle('active');
-        mobileBtn.setAttribute('aria-expanded', isActive);
-        document.body.style.overflow = isActive ? 'hidden' : '';
-      }
-
-      mobileBtn.addEventListener('click', toggleMobileMenu);
-      mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          if (mobileOverlay.classList.contains('active')) toggleMobileMenu();
-        });
-      });
-
-      // 4. ROLAGEM ULTRA-SUAVE (GSAP SCROLLTO) COM COMPENSAÇÃO DE HEADER
-      if (typeof gsap !== 'undefined' && typeof ScrollToPlugin !== 'undefined') {
-        gsap.registerPlugin(ScrollToPlugin);
-
-        document.querySelectorAll('.smooth-link').forEach(anchor => {
-          anchor.addEventListener('click', function (e) {
-            const targetId = this.getAttribute('href');
-            if (!targetId || targetId === '#' || !document.querySelector(targetId)) return;
-            
-            e.preventDefault();
-            const targetEl = document.querySelector(targetId);
-            const headerOffset = 70;
-            const targetPosition = targetEl.getBoundingClientRect().top + window.pageYOffset - headerOffset;
-
-            gsap.to(window, {
-              duration: 1.15,
-              scrollTo: { y: targetPosition, autoKill: true },
-              ease: 'power3.inOut'
-            });
-          });
-        });
-      }
-
-      // 5. SELEÇÃO DINÂMICA DE SERVIÇOS & WHATSAPP
-      const serviceItems = document.querySelectorAll('.service-item');
-      const badge = document.getElementById('selectedServiceBadge');
-      const badgeName = document.getElementById('selectedServiceName');
-      const whatsappBtn = document.getElementById('whatsappBookingBtn');
-
-      serviceItems.forEach(item => {
-        item.addEventListener('click', () => {
-          const serviceName = item.getAttribute('data-service-name');
-          if (serviceName) {
-            badgeName.textContent = serviceName;
-            badge.classList.add('visible');
-
-            const message = encodeURIComponent(`Olá! Gostaria de agendar um horário para o procedimento ${serviceName} na Bless Concept Lash.`);
-            whatsappBtn.href = `https://wa.me/5511999999999?text=${message}`;
-          }
-        });
-      });
-
-      // 6. PRÉVIA FLUTUANTE DE SERVIÇOS (DESKTOP)
-      const hoverPreview = document.getElementById('hoverPreview');
-      const hoverPreviewImg = document.getElementById('hoverPreviewImg');
-
-      if (window.matchMedia('(min-width: 1025px)').matches) {
-        serviceItems.forEach(row => {
-          row.addEventListener('mouseenter', () => {
-            const imgSrc = row.getAttribute('data-preview');
-            if (imgSrc) {
-              hoverPreviewImg.src = imgSrc;
-              hoverPreview.style.opacity = '1';
-              hoverPreview.style.transform = 'scale(1)';
-            }
-          });
-
-          row.addEventListener('mousemove', (e) => {
-            hoverPreview.style.top = `${e.clientY - 140}px`;
-            hoverPreview.style.left = `${e.clientX + 35}px`;
-          });
-
-          row.addEventListener('mouseleave', () => {
-            hoverPreview.style.opacity = '0';
-            hoverPreview.style.transform = 'scale(0.9)';
-          });
-        });
-      }
-
-      // 7. FILTROS DISCRETOS DA GALERIA
-      const filterBtns = document.querySelectorAll('.filter-btn');
-      const galleryItems = document.querySelectorAll('.gallery-item');
-
-      filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          filterBtns.forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-
-          const filter = btn.getAttribute('data-filter');
-
-          galleryItems.forEach(item => {
-            const category = item.getAttribute('data-category');
-            if (filter === 'all' || category === filter) {
-              item.classList.remove('hidden');
-              gsap.fromTo(item, { opacity: 0, scale: 0.96 }, { opacity: 1, scale: 1, duration: 0.5 });
-            } else {
-              item.classList.add('hidden');
-            }
-          });
-        });
-      });
-
-      // 8. LIGHTBOX INTEGRADO
-      const lightbox = document.getElementById('lightboxModal');
-      const lightboxImg = document.getElementById('lightboxImg');
-      const lightboxCaption = document.getElementById('lightboxCaption');
-      const lightboxClose = document.getElementById('lightboxClose');
-
-      galleryItems.forEach(item => {
-        item.addEventListener('click', () => {
-          const fullSrc = item.getAttribute('data-full');
-          const title = item.getAttribute('data-title') || '';
-          lightboxImg.src = fullSrc;
-          lightboxCaption.textContent = title;
-          lightbox.classList.add('active');
-          lightbox.setAttribute('aria-hidden', 'false');
-          document.body.style.overflow = 'hidden';
-        });
-      });
-
-      function closeLightbox() {
-        lightbox.classList.remove('active');
-        lightbox.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-      }
-
-      lightboxClose.addEventListener('click', closeLightbox);
-      lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) closeLightbox();
-      });
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
-      });
-
-      // 9. ANIMAÇÕES GSAP EDITORIAL REVEAL
-      if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-        gsap.registerPlugin(ScrollTrigger);
-
-        gsap.to('#heroBgImg', {
-          yPercent: 15,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: '#hero',
-            start: 'top top',
-            end: 'bottom top',
-            scrub: true
-          }
-        });
-
-        document.querySelectorAll('.gs-reveal').forEach(el => {
-          gsap.fromTo(el, 
-            { opacity: 0, y: 30 }, 
-            {
-              opacity: 1, 
-              y: 0, 
-              duration: 1.1, 
-              ease: 'power3.out',
-              scrollTrigger: {
-                trigger: el,
-                start: 'top 88%',
-                toggleActions: 'play none none none'
-              }
-            }
-          );
-        });
-      }
-    });
+    // Inicialização dos ícones Lucide
+    lucide.createIcons();
   </script>
 </body>
 </html>
