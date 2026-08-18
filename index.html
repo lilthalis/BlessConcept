@@ -133,124 +133,372 @@
   </section>
 
   <!-- ==============================================
-       4. SERVIÇOS
-  =============================================== -->
-  <section id="servicos" class="services-section">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="eyebrow">MENU DE PROCEDIMENTOS</span>
-        <h2 class="section-title">SERVIÇOS SELECIONADOS</h2>
-        <p class="section-sub">Técnicas personalizadas para harmonizar e destacar o seu olhar com máxima elegância.</p>
-      </div>
+     4. SERVIÇOS (INTERATIVO & EDITORIAL)
+=============================================== -->
+<section id="servicos" class="services-section">
+  <div class="container">
+    
+    <!-- Cabeçalho da Seção -->
+    <div class="section-header reveal">
+      <span class="eyebrow">MENU DE PROCEDIMENTOS</span>
+      <h2 class="section-title">SERVIÇOS SELECIONADOS</h2>
+      <p class="section-sub">Técnicas personalizadas para harmonizar e destacar o seu olhar com máxima elegância.</p>
+    </div>
 
-      <!-- Lista Editorial de Procedimentos -->
-      <div class="services-list reveal">
+    <!-- Lista Interativa Expansível -->
+    <div class="services-interactive-list" role="region" aria-label="Lista de Procedimentos">
+      
+      <!-- 01 — FIO A FIO -->
+      <div class="service-item" 
+           data-id="01" 
+           data-name="Fio a Fio" 
+           data-duration="A definir" 
+           data-effect="Natural e sofisticado"
+           tabindex="0" 
+           role="button" 
+           aria-expanded="false" 
+           aria-controls="service-drawer-01">
         
-        <!-- 01 -->
-        <article class="service-item" 
-                 data-id="01" 
-                 data-name="Fio a Fio" 
-                 data-desc="Técnica clássica e atemporal para um resultado elegante, definido e natural. Proporciona leveza e destaque sob medida para o seu olhar.">
+        <div class="service-header-row">
           <div class="service-meta">
             <span class="service-number">01</span>
-            <div class="service-info">
+            <div class="service-title-wrap">
               <h3 class="service-title">FIO A FIO</h3>
               <p class="service-short-desc">Elegância clássica com acabamento sutil e natural.</p>
             </div>
           </div>
-          <button type="button" class="btn-service-action">
-            VER PROCEDIMENTO <i data-lucide="arrow-up-right"></i>
-          </button>
-        </article>
+          <div class="service-indicator" aria-hidden="true">
+            <span class="indicator-text">DETALHES</span>
+            <span class="indicator-icon">+</span>
+          </div>
+        </div>
 
-        <!-- 02 -->
-        <article class="service-item" 
-                 data-id="02" 
-                 data-name="Volume Brasileiro" 
-                 data-desc="Desenvolvido com fios em formato Y, entrega um volume marcante, delicado e com retenção superior. Perfeito para quem busca densidade com sofisticação.">
+        <div class="service-drawer" id="service-drawer-01" aria-hidden="true">
+          <div class="drawer-inner">
+            <div class="drawer-grid">
+              <div class="drawer-media">
+                <img src="assets/services/fio-a-fio.jpg" alt="Procedimento Fio a Fio" loading="lazy" class="drawer-img">
+              </div>
+              <div class="drawer-info">
+                <span class="drawer-badge">PROCEDIMENTO SELECIONADO</span>
+                <h4 class="drawer-title">FIO A FIO</h4>
+                <p class="drawer-desc">
+                  Técnica clássica e atemporal para um resultado elegante, definido e natural. Proporciona leveza e destaque sob medida para o seu olhar.
+                </p>
+                <div class="drawer-specs">
+                  <div class="spec-item">
+                    <span class="spec-label">DURAÇÃO</span>
+                    <span class="spec-value">A DEFINIR</span>
+                  </div>
+                  <div class="spec-item">
+                    <span class="spec-label">EFEITO</span>
+                    <span class="spec-value">Natural e sofisticado</span>
+                  </div>
+                </div>
+                <div class="drawer-actions">
+                  <a href="#" class="btn btn-gold btn-book-service" target="_blank" rel="noopener noreferrer">
+                    AGENDAR HORÁRIO <span class="arrow">→</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 — VOLUME BRASILEIRO -->
+      <div class="service-item" 
+           data-id="02" 
+           data-name="Volume Brasileiro" 
+           data-duration="A definir" 
+           data-effect="Marcante e delicado"
+           tabindex="0" 
+           role="button" 
+           aria-expanded="false" 
+           aria-controls="service-drawer-02">
+        
+        <div class="service-header-row">
           <div class="service-meta">
             <span class="service-number">02</span>
-            <div class="service-info">
+            <div class="service-title-wrap">
               <h3 class="service-title">VOLUME BRASILEIRO</h3>
               <p class="service-short-desc">Densidade elegante com fios leves em formato Y.</p>
             </div>
           </div>
-          <button type="button" class="btn-service-action">
-            VER PROCEDIMENTO <i data-lucide="arrow-up-right"></i>
-          </button>
-        </article>
+          <div class="service-indicator" aria-hidden="true">
+            <span class="indicator-text">DETALHES</span>
+            <span class="indicator-icon">+</span>
+          </div>
+        </div>
 
-        <!-- 03 -->
-        <article class="service-item" 
-                 data-id="03" 
-                 data-name="Volume Egípcio" 
-                 data-desc="Aplicação com fios tecnológicos em W que criam um efeito encorpado, visualmente sofisticado e com acabamento impecável.">
+        <div class="service-drawer" id="service-drawer-02" aria-hidden="true">
+          <div class="drawer-inner">
+            <div class="drawer-grid">
+              <div class="drawer-media">
+                <img src="assets/services/volume-brasileiro.jpg" alt="Procedimento Volume Brasileiro" loading="lazy" class="drawer-img">
+              </div>
+              <div class="drawer-info">
+                <span class="drawer-badge">PROCEDIMENTO SELECIONADO</span>
+                <h4 class="drawer-title">VOLUME BRASILEIRO</h4>
+                <p class="drawer-desc">
+                  Desenvolvido com fios em formato Y, entrega um volume marcante, delicado e com retenção superior. Perfeito para quem busca densidade com sofisticação.
+                </p>
+                <div class="drawer-specs">
+                  <div class="spec-item">
+                    <span class="spec-label">DURAÇÃO</span>
+                    <span class="spec-value">A DEFINIR</span>
+                  </div>
+                  <div class="spec-item">
+                    <span class="spec-label">EFEITO</span>
+                    <span class="spec-value">Marcante e delicado</span>
+                  </div>
+                </div>
+                <div class="drawer-actions">
+                  <a href="#" class="btn btn-gold btn-book-service" target="_blank" rel="noopener noreferrer">
+                    AGENDAR HORÁRIO <span class="arrow">→</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 — VOLUME EGÍPCIO -->
+      <div class="service-item" 
+           data-id="03" 
+           data-name="Volume Egípcio" 
+           data-duration="A definir" 
+           data-effect="Encorpado e simétrico"
+           tabindex="0" 
+           role="button" 
+           aria-expanded="false" 
+           aria-controls="service-drawer-03">
+        
+        <div class="service-header-row">
           <div class="service-meta">
             <span class="service-number">03</span>
-            <div class="service-info">
+            <div class="service-title-wrap">
               <h3 class="service-title">VOLUME EGÍPCIO</h3>
               <p class="service-short-desc">Efeito visual encorpado, simétrico e expressivo.</p>
             </div>
           </div>
-          <button type="button" class="btn-service-action">
-            VER PROCEDIMENTO <i data-lucide="arrow-up-right"></i>
-          </button>
-        </article>
+          <div class="service-indicator" aria-hidden="true">
+            <span class="indicator-text">DETALHES</span>
+            <span class="indicator-icon">+</span>
+          </div>
+        </div>
 
-        <!-- 04 -->
-        <article class="service-item" 
-                 data-id="04" 
-                 data-name="Lash Lifting" 
-                 data-desc="Tratamento que curva, nutre e alinha os seus cílios naturais, proporcionando efeito de rímel duradouro sem a necessidade de extensões.">
+        <div class="service-drawer" id="service-drawer-03" aria-hidden="true">
+          <div class="drawer-inner">
+            <div class="drawer-grid">
+              <div class="drawer-media">
+                <img src="assets/services/volume-egipcio.jpg" alt="Procedimento Volume Egípcio" loading="lazy" class="drawer-img">
+              </div>
+              <div class="drawer-info">
+                <span class="drawer-badge">PROCEDIMENTO SELECIONADO</span>
+                <h4 class="drawer-title">VOLUME EGÍPCIO</h4>
+                <p class="drawer-desc">
+                  Aplicação com fios tecnológicos em W que criam um efeito encorpado, visualmente sofisticado e com acabamento impecável.
+                </p>
+                <div class="drawer-specs">
+                  <div class="spec-item">
+                    <span class="spec-label">DURAÇÃO</span>
+                    <span class="spec-value">A DEFINIR</span>
+                  </div>
+                  <div class="spec-item">
+                    <span class="spec-label">EFEITO</span>
+                    <span class="spec-value">Encorpado e simétrico</span>
+                  </div>
+                </div>
+                <div class="drawer-actions">
+                  <a href="#" class="btn btn-gold btn-book-service" target="_blank" rel="noopener noreferrer">
+                    AGENDAR HORÁRIO <span class="arrow">→</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 04 — LASH LIFTING -->
+      <div class="service-item" 
+           data-id="04" 
+           data-name="Lash Lifting" 
+           data-duration="A definir" 
+           data-effect="Curvatura e realce natural"
+           tabindex="0" 
+           role="button" 
+           aria-expanded="false" 
+           aria-controls="service-drawer-04">
+        
+        <div class="service-header-row">
           <div class="service-meta">
             <span class="service-number">04</span>
-            <div class="service-info">
+            <div class="service-title-wrap">
               <h3 class="service-title">LASH LIFTING</h3>
               <p class="service-short-desc">Curvatura, hidratação e realce dos cílios naturais.</p>
             </div>
           </div>
-          <button type="button" class="btn-service-action">
-            VER PROCEDIMENTO <i data-lucide="arrow-up-right"></i>
-          </button>
-        </article>
+          <div class="service-indicator" aria-hidden="true">
+            <span class="indicator-text">DETALHES</span>
+            <span class="indicator-icon">+</span>
+          </div>
+        </div>
 
-        <!-- 05 -->
-        <article class="service-item" 
-                 data-id="05" 
-                 data-name="Design de Sobrancelhas" 
-                 data-desc="Harmonização geométrica e visagista das sobrancelhas, respeitando a estrutura óssea facial para emoldurar o olhar com equilíbrio.">
+        <div class="service-drawer" id="service-drawer-04" aria-hidden="true">
+          <div class="drawer-inner">
+            <div class="drawer-grid">
+              <div class="drawer-media">
+                <img src="assets/services/lash-lifting.jpg" alt="Procedimento Lash Lifting" loading="lazy" class="drawer-img">
+              </div>
+              <div class="drawer-info">
+                <span class="drawer-badge">PROCEDIMENTO SELECIONADO</span>
+                <h4 class="drawer-title">LASH LIFTING</h4>
+                <p class="drawer-desc">
+                  Tratamento que curva, nutre e alinha os seus cílios naturais, proporcionando efeito de rímel duradouro sem a necessidade de extensões.
+                </p>
+                <div class="drawer-specs">
+                  <div class="spec-item">
+                    <span class="spec-label">DURAÇÃO</span>
+                    <span class="spec-value">A DEFINIR</span>
+                  </div>
+                  <div class="spec-item">
+                    <span class="spec-label">EFEITO</span>
+                    <span class="spec-value">Curvatura e realce natural</span>
+                  </div>
+                </div>
+                <div class="drawer-actions">
+                  <a href="#" class="btn btn-gold btn-book-service" target="_blank" rel="noopener noreferrer">
+                    AGENDAR HORÁRIO <span class="arrow">→</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 05 — DESIGN DE SOBRANCELHAS -->
+      <div class="service-item" 
+           data-id="05" 
+           data-name="Design de Sobrancelhas" 
+           data-duration="A definir" 
+           data-effect="Harmonia e alinhamento facial"
+           tabindex="0" 
+           role="button" 
+           aria-expanded="false" 
+           aria-controls="service-drawer-05">
+        
+        <div class="service-header-row">
           <div class="service-meta">
             <span class="service-number">05</span>
-            <div class="service-info">
+            <div class="service-title-wrap">
               <h3 class="service-title">DESIGN DE SOBRANCELHAS</h3>
               <p class="service-short-desc">Alinhamento e visagismo personalizado para o seu rosto.</p>
             </div>
           </div>
-          <button type="button" class="btn-service-action">
-            VER PROCEDIMENTO <i data-lucide="arrow-up-right"></i>
-          </button>
-        </article>
+          <div class="service-indicator" aria-hidden="true">
+            <span class="indicator-text">DETALHES</span>
+            <span class="indicator-icon">+</span>
+          </div>
+        </div>
 
-        <!-- 06 -->
-        <article class="service-item" 
-                 data-id="06" 
-                 data-name="Brow Lamination" 
-                 data-desc="Técnica inovadora que alinha e fixa os fios naturais na direção desejada, preenchendo falhas visuais e conferindo volume e modernidade.">
+        <div class="service-drawer" id="service-drawer-05" aria-hidden="true">
+          <div class="drawer-inner">
+            <div class="drawer-grid">
+              <div class="drawer-media">
+                <img src="assets/services/design-sobrancelhas.jpg" alt="Procedimento Design de Sobrancelhas" loading="lazy" class="drawer-img">
+              </div>
+              <div class="drawer-info">
+                <span class="drawer-badge">PROCEDIMENTO SELECIONADO</span>
+                <h4 class="drawer-title">DESIGN DE SOBRANCELHAS</h4>
+                <p class="drawer-desc">
+                  Harmonização geométrica e visagista das sobrancelhas, respeitando a estrutura óssea facial para emoldurar o olhar com equilíbrio.
+                </p>
+                <div class="drawer-specs">
+                  <div class="spec-item">
+                    <span class="spec-label">DURAÇÃO</span>
+                    <span class="spec-value">A DEFINIR</span>
+                  </div>
+                  <div class="spec-item">
+                    <span class="spec-label">EFEITO</span>
+                    <span class="spec-value">Harmonia e alinhamento</span>
+                  </div>
+                </div>
+                <div class="drawer-actions">
+                  <a href="#" class="btn btn-gold btn-book-service" target="_blank" rel="noopener noreferrer">
+                    AGENDAR HORÁRIO <span class="arrow">→</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 06 — BROW LAMINATION -->
+      <div class="service-item" 
+           data-id="06" 
+           data-name="Brow Lamination" 
+           data-duration="A definir" 
+           data-effect="Fios alinhados e volume moderno"
+           tabindex="0" 
+           role="button" 
+           aria-expanded="false" 
+           aria-controls="service-drawer-06">
+        
+        <div class="service-header-row">
           <div class="service-meta">
             <span class="service-number">06</span>
-            <div class="service-info">
+            <div class="service-title-wrap">
               <h3 class="service-title">BROW LAMINATION</h3>
               <p class="service-short-desc">Fios encorpados, alinhados e acabamento editorial.</p>
             </div>
           </div>
-          <button type="button" class="btn-service-action">
-            VER PROCEDIMENTO <i data-lucide="arrow-up-right"></i>
-          </button>
-        </article>
+          <div class="service-indicator" aria-hidden="true">
+            <span class="indicator-text">DETALHES</span>
+            <span class="indicator-icon">+</span>
+          </div>
+        </div>
 
+        <div class="service-drawer" id="service-drawer-06" aria-hidden="true">
+          <div class="drawer-inner">
+            <div class="drawer-grid">
+              <div class="drawer-media">
+                <img src="assets/services/brow-lamination.jpg" alt="Procedimento Brow Lamination" loading="lazy" class="drawer-img">
+              </div>
+              <div class="drawer-info">
+                <span class="drawer-badge">PROCEDIMENTO SELECIONADO</span>
+                <h4 class="drawer-title">BROW LAMINATION</h4>
+                <p class="drawer-desc">
+                  Técnica inovadora que alinha e fixa os fios naturais na direção desejada, preenchendo falhas visuais e conferindo volume e modernidade.
+                </p>
+                <div class="drawer-specs">
+                  <div class="spec-item">
+                    <span class="spec-label">DURAÇÃO</span>
+                    <span class="spec-value">A DEFINIR</span>
+                  </div>
+                  <div class="spec-item">
+                    <span class="spec-label">EFEITO</span>
+                    <span class="spec-value">Fios alinhados & encorpados</span>
+                  </div>
+                </div>
+                <div class="drawer-actions">
+                  <a href="#" class="btn btn-gold btn-book-service" target="_blank" rel="noopener noreferrer">
+                    AGENDAR HORÁRIO <span class="arrow">→</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- ==============================================
        5. LOCALIZAÇÃO
