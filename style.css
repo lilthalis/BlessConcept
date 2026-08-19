@@ -788,6 +788,36 @@ button {
 }
 
 /* --------------------------------------------------------------------------
+   RESPONSIVIDADE DA SEÇÃO DE SERVIÇOS
+   -------------------------------------------------------------------------- */
+@media (min-width: 768px) {
+  .indicator-text {
+    display: inline-block;
+  }
+  
+  .drawer-grid {
+    grid-template-columns: 280px 1fr;
+    gap: 3rem;
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  .drawer-media {
+    height: 280px;
+  }
+}
+
+@media (min-width: 992px) {
+  .drawer-grid {
+    grid-template-columns: 320px 1fr;
+    gap: 4rem;
+  }
+
+  .drawer-media {
+    height: 300px;
+  }
+}
+
+/* --------------------------------------------------------------------------
    9. LOCALIZAÇÃO
    -------------------------------------------------------------------------- */
 .location-section {
