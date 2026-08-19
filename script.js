@@ -1,178 +1,91 @@
-/**
- * BLESS CONCEPT LASH — JAVASCRIPT LOGIC
- * Minimalist luxury experience, modal selection & dynamic WhatsApp integration.
- */
+/* ==========================================================================
+   BLESS CONCEPT LASH — MÓDULO EXCLUSIVO DE SERVIÇOS
+   ========================================================================== */
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Constantes de Configuração
+(function initServicesAccordion() {
   const WHATSAPP_PHONE = '5511942722631';
+  const serviceItems = document.querySelectorAll('.service-item');
   
-  // Elementos do DOM
-  const header = document.getElementById('header');
-  const menuToggle = document.getElementById('menuToggle');
-  const mobileNav = document.getElementById('mobileNav');
-  const mobileLinks = document.querySelectorAll('.mobile-link');
-  
-  // Modal Elements
-  const serviceModal = document.getElementById('serviceModal');
-  const modalNumber = document.getElementById('modalNumber');
-  const modalTitle = document.getElementById('modalTitle');
-  const modalDesc = document.getElementById('modalDesc');
-  const modalConfirmBtn = document.getElementById('modalConfirmBtn');
-  const modalBackBtn = document.getElementById('modalBackBtn');
-  const modalCloseBtn = document.getElementById('modalCloseBtn');
-  
-  // Variável para armazenar o serviço atualmente selecionado na modal
-  let currentSelectedService = '';
+  if (!serviceItems.length) return;
 
-  /* --------------------------------------------------------------------------
-     1. GERADOR DE LINK DO WHATSAPP
-  -------------------------------------------------------------------------- */
-  function generateWhatsAppUrl(serviceName) {
-    let message = '';
-    
-    if (!serviceName || serviceName === 'Geral') {
-      message = 'Olá! Gostaria de agendar um horário na Bless Concept Lash. Gostaria de saber os horários disponíveis. ✨';
+  // Detecta se o dispositivo suporta hover real (desktop com mouse)
+  const isHoverDevice = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  // Função para fechar todos os itens
+  function closeAllServices() {
+    serviceItems.forEach(item => {
+      item.classList.remove('is-active');
+      item.setAttribute('aria-expanded', 'false');
+      const drawer = item.querySelector('.service-drawer');
+      if (drawer) drawer.setAttribute('aria-hidden', 'true');
+    });
+  }
+
+  // Função para abrir um serviço específico
+  function openService(item) {
+    closeAllServices();
+    item.classList.add('is-active');
+    item.setAttribute('aria-expanded', 'true');
+    const drawer = item.querySelector('.service-drawer');
+    if (drawer) drawer.setAttribute('aria-hidden', 'false');
+  }
+
+  // Função para alternar o estado de um serviço (mobile/click)
+  function toggleService(item) {
+    const isCurrentlyActive = item.classList.contains('is-active');
+    if (isCurrentlyActive) {
+      closeAllServices();
     } else {
-      message = `Olá! Gostaria de agendar um horário para o procedimento ${serviceName} na Bless Concept Lash. Gostaria de verificar os horários disponíveis. ✨`;
+      openService(item);
+    }
+  }
+
+  // Configura cada item de serviço
+  serviceItems.forEach(item => {
+    const serviceName = item.getAttribute('data-name') || '';
+    const bookBtn = item.querySelector('.btn-book-service');
+
+    // 1. Configuração dinâmica do link do WhatsApp
+    if (bookBtn) {
+      const message = `Olá! Gostaria de agendar o procedimento ${serviceName}. Poderia me informar os horários disponíveis?`;
+      const encodedMsg = encodeURIComponent(message);
+      bookBtn.href = `https://wa.me/${WHATSAPP_PHONE}?text=${encodedMsg}`;
+      
+      // Evita fechar a sanfona ao clicar no próprio botão de agendamento
+      bookBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+      });
     }
 
-    const encodedMessage = encodeURIComponent(message);
-    return `https://wa.me/${WHATSAPP_PHONE}?text=${encodedMessage}`;
-  }
+    // 2. Desktop (Hover suave)
+    if (isHoverDevice) {
+      item.addEventListener('mouseenter', () => {
+        openService(item);
+      });
+    }
 
-  /* --------------------------------------------------------------------------
-     2. GATILHOS DIRETOS DE AGENDAMENTO (HEADER / HERO / CTA)
-  -------------------------------------------------------------------------- */
-  const directTriggers = document.querySelectorAll('.js-whatsapp-trigger');
-  directTriggers.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const service = btn.getAttribute('data-service') || 'Geral';
-      const url = generateWhatsAppUrl(service);
-      window.open(url, '_blank', 'noopener,noreferrer');
-    });
-  });
-
-  /* --------------------------------------------------------------------------
-     3. SISTEMA DE MODAL EDITORIAL PARA SERVIÇOS
-  -------------------------------------------------------------------------- */
-  const serviceItems = document.querySelectorAll('.service-item');
-
-  function openServiceModal(item) {
-    const id = item.getAttribute('data-id');
-    const name = item.getAttribute('data-name');
-    const desc = item.getAttribute('data-desc');
-
-    currentSelectedService = name;
-
-    // Atualiza o conteúdo da Modal
-    modalNumber.textContent = id;
-    modalTitle.textContent = name.toUpperCase();
-    modalDesc.textContent = desc;
-
-    // Abre a modal
-    serviceModal.classList.add('active');
-    serviceModal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden'; // Impede o scroll de fundo
-  }
-
-  function closeServiceModal() {
-    serviceModal.classList.remove('active');
-    serviceModal.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-  }
-
-  // Click no card de serviço ou botão "Ver Procedimento"
-  serviceItems.forEach(item => {
+    // 3. Mobile / Toque / Clique
     item.addEventListener('click', (e) => {
-      openServiceModal(item);
-    });
-  });
-
-  // Confirmação no WhatsApp a partir da Modal
-  if (modalConfirmBtn) {
-    modalConfirmBtn.addEventListener('click', () => {
-      const url = generateWhatsAppUrl(currentSelectedService);
-      window.open(url, '_blank', 'noopener,noreferrer');
-      closeServiceModal();
-    });
-  }
-
-  // Botões de Fechar Modal
-  if (modalBackBtn) modalBackBtn.addEventListener('click', closeServiceModal);
-  if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeServiceModal);
-
-  // Fechar ao clicar no overlay escuro
-  if (serviceModal) {
-    serviceModal.addEventListener('click', (e) => {
-      if (e.target === serviceModal) {
-        closeServiceModal();
+      // Se estiver no desktop com hover, o click não precisa fechar acidentalmente
+      if (!isHoverDevice) {
+        toggleService(item);
       }
     });
-  }
 
-  // Fechar com a tecla ESC
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && serviceModal.classList.contains('active')) {
-      closeServiceModal();
-    }
+    // 4. Acessibilidade via Teclado (Enter / Barra de Espaço)
+    item.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleService(item);
+      }
+    });
   });
 
-  /* --------------------------------------------------------------------------
-     4. HEADER SCROLL EFFECT
-  -------------------------------------------------------------------------- */
-  function handleHeaderScroll() {
-    if (window.scrollY > 40) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-  }
-  window.addEventListener('scroll', handleHeaderScroll, { passive: true });
-  handleHeaderScroll();
-
-  /* --------------------------------------------------------------------------
-     5. MENU MOBILE
-  -------------------------------------------------------------------------- */
-  if (menuToggle && mobileNav) {
-    menuToggle.addEventListener('click', () => {
-      const isOpen = mobileNav.classList.toggle('open');
-      menuToggle.classList.toggle('active', isOpen);
-      document.body.style.overflow = isOpen ? 'hidden' : '';
-    });
-
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        mobileNav.classList.remove('open');
-        menuToggle.classList.remove('active');
-        document.body.style.overflow = '';
-      });
+  // Opcional: no Desktop, ao sair da lista de serviços com o mouse, pode retrair suavemente
+  const listContainer = document.querySelector('.services-interactive-list');
+  if (listContainer && isHoverDevice) {
+    listContainer.addEventListener('mouseleave', () => {
+      closeAllServices();
     });
   }
-
-  /* --------------------------------------------------------------------------
-     6. ANIMAÇÕES SUAVES DE SCROLL (INTERSECTION OBSERVER)
-  -------------------------------------------------------------------------- */
-  const revealElements = document.querySelectorAll('.reveal');
-
-  if ('IntersectionObserver' in window) {
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-          observer.unobserve(entry.target); // Anima apenas uma vez
-        }
-      });
-    }, {
-      root: null,
-      threshold: 0.12,
-      rootMargin: '0px 0px -40px 0px'
-    });
-
-    revealElements.forEach(el => revealObserver.observe(el));
-  } else {
-    // Fallback para navegadores legados
-    revealElements.forEach(el => el.classList.add('active'));
-  }
-});
+})();
