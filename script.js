@@ -1,77 +1,90 @@
 /* ==========================================================================
-   BLESS CONCEPT LASH — SCRIPT PRINCIPAL & INTERATIVIDADE
+   BLESS CONCEPT LASH — SCRIPT CORRIGIDO (MENU + WHATSAPP + SERVIÇOS)
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
   const WHATSAPP_PHONE = '5511942722631';
 
-  /* --------------------------------------------------------------------------
-     1. FUNÇÃO UNIVERSAL DE ABERTURA DO WHATSAPP (iOS / Android / Desktop)
-  -------------------------------------------------------------------------- */
-  function openWhatsApp(serviceName) {
+  // 1. Função universal para abrir o WhatsApp
+  function redirectToWhatsApp(serviceName) {
     let message = '';
     
-    if (!serviceName || serviceName === 'Geral') {
+    if (!serviceName || serviceName === 'Geral' || serviceName.toLowerCase().includes('whatsapp')) {
       message = 'Olá! Gostaria de agendar um horário na Bless Concept Lash. Gostaria de saber os horários disponíveis. ✨';
     } else {
       message = `Olá! Gostaria de agendar o procedimento ${serviceName}. Poderia me informar os horários disponíveis? ✨`;
     }
 
     const url = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(message)}`;
-    
-    // Abre diretamente garantindo que o Safari do iPhone não bloqueie
     window.location.href = url;
   }
 
-  /* --------------------------------------------------------------------------
-     2. GATILHOS DE AGENDAMENTO (Botões "Agendar", Hero e Contato)
-  -------------------------------------------------------------------------- */
-  const directTriggers = document.querySelectorAll('.js-whatsapp-trigger, .btn-subtle');
-  directTriggers.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const service = btn.getAttribute('data-service') || 'Geral';
-      openWhatsApp(service);
-    });
-  });
+  // 2. CONTROLE DO MENU MOBILE (Abertura / Fechamento garantidos)
+  const menuToggle = document.getElementById('menuToggle') || document.querySelector('.menu-toggle');
+  const mobileNav = document.getElementById('mobileNav') || document.querySelector('.mobile-nav');
 
-  /* --------------------------------------------------------------------------
-     3. MENU MOBILE HAMBÚRGUER (Abre, fecha e fecha ao clicar em link)
-  -------------------------------------------------------------------------- */
-  const menuToggle = document.getElementById('menuToggle');
-  const mobileNav = document.getElementById('mobileNav');
-  const mobileLinks = document.querySelectorAll('.mobile-link, .mobile-nav a');
-
-  if (menuToggle && mobileNav) {
-    menuToggle.addEventListener('click', (e) => {
+  function toggleMenu(e) {
+    if (e) {
       e.preventDefault();
       e.stopPropagation();
-      const isOpen = mobileNav.classList.toggle('open');
-      menuToggle.classList.toggle('active', isOpen);
-      document.body.style.overflow = isOpen ? 'hidden' : '';
-    });
-
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        mobileNav.classList.remove('open');
-        menuToggle.classList.remove('active');
-        document.body.style.overflow = '';
-      });
-    });
-
-    // Fecha o menu se tocar fora dele
-    document.addEventListener('click', (e) => {
-      if (mobileNav.classList.contains('open') && !mobileNav.contains(e.target) && !menuToggle.contains(e.target)) {
-        mobileNav.classList.remove('open');
-        menuToggle.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-    });
+    }
+    if (!mobileNav) return;
+    
+    const isOpen = mobileNav.classList.toggle('open');
+    if (menuToggle) menuToggle.classList.toggle('active', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
   }
 
-  /* --------------------------------------------------------------------------
-     4. SANFONA INTERATIVA DE SERVIÇOS (Mobile Toque / Desktop Hover & Click)
-  -------------------------------------------------------------------------- */
+  function closeMenu() {
+    if (!mobileNav) return;
+    mobileNav.classList.remove('open');
+    if (menuToggle) menuToggle.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  if (menuToggle) {
+    menuToggle.addEventListener('click', toggleMenu);
+  }
+
+  // Fecha o menu ao clicar em qualquer link interno
+  document.querySelectorAll('.mobile-link, .mobile-nav a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // 3. CAPTURA GLOBAL DE CLIQUES EM BOTÕES DE AGENDAMENTO
+  document.addEventListener('click', (e) => {
+    // A) Clique no botão "AGENDAR PELO WHATSAPP" ou no Hero/Header
+    const btnAgendar = e.target.closest(
+      '.booking-section .btn, .booking-card .btn, .booking-card button, .booking-card a, .js-whatsapp-trigger, .header-btn, .hero-actions .btn-subtle'
+    );
+    
+    if (btnAgendar) {
+      e.preventDefault();
+      e.stopPropagation();
+      redirectToWhatsApp('Geral');
+      return;
+    }
+
+    // B) Clique no botão interno de um serviço específico
+    const btnService = e.target.closest('.btn-book-service');
+    if (btnService) {
+      e.preventDefault();
+      e.stopPropagation();
+      const parentItem = btnService.closest('.service-item');
+      const serviceName = parentItem ? parentItem.getAttribute('data-name') : 'Geral';
+      redirectToWhatsApp(serviceName);
+      return;
+    }
+
+    // C) Fechar o menu mobile ao tocar fora
+    if (mobileNav && mobileNav.classList.contains('open')) {
+      if (!mobileNav.contains(e.target) && (!menuToggle || !menuToggle.contains(e.target))) {
+        closeMenu();
+      }
+    }
+  });
+
+  // 4. SANFONA INTERATIVA DE SERVIÇOS
   const serviceItems = document.querySelectorAll('.service-item');
   const isHoverDevice = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
@@ -89,8 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function toggleService(item) {
-    const isCurrentlyActive = item.classList.contains('is-active');
-    if (isCurrentlyActive) {
+    if (item.classList.contains('is-active')) {
       closeAllServices();
     } else {
       openService(item);
@@ -98,33 +110,20 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   serviceItems.forEach(item => {
-    const serviceName = item.getAttribute('data-name') || '';
-    const bookBtn = item.querySelector('.btn-book-service');
-
-    // Configura o link de agendamento do botão dentro do procedimento
-    if (bookBtn) {
-      bookBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation(); // Não fecha a sanfona ao clicar
-        openWhatsApp(serviceName);
-      });
-    }
-
-    // Clique / Toque no item de serviço
+    // Clique no item (para mobile e toque)
     item.addEventListener('click', (e) => {
+      if (e.target.closest('.btn-book-service')) return; // Não fecha se clicou no botão
       if (!isHoverDevice) {
         toggleService(item);
       }
     });
 
-    // Desktop com mouse: abre ao passar o mouse
+    // Hover no Desktop
     if (isHoverDevice) {
-      item.addEventListener('mouseenter', () => {
-        openService(item);
-      });
+      item.addEventListener('mouseenter', () => openService(item));
     }
 
-    // Acessibilidade via Teclado
+    // Acessibilidade no teclado
     item.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
@@ -133,18 +132,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Fecha os serviços no desktop se o mouse sair da lista
-  const servicesList = document.querySelector('.services-interactive-list');
-  if (servicesList && isHoverDevice) {
-    servicesList.addEventListener('mouseleave', () => {
-      closeAllServices();
-    });
+  const listContainer = document.querySelector('.services-interactive-list');
+  if (listContainer && isHoverDevice) {
+    listContainer.addEventListener('mouseleave', closeAllServices);
   }
 
-  /* --------------------------------------------------------------------------
-     5. HEADER COM EFEITO DE SCROLL (Vidro escurecido ao rolar)
-  -------------------------------------------------------------------------- */
-  const header = document.getElementById('header');
+  // 5. HEADER COM EFEITO SCROLL
+  const header = document.getElementById('header') || document.querySelector('.site-header');
   if (header) {
     window.addEventListener('scroll', () => {
       if (window.scrollY > 30) {
@@ -155,14 +149,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
-  /* --------------------------------------------------------------------------
-     6. INICIALIZAÇÃO SEGURA DE ÍCONES (Evita travar o script caso falhe)
-  -------------------------------------------------------------------------- */
+  // 6. ÍCONES LUCIDE (Execução segura)
   try {
     if (typeof lucide !== 'undefined' && lucide.createIcons) {
       lucide.createIcons();
     }
-  } catch (err) {
-    console.warn('Lucide icons não carregado, fallback padrão ativo.');
-  }
+  } catch (err) {}
 });
